@@ -14,7 +14,7 @@ This repository is the execution brief for **Codex running on a Linux VM**. The 
 
 ## Source of truth
 
-- Zenodo record: https://zenodo.org/records/18221260 (version v2, published 2026-01-30); contains **summary associations, not donor-level genotype/individual expression data**.
+- Zenodo record: https://zenodo.org/records/18221260 ; inspect live Zenodo metadata for record version, date and checksum. It contains **summary associations, not donor-level genotype/individual expression data**.
 - Paper: https://www.nature.com/articles/s41586-026-10721-2
 - TenK10K analysis code: https://github.com/powellgenomicslab/tenk10k_phase1 and https://github.com/populationgenomics/saige-tenk10k
 - GI live API: https://docs.genomicintelligence.ai/rest-api ; machine-readable contract: https://api.genomicintelligence.ai/v1/openapi.json ; models: https://api.genomicintelligence.ai/v1/tasks/expression/models
