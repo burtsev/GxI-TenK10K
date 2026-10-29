@@ -1,0 +1,34 @@
+# secrets
+.env
+.env.*
+!.env.example
+*token*
+*secret*
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+# data, downloads, cached API responses, intermediate results
+data/
+results/
+logs/
+tmp/
+*.zip
+*.bgz
+*.gz
+*.parquet
+*.bam
+*.cram
+*.fasta
+*.fa
+*.fai
+*.vcf
+*.bcf
+# reports can be deliberately exported as small curated files under docs/
+.DS_Store
