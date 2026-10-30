@@ -1,0 +1,115 @@
+{
+  "candidate": {
+    "n_total": 100,
+    "n_missing": 0,
+    "n_abstain": 22,
+    "n_scored": 78,
+    "n_loci": 75,
+    "n_genes": 78,
+    "n_cells": 4,
+    "sign_concordance": 0.7307692307692307,
+    "ci95": [
+      0.6219087681383143,
+      0.8333333333333334
+    ],
+    "spearman": 0.41882081008379013,
+    "permutation_p": 0.000999000999000999,
+    "epsilon": 1e-06,
+    "robust_slope": 2.435858863004505,
+    "spearman_n": 100,
+    "spearman_nonabstaining": 0.4694129177917628,
+    "chance_baseline": 0.5,
+    "calibration_sensitivity": {
+      "0": {
+        "retained": 78,
+        "sign_concordance": 0.7307692307692307
+      },
+      "1e-06": {
+        "retained": 78,
+        "sign_concordance": 0.7307692307692307
+      },
+      "1e-05": {
+        "retained": 78,
+        "sign_concordance": 0.7307692307692307
+      },
+      "0.0001": {
+        "retained": 78,
+        "sign_concordance": 0.7307692307692307
+      }
+    }
+  },
+  "control": {
+    "n_total": 76,
+    "n_missing": 0,
+    "n_abstain": 30,
+    "n_scored": 46,
+    "n_loci": 44,
+    "n_genes": 46,
+    "n_cells": 4,
+    "sign_concordance": 0.5217391304347826,
+    "ci95": [
+      0.3799444444444445,
+      0.6666666666666666
+    ],
+    "spearman": -0.025202919685158778,
+    "permutation_p": 0.40559440559440557,
+    "epsilon": 1e-06,
+    "robust_slope": -0.390115384615384,
+    "spearman_n": 76,
+    "spearman_nonabstaining": -0.02763214725273798,
+    "chance_baseline": 0.5,
+    "calibration_sensitivity": {
+      "0": {
+        "retained": 46,
+        "sign_concordance": 0.5217391304347826
+      },
+      "1e-06": {
+        "retained": 46,
+        "sign_concordance": 0.5217391304347826
+      },
+      "1e-05": {
+        "retained": 46,
+        "sign_concordance": 0.5217391304347826
+      },
+      "0.0001": {
+        "retained": 46,
+        "sign_concordance": 0.5217391304347826
+      }
+    }
+  },
+  "smoke": {
+    "n_total": 2,
+    "n_missing": 0,
+    "n_abstain": 1,
+    "n_scored": 1,
+    "n_loci": 1,
+    "n_genes": 1,
+    "n_cells": 1,
+    "sign_concordance": 1.0,
+    "ci95": null,
+    "spearman": 0.9999999999999999,
+    "permutation_p": null,
+    "epsilon": 1e-06,
+    "robust_slope": 17.86123684210523,
+    "spearman_n": 2,
+    "chance_baseline": 0.5,
+    "calibration_sensitivity": {
+      "0": {
+        "retained": 1,
+        "sign_concordance": 1.0
+      },
+      "1e-06": {
+        "retained": 1,
+        "sign_concordance": 1.0
+      },
+      "1e-05": {
+        "retained": 1,
+        "sign_concordance": 1.0
+      },
+      "0.0001": {
+        "retained": 1,
+        "sign_concordance": 1.0
+      }
+    }
+  }
+}

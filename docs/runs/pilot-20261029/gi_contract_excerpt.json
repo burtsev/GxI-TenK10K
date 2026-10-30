@@ -1,0 +1,237 @@
+{
+  "original_sha256": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a",
+  "info": {
+    "title": "Genomic Intelligence API",
+    "description": "REST API for DNA sequence analysis with transformer language models. Six tasks \u2014 promoter, splice, enhancer, chromatin, annotation, expression \u2014 each with its own `POST /v1/tasks/{task}/predict` operation, plus one composite workflow under `/v1/workflows/`.\n\n**This document is the contract.** It is self-contained: request bounds, closed `options` objects, error codes, response headers and both async body shapes are all declared here, so a generated client needs nothing else.\n\n**Auth.** Every `/v1/*` route requires `Authorization: Bearer gi_\u2026`, with two exceptions. `/health`, `/docs`, `/redoc` and `/v1/openapi.json` are public, and so is capability discovery: `GET /v1/tasks/{task}/models` needs no key, so you can read every model's `bio_spec` \u2014 organism, window geometry, output formats, `request_max_bp` \u2014 before you have one. It is rate-limited per source IP rather than per partner.\n\n**Envelopes.** Success is `{data, meta}`; `data` is a union discriminated on `task`. Errors are `{error: {code, message, request_id, details?}}`, with `error.code` drawn from a published enum.\n\n**Sequence length.** Each task's request schema publishes `minLength`/`maxLength` on `sequence`, measured after whitespace is stripped. One bound per task, applying to every model of that task: promoter 300 bp, splice 100 bp, enhancer 50 bp, chromatin 200 bp, annotation 1,000 bp, expression 9,198 bp (with the TSS at least 4,599 bp from each end) \u2014 all capped at 500,000 bp. Out-of-range requests are rejected with `422 validation_failed` before any model is loaded. These are the bounds this document previously advertised as 1-500,000 bp for all six.\n\nA floor is admission control, not a claim about regime. Where a model slides a window (promoter, splice, enhancer, chromatin), a request above the floor but shorter than that model's `bio_spec.context_window_bp` is accepted and scored against a padded window. Compare your length against that field to know whether the model saw real sequence or padding. Expression models read around the TSS instead: fetch each model's `bio_spec.recommended_flank_bp` on each side of it.\n\n**Body size.** Requests are also capped at 16 MiB of raw body, enforced before parsing; over that is `413 payload_too_large` regardless of sequence length.\n\n**Async.** Send `Prefer: respond-async` for a `202` with a `job_id`, then poll `GET /v1/tasks/jobs/{job_id}`. Two operations *require* it above a size threshold: the composite workflow above 50,000 bp and `POST /v1/tasks/annotation/predict` above 200,000 bp, both of which return `413 sync_too_large` to a synchronous JSON request over their threshold. Each threshold is published as `x-sync-limit-bp` on its own operation \u2014 read it from there rather than from this sentence, and take the absence of that extension on the other five predict operations as the statement that they have no sync cap. Async is JSON-only, so the cap governs JSON delivery: a BED/GFF3 response above the threshold is still served synchronously and can run long enough to hit a gateway timeout.\n\n**Rate limits.** Every response carries `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` and `RateLimit-Policy`; a `429` adds `Retry-After`. `RateLimit-Limit` is a *burst* capacity \u2014 one tenth of a minute's allowance (rpm / 6, published at the document root as `x-rate-limit-burst-divisor`), refilling continuously \u2014 so your sustained ceiling is 6 times it per minute. Pacing off the header alone budgets 6x low.",
+    "contact": {
+      "name": "Genomic Intelligence Support",
+      "url": "https://docs.genomicintelligence.ai/",
+      "email": "contact@genomicintelligence.ai"
+    },
+    "version": "2026.10.19.2 (afabae26)"
+  },
+  "schemas": {
+    "ExpressionPredictRequest": {
+      "properties": {
+        "sequence": {
+          "type": "string",
+          "maxLength": 500000,
+          "minLength": 9198,
+          "pattern": "^\\s*(?:[ACGNTacgnt]\\s*)+$",
+          "title": "Sequence",
+          "description": "DNA sequence (A/C/G/T/N, case-insensitive). Whitespace (newlines, spaces, tabs) is stripped first, so a line-wrapped FASTA sequence body may be pasted verbatim; **all lengths and ``tss_index`` are measured against the whitespace-stripped string**. At least 9,198 bp, with the TSS at least 4,599 bp from each end (see ``tss_index``). Longer input is welcome: fetch the selected model's ``bio_spec.recommended_flank_bp`` bp on each side of the TSS. The server cuts that model's slice around ``tss_index`` before inference."
+        },
+        "sequence_name": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sequence Name",
+          "description": "Display name for the sequence (e.g., 'chr1:1000-5000').",
+          "default": "sequence"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 128
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Model",
+          "description": "Model ID. If omitted, the task's default model is used. The valid ids and the default for this operation are published structurally as ``x-models`` on the operation itself \u2014 deliberately **not** as an ``enum`` here, so that adding a model cannot make a previously-generated client reject a valid id. ``GET /v1/tasks/{task}/models`` carries the same roster with full per-model specs."
+        },
+        "options": {
+          "$ref": "#/components/schemas/ExpressionOptions",
+          "description": "Expression options. ``options.description`` is required \u2014 the model is conditioned on the experimental context."
+        },
+        "tss_index": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0.0
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Tss Index",
+          "description": "0-based offset of the transcription start site **into the whitespace-stripped ``sequence``** (i.e. count nucleotides, not file characters \u2014 a line-wrapped FASTA would otherwise be off by its newline count). The response reports in ``meta.task_specific_counts.scored_window`` which part of the submission the selected model used around it (see that field). Required unless ``sequence`` is exactly 9,198 bp, in which case it defaults to 4599 (the only legal value). Must satisfy 4599 <= tss_index <= len(sequence) - 4599, i.e. at least 4,599 bp on each side of the TSS; out-of-range is a 422 rather than an N-padded guess."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "sequence",
+        "options"
+      ],
+      "title": "ExpressionPredictRequest",
+      "description": "Envelope for ``POST /v1/tasks/expression/predict``.\n\nExpression is the one task whose models read the sequence around a\nTSS rather than the whole input, and how far each model reads is its\nown: ``bio_spec.recommended_flank_bp`` says how many bp to fetch on\neach side of the TSS for that model. Input used to be silently\ntruncated or padded to fit, which produced confident but wrong\nnumbers. The contract now makes the TSS explicit: the caller says\nwhere it is and the *server* cuts the model's slice around it.\n\nThis is a literal route rather than the templated ``/{task}/predict``\none precisely so the published OpenAPI document can carry the\nexpression-specific ``minLength``/``maxLength`` and the typed\n``options`` object \u2014 an operation keyed on a path *parameter* cannot\nvary its request schema per value.",
+      "example": {
+        "options": {
+          "description": "assay term name is polyA plus RNA-seq. biosample summary is Homo sapiens HepG2."
+        },
+        "sequence": "ACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGTACGT",
+        "sequence_name": "ALB",
+        "tss_index": 4599
+      }
+    },
+    "ExpressionOptions": {
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "title": "Description",
+          "description": "Experimental context (cell type, assay, conditions). **Required** \u2014 the model is conditioned on it, e.g. \"assay term name is polyA plus RNA-seq. biosample summary is Homo sapiens K562.\""
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "title": "ExpressionOptions"
+    },
+    "ExpressionData": {
+      "properties": {
+        "model": {
+          "type": "string",
+          "title": "Model",
+          "description": "Model id that produced this result."
+        },
+        "input": {
+          "$ref": "#/components/schemas/ExpressionInput",
+          "description": "Echo of the request: the caller's ``sequence_name``, the ``description`` the prediction was conditioned on, and the ``tss_index`` the server applied. The window that offset produced is ``meta.task_specific_counts.scored_window``; the submitted length is ``meta.sequence_length``."
+        },
+        "summary": {
+          "additionalProperties": true,
+          "type": "object",
+          "title": "Summary",
+          "description": "Task-specific summary statistics. **Its keys are deliberately not part of this contract**: they are per-task statistics that may be added, renamed or removed without a contract revision, so consumers must not depend on them \u2014 branch on the typed fields (``meta`` and this payload's own declared keys) instead."
+        },
+        "formats": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Formats",
+          "description": "Optional per-format pre-rendered text payloads (BED/GFF3/\u2026). In every GFF3 this service generates, column 2 (``source``) is the id of the model that produced the feature \u2014 the same value as ``model`` above \u2014 so a saved track records its own provenance. The one exception is a structure-aware model whose upstream pipeline emits its own canonical GFF3 (annotation's ``g0-annotation``): that document is passed through verbatim and keeps its producer's source value, which names a multi-stage pipeline rather than one model."
+        },
+        "task": {
+          "type": "string",
+          "const": "expression",
+          "title": "Task"
+        },
+        "prediction": {
+          "additionalProperties": true,
+          "type": "object",
+          "title": "Prediction",
+          "description": "Expression prediction record: ``{expression, expression_log_tpm, expression_tpm, unit}``."
+        }
+      },
+      "additionalProperties": true,
+      "type": "object",
+      "required": [
+        "model",
+        "input",
+        "summary",
+        "task",
+        "prediction"
+      ],
+      "title": "ExpressionData",
+      "description": "``data`` shape for ``POST /v1/tasks/expression/predict``.\n\n``input`` echoes the request only: ``sequence_name``, ``description``\nand the ``tss_index`` the server applied. The windowing provenance the\nserver derived from that offset is in ``meta`` \u2014 which part of the\nsubmission the model used is ``meta.task_specific_counts.scored_window``\n(see that field), and the submitted length is ``meta.sequence_length``."
+    },
+    "ExpressionInput": {
+      "properties": {
+        "sequence_name": {
+          "type": "string",
+          "title": "Sequence Name",
+          "description": "The caller's label for the submitted sequence, echoed verbatim. Defaults to ``\"sequence\"`` when the request omitted it."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "description": "The experimental context the prediction was conditioned on (cell type / assay), echoed from ``options.description``."
+        },
+        "tss_index": {
+          "type": "integer",
+          "title": "Tss Index",
+          "description": "The 0-based TSS offset the server applied, into the whitespace-stripped ``sequence`` that was submitted. Echoes the request's ``tss_index``, or the 4599 implied by a submission of exactly 9198 bp. The window it produced is ``meta.task_specific_counts.scored_window``."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "sequence_name",
+        "description",
+        "tss_index"
+      ],
+      "title": "ExpressionInput",
+      "description": "``data.input`` for ``POST /v1/tasks/expression/predict``.\n\nThree echoes, all of them things the caller sent or the server chose on\nthe caller's behalf. ``tss_index`` is the second kind: it is optional on\nthe request and defaults to 4599 when the submission is exactly\n9,198 bp, so the echo is the only statement of which offset was\nactually applied.\n\nWhat is **not** here, deliberately: ``scored_window`` (read\n``meta.task_specific_counts.scored_window``) and\n``submitted_sequence_length`` (read ``meta.sequence_length``). Both were\nderived twins of a ``meta`` field."
+    },
+    "ExpressionCounts": {
+      "properties": {
+        "task": {
+          "type": "string",
+          "const": "expression",
+          "title": "Task"
+        },
+        "tss_index": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Tss Index",
+          "description": "0-based TSS offset the server applied, into the whitespace-stripped ``sequence`` that was submitted. Echoes the request's ``tss_index``, or the implied 4599 when the submission was exactly 9198 bp."
+        },
+        "scored_window": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Scored Window",
+          "description": "``[start, end]`` \u2014 the half-open slice of the submitted, whitespace-stripped sequence the server cut for the model. For ``g0-expression`` it is the 9198 bp slice ``[tss_index-4599, tss_index+4599]``, of which the model reads the central part (roughly 3 kb on each side of the TSS, depending on sequence). For a model whose ``bio_spec.trained_window_bp`` is null it is the span actually read, so its width shows how much flank was used."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "task"
+      ],
+      "title": "ExpressionCounts",
+      "description": "Expression has no per-call counts \u2014 the prediction is a single value.\n\nWhat it carries instead is *windowing provenance*: an expression model\nreads a stretch of sequence around the TSS (how much depends on the\nmodel and on the sequence), while a caller may submit up to 500,000 bp.\nThese fields report which part of the submission the model used (see\n``scored_window``), so the contract is verifiable from the response\nalone rather than taken on trust.\n\nAlways populated by ``POST /v1/tasks/expression/predict``."
+    }
+  },
+  "predict_description": "Predict expression for one gene from the sequence around its transcription start site (TSS), in ``log(TPM + 1)``.\n\nSubmit at least 9,198 bp with the TSS at least 4,599 bp from each end, and a ``tss_index`` (0-based, into the whitespace-stripped sequence) unless the submission is exactly 9,198 bp. Longer input is welcome. How far each model reads is its own: ``bio_spec.recommended_flank_bp`` (``GET /v1/tasks/expression/models``) is how many bp to fetch on each side of the TSS for that model. The response reports in ``meta.task_specific_counts.scored_window`` which part of the submission the model used (see that field). A TSS closer than 4,599 bp to either end is rejected with 422 rather than padded or truncated, and so is a window too N-rich, repeat-rich or low-complexity for the model to score.\n\n**Strand-sensitive.** This endpoint does **not** discover the TSS for you and does **not** reverse-complement: submit the gene's coding (sense) strand, 5'\u21923'. A minus-strand window is accepted and scored like any other, so the wrong strand returns a confident number rather than an error. If you have raw genomic input where the TSS is not known, use ``POST /v1/workflows/find-genes-and-predict-expression`` instead \u2014 it finds the genes and centres each window itself.\n\n``options.description`` is **required** \u2014 the model is conditioned on the experimental context (assay, biosample).",
+  "security_schemes": {
+    "BearerAuth": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "gi_\u2026",
+      "description": "Partner API key. Issued out of band; see https://docs.genomicintelligence.ai/rest-api.md#2-get-a-key."
+    }
+  }
+}

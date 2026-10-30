@@ -1,0 +1,8 @@
+{
+  "original_input_bp": 81920,
+  "amended_input_bp": 40960,
+  "amended_flank_bp": 20480,
+  "reason": "Real 81920-bp REF/ALT smoke responses differed by 4-7 bp in reported scored-window endpoints; fixed shorter input preserves identical effective scoring windows.",
+  "timing": "Before the 20-variant trial; no efficacy threshold tuning.",
+  "interpretation": "Protocol deviation: report amended-geometry results separately from original primary geometry."
+}

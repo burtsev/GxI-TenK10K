@@ -1,0 +1,162 @@
+{
+  "baseline": {
+    "candidate": {
+      "n_total": 100,
+      "n_missing": 0,
+      "n_abstain": 23,
+      "n_scored": 77,
+      "n_loci": 74,
+      "n_genes": 77,
+      "n_cells": 4,
+      "sign_concordance": 0.6753246753246753,
+      "ci95": [
+        0.5641025641025641,
+        0.7792207792207793
+      ],
+      "spearman": 0.36961144475681806,
+      "permutation_p": 0.000999000999000999,
+      "epsilon": 1e-06,
+      "robust_slope": 2.161520866725312,
+      "spearman_n": 100,
+      "spearman_nonabstaining": 0.4278569035133613,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 77,
+          "sign_concordance": 0.6753246753246753
+        },
+        "1e-06": {
+          "retained": 77,
+          "sign_concordance": 0.6753246753246753
+        },
+        "1e-05": {
+          "retained": 77,
+          "sign_concordance": 0.6753246753246753
+        },
+        "0.0001": {
+          "retained": 77,
+          "sign_concordance": 0.6753246753246753
+        }
+      }
+    },
+    "control": {
+      "n_total": 100,
+      "n_missing": 0,
+      "n_abstain": 40,
+      "n_scored": 60,
+      "n_loci": 58,
+      "n_genes": 60,
+      "n_cells": 4,
+      "sign_concordance": 0.5166666666666667,
+      "ci95": [
+        0.3933523200889136,
+        0.6440677966101694
+      ],
+      "spearman": -0.0058551075559781784,
+      "permutation_p": 0.44755244755244755,
+      "epsilon": 1e-06,
+      "robust_slope": -0.0878997821350753,
+      "spearman_n": 100,
+      "spearman_nonabstaining": -0.008336807083393951,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 60,
+          "sign_concordance": 0.5166666666666667
+        },
+        "1e-06": {
+          "retained": 60,
+          "sign_concordance": 0.5166666666666667
+        },
+        "1e-05": {
+          "retained": 60,
+          "sign_concordance": 0.5166666666666667
+        },
+        "0.0001": {
+          "retained": 60,
+          "sign_concordance": 0.5166666666666667
+        }
+      }
+    }
+  },
+  "best": {
+    "candidate": {
+      "n_total": 100,
+      "n_missing": 0,
+      "n_abstain": 20,
+      "n_scored": 80,
+      "n_loci": 76,
+      "n_genes": 80,
+      "n_cells": 4,
+      "sign_concordance": 0.75,
+      "ci95": [
+        0.6543091168091169,
+        0.8462025316455694
+      ],
+      "spearman": 0.4418701114570176,
+      "permutation_p": 0.000999000999000999,
+      "epsilon": 1e-06,
+      "robust_slope": 2.6290814332247563,
+      "spearman_n": 100,
+      "spearman_nonabstaining": 0.49268924455396285,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 80,
+          "sign_concordance": 0.75
+        },
+        "1e-06": {
+          "retained": 80,
+          "sign_concordance": 0.75
+        },
+        "1e-05": {
+          "retained": 80,
+          "sign_concordance": 0.75
+        },
+        "0.0001": {
+          "retained": 80,
+          "sign_concordance": 0.75
+        }
+      }
+    },
+    "control": {
+      "n_total": 100,
+      "n_missing": 0,
+      "n_abstain": 43,
+      "n_scored": 57,
+      "n_loci": 53,
+      "n_genes": 57,
+      "n_cells": 4,
+      "sign_concordance": 0.5087719298245614,
+      "ci95": [
+        0.3888888888888889,
+        0.6296296296296297
+      ],
+      "spearman": 0.03307254487946768,
+      "permutation_p": 0.47652347652347654,
+      "epsilon": 1e-06,
+      "robust_slope": 0.26014388489208645,
+      "spearman_n": 100,
+      "spearman_nonabstaining": 0.01633393829401089,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 57,
+          "sign_concordance": 0.5087719298245614
+        },
+        "1e-06": {
+          "retained": 57,
+          "sign_concordance": 0.5087719298245614
+        },
+        "1e-05": {
+          "retained": 57,
+          "sign_concordance": 0.5087719298245614
+        },
+        "0.0001": {
+          "retained": 57,
+          "sign_concordance": 0.5087719298245614
+        }
+      }
+    }
+  }
+}

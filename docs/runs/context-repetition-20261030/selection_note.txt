@@ -1,0 +1,1 @@
+The round-two design has incumbent=compact. Selection code retained the declared incumbent on primary ties; an inherited prose field said baseline. Winner score 9/16 strictly exceeded compact 7/16, so this wording discrepancy does not affect selection. Original design and frozen hash are retained.

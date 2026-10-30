@@ -1,0 +1,66 @@
+[
+  {
+    "chrom": "chr1",
+    "tss1": 36482913,
+    "strand": "-",
+    "pos1": 36478697,
+    "ref": "C",
+    "alt": "A",
+    "ref_prediction": {
+      "score": 4.9446,
+      "window": [
+        0,
+        40960
+      ],
+      "model": "g0-expression-8192",
+      "unit": "log(TPM+1)"
+    },
+    "alt_prediction": {
+      "score": 4.9446,
+      "window": [
+        0,
+        40960
+      ],
+      "model": "g0-expression-8192",
+      "unit": "log(TPM+1)"
+    },
+    "delta": 0.0,
+    "input_length": 40960,
+    "variant_index": 24696,
+    "tss_index": 20480,
+    "covered_in_both": true,
+    "equal_windows": true
+  },
+  {
+    "chrom": "chr16",
+    "tss1": 56961950,
+    "strand": "+",
+    "pos1": 56971389,
+    "ref": "C",
+    "alt": "T",
+    "ref_prediction": {
+      "score": 0.3496,
+      "window": [
+        0,
+        40960
+      ],
+      "model": "g0-expression-8192",
+      "unit": "log(TPM+1)"
+    },
+    "alt_prediction": {
+      "score": 0.3382,
+      "window": [
+        0,
+        40960
+      ],
+      "model": "g0-expression-8192",
+      "unit": "log(TPM+1)"
+    },
+    "delta": -0.011400000000000021,
+    "input_length": 40960,
+    "variant_index": 29919,
+    "tss_index": 20480,
+    "covered_in_both": true,
+    "equal_windows": true
+  }
+]

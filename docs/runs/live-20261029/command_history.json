@@ -1,0 +1,127 @@
+{
+  "note": "Selected actually executed commands; diagnostic inline HTTP calls are recorded in manifest positive_controls and cache ledger. No keys or DNA in this history.",
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/gxi-tenk10k",
+        "run",
+        "--config",
+        "configs/pilot.yaml",
+        "--out",
+        "results/pilot-20261029",
+        "--max-requests",
+        "1600"
+      ],
+      "returncode": 2,
+      "outcome": "Historical preflight: missing credentials; no predictions"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/fetch_study_sources.py",
+        "--include-full"
+      ],
+      "returncode": 0,
+      "outcome": "Three Zenodo ZIPs and official GENCODE reference verified"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/audit_reference_smoke.py"
+      ],
+      "returncode": 0,
+      "outcome": "Three independent real REF checks passed"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/smoke_sequence_diagnostics.py"
+      ],
+      "returncode": 0,
+      "outcome": "81920-bp REF/ALT effective endpoints differed; retained diagnostics"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/smoke_sequence_diagnostics.py",
+        "--flank",
+        "20480"
+      ],
+      "returncode": 0,
+      "outcome": "40960-bp exact scoring geometry passed both real variants"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_live_pilot.py",
+        "--prepare-only"
+      ],
+      "returncode": 1,
+      "outcome": "Initial preparation exposed contig-boundary case; repaired before inference"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_live_pilot.py",
+        "--prepare-only"
+      ],
+      "returncode": 0,
+      "outcome": "Four cell members scanned and source subsets normalized"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_live_pilot.py",
+        "--max-requests",
+        "760"
+      ],
+      "returncode": 0,
+      "outcome": "First pass: 100 candidates and 76 controls; preserved historical sensitivity"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_live_pilot.py",
+        "--max-requests",
+        "760"
+      ],
+      "returncode": 0,
+      "outcome": "Matching eligibility moved before inference; 100 candidates and 100 controls"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "scripts/compare_trial_cells.py"
+      ],
+      "returncode": 0,
+      "outcome": "63 measured observations; 17 missing comparison betas; 81 descriptive contrasts"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 0,
+      "outcome": "49 passed"
+    },
+    {
+      "argv": [
+        ".venv/bin/gxi-tenk10k",
+        "run",
+        "--verified-live",
+        "--out",
+        "results/live-20261029",
+        "--max-requests",
+        "760"
+      ],
+      "returncode": 0,
+      "outcome": "Complete CLI resume; zero additional POSTs; evaluate and report regenerated"
+    },
+    {
+      "operation": "Saved TSV round-trip verification",
+      "outcome": "Candidate/control statistics exactly reproduced without inference"
+    }
+  ]
+}

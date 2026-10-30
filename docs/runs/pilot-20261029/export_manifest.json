@@ -1,0 +1,25 @@
+{
+  "files": {
+    "report.md": "561bbf486dfaade0acb38dc4ea8c77b1ad7528eb70e99f50f0edee3b8dfb28b5",
+    "data_audit.md": "0274a35cda4c19215b4dfa9f78ea558c054e4e6945cb8de4fb6ced3438e29736",
+    "manifest.json": "d20ed10c703de1f95851b4209231d3ab5b8607fe590dedeec6623eb7c9a31c68",
+    "archive_profiles.json": "08546bc6a539e0ed8afcc4cc52a65023f9da85f163f75dba0f2d3b830424b452",
+    "environment.json": "09cc25b3972f20051d7f7197f52b0026fdcf2c875dda3133f9a414ff14787599",
+    "gi_models.json": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c",
+    "discovery.json": "9c729a9be370aaf58dbd479e1628dd4df1a0724595685292b96bb963c06e7a3e",
+    "selection.json": "2a30aee4e711f71d1563f95ed143d8f4b3b1208b1fe5a787ea437a6029a72d9e",
+    "selection_flow.tsv": "58c48bbb520e5d9269bfc19fcf8bf4ef804d2d385ee1ba55b32c0250cbf05c61",
+    "screened_candidates.tsv": "f6fc78c9796dafd55746698b85270a37c4a6048c48253acacd6db6ac855c80c4",
+    "candidates.tsv": "26e30e887bc391a15228e06a1814f8c9cf4c4743ea6d4120f16537cd3206f76b",
+    "controls.tsv": "26e30e887bc391a15228e06a1814f8c9cf4c4743ea6d4120f16537cd3206f76b",
+    "exclusions.tsv": "9cb7f62c0a6b5ad23bc1c5f4fab9a8cea48b0ab71b268ee77edb310788344ab2",
+    "metrics.json": "49b91b7b11883464d019df3f1f7cebabb7e8470b87a5fd64d043c5c37097b4b8",
+    "stages.json": "64d57e3eb983608853286ee87d342826dcda4983d7b98de8e3c46595bb64b698",
+    "test_results.txt": "c3651b11b628291359a403bba732aa8f0c1410b7656bebcf675e7aaef2d1eb36",
+    "smoke_reference_audit.json": "0a269f362341b9be8b95621e55e8a66ab2e3b46f40738f97cf462e8df0da42d4",
+    "official_source_evidence.json": "8af223e272e623956ffba4f642972dc1e122fcbb594be17c4997cecab04c5599",
+    "execution_binding.json": "5264880e5d10be1fb06afc6810840db0f0c32e4fece522b68817c1653f0d1258",
+    "gi_contract_excerpt.json": "5505a8c1983909f727c7a4bbdb80d35e788df0443cf004a1a38b27eb2bcd0fd4"
+  },
+  "note": "Raw archives, DNA/reference snapshots, full OpenAPI/docs and empty Parquet outputs remain in ignored local directories. See report for limitations."
+}

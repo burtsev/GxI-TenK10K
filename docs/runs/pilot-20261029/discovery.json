@@ -1,0 +1,17 @@
+{
+  "gi_openapi": {
+    "url": "https://api.genomicintelligence.ai/v1/openapi.json",
+    "status": 200,
+    "sha256": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a"
+  },
+  "gi_models": {
+    "url": "https://api.genomicintelligence.ai/v1/tasks/expression/models",
+    "status": 200,
+    "sha256": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c"
+  },
+  "gi_docs": {
+    "url": "https://docs.genomicintelligence.ai/rest-api.md",
+    "status": 200,
+    "sha256": "e4c07eff9810b512d87db823d38c0c797a14d8806128ecd6590bd2724dfed58a"
+  }
+}

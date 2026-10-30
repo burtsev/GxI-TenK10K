@@ -1,0 +1,1832 @@
+[
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/dnT_all_credible_snps.tsv",
+    "uncompressed_bytes": 3014722,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 48795,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 142,
+    "pip_ge_50": 271,
+    "first_row": {
+      "SNP": "17:7231234:C:T",
+      "Index": "394",
+      "PIP": "0.156637916894988",
+      "Credible_Set": "1",
+      "gene": "ENSG00000004975",
+      "celltype": "dnT"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/B_naive_all_credible_snps.tsv",
+    "uncompressed_bytes": 17013481,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 259501,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1737,
+    "pip_ge_50": 2829,
+    "first_row": {
+      "SNP": "1:169613163:C:G",
+      "Index": "255",
+      "PIP": "0.0172562369502184",
+      "Credible_Set": "3",
+      "gene": "ENSG00000000460",
+      "celltype": "B_naive"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD4_TEM_all_credible_snps.tsv",
+    "uncompressed_bytes": 13315611,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 202928,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1058,
+    "pip_ge_50": 1854,
+    "first_row": {
+      "SNP": "7:1856695:T:C",
+      "Index": "846",
+      "PIP": "0.42519906955501",
+      "Credible_Set": "1",
+      "gene": "ENSG00000002822",
+      "celltype": "CD4_TEM"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/MAIT_all_credible_snps.tsv",
+    "uncompressed_bytes": 9673576,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 154375,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 692,
+    "pip_ge_50": 1284,
+    "first_row": {
+      "SNP": "1:169797884:T:C",
+      "Index": "317",
+      "PIP": "0.0109255417464519",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000457",
+      "celltype": "MAIT"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/ASDC_all_credible_snps.tsv",
+    "uncompressed_bytes": 1078222,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 17189,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 286,
+    "pip_ge_50": 351,
+    "first_row": {
+      "SNP": "16:20591619:T:TTTA",
+      "Index": "350",
+      "PIP": "0.98625687151814",
+      "Credible_Set": "5",
+      "gene": "ENSG00000005187",
+      "celltype": "ASDC"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/NK_CD56bright_all_credible_snps.tsv",
+    "uncompressed_bytes": 9226507,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 128680,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 487,
+    "pip_ge_50": 899,
+    "first_row": {
+      "SNP": "6:46111927:T:C",
+      "Index": "300",
+      "PIP": "0.00753030975628699",
+      "Credible_Set": "1",
+      "gene": "ENSG00000001561",
+      "celltype": "NK_CD56bright"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD8_Naive_all_credible_snps.tsv",
+    "uncompressed_bytes": 14560742,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 215465,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1251,
+    "pip_ge_50": 2138,
+    "first_row": {
+      "SNP": "1:169750197:A:G",
+      "Index": "5",
+      "PIP": "0.00420671142126461",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000457",
+      "celltype": "CD8_Naive"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/cDC2_all_credible_snps.tsv",
+    "uncompressed_bytes": 9080231,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 144952,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 573,
+    "pip_ge_50": 1029,
+    "first_row": {
+      "SNP": "1:27631331:C:T",
+      "Index": "240",
+      "PIP": "0.135870543654893",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000938",
+      "celltype": "cDC2"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/NK_Proliferating_all_credible_snps.tsv",
+    "uncompressed_bytes": 4186301,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 56038,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 203,
+    "pip_ge_50": 369,
+    "first_row": {
+      "SNP": "7:26798321:C:G",
+      "Index": "956",
+      "PIP": "0.0018054337969392",
+      "Credible_Set": "1",
+      "gene": "ENSG00000005020",
+      "celltype": "NK_Proliferating"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD4_TCM_all_credible_snps.tsv",
+    "uncompressed_bytes": 22016648,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 336265,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 2881,
+    "pip_ge_50": 4882,
+    "first_row": {
+      "SNP": "1:169798892:T:C",
+      "Index": "322",
+      "PIP": "0.0211009315816549",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000457",
+      "celltype": "CD4_TCM"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD16_Mono_all_credible_snps.tsv",
+    "uncompressed_bytes": 13786741,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 203837,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1128,
+    "pip_ge_50": 1928,
+    "first_row": {
+      "SNP": "1:169789423:A:G",
+      "Index": "1299",
+      "PIP": "0.00619223437893412",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000460",
+      "celltype": "CD16_Mono"
+    },
+    "smoke_locus_rows": [
+      {
+        "SNP": "16:57020104:G:T",
+        "Index": "857",
+        "PIP": "0.676810318867419",
+        "Credible_Set": "1",
+        "gene": "ENSG00000087237",
+        "celltype": "CD16_Mono"
+      }
+    ]
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/gdT_all_credible_snps.tsv",
+    "uncompressed_bytes": 9296520,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 150863,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 641,
+    "pip_ge_50": 1152,
+    "first_row": {
+      "SNP": "1:169685657:C:T",
+      "Index": "629",
+      "PIP": "0.0081135420798909",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000460",
+      "celltype": "gdT"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD8_TEM_all_credible_snps.tsv",
+    "uncompressed_bytes": 19526338,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 297968,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 2648,
+    "pip_ge_50": 4259,
+    "first_row": {
+      "SNP": "1:169913898:G:A",
+      "Index": "785",
+      "PIP": "0.0292374193731471",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000457",
+      "celltype": "CD8_TEM"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD4_Naive_all_credible_snps.tsv",
+    "uncompressed_bytes": 21606742,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 320005,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 2494,
+    "pip_ge_50": 4308,
+    "first_row": {
+      "SNP": "1:169765909:GAA:G",
+      "Index": "172",
+      "PIP": "0.0366301577953998",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000457",
+      "celltype": "CD4_Naive"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD4_CTL_all_credible_snps.tsv",
+    "uncompressed_bytes": 9221696,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 140403,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 519,
+    "pip_ge_50": 959,
+    "first_row": {
+      "SNP": "6:46099536:G:A",
+      "Index": "245",
+      "PIP": "0.0326312998379776",
+      "Credible_Set": "1",
+      "gene": "ENSG00000001561",
+      "celltype": "CD4_CTL"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/NK_all_credible_snps.tsv",
+    "uncompressed_bytes": 19145252,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 316241,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 2409,
+    "pip_ge_50": 4160,
+    "first_row": {
+      "SNP": "20:50854894:C:T",
+      "Index": "85",
+      "PIP": "0.00980088921568023",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000419",
+      "celltype": "NK"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD14_Mono_all_credible_snps.tsv",
+    "uncompressed_bytes": 15456175,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 228776,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1278,
+    "pip_ge_50": 2257,
+    "first_row": {
+      "SNP": "1:169789423:A:G",
+      "Index": "1299",
+      "PIP": "0.0042127035555114",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000460",
+      "celltype": "CD14_Mono"
+    },
+    "smoke_locus_rows": [
+      {
+        "SNP": "16:56971389:C:T",
+        "Index": "616",
+        "PIP": "0.246223092076781",
+        "Credible_Set": "1",
+        "gene": "ENSG00000087237",
+        "celltype": "CD14_Mono"
+      }
+    ]
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/Treg_all_credible_snps.tsv",
+    "uncompressed_bytes": 10127621,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 161617,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 757,
+    "pip_ge_50": 1328,
+    "first_row": {
+      "SNP": "1:169652823:T:C",
+      "Index": "421",
+      "PIP": "0.0288094400542521",
+      "Credible_Set": "2",
+      "gene": "ENSG00000000460",
+      "celltype": "Treg"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/HSPC_all_credible_snps.tsv",
+    "uncompressed_bytes": 2788736,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 44450,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 242,
+    "pip_ge_50": 340,
+    "first_row": {
+      "SNP": "7:11833717:G:A",
+      "Index": "3068",
+      "PIP": "0.0750217863670668",
+      "Credible_Set": "1",
+      "gene": "ENSG00000005108",
+      "celltype": "HSPC"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD8_Proliferating_all_credible_snps.tsv",
+    "uncompressed_bytes": 1320221,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 17409,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 152,
+    "pip_ge_50": 197,
+    "first_row": {
+      "SNP": "7:26780958:T:C",
+      "Index": "905",
+      "PIP": "0.00313673047228535",
+      "Credible_Set": "1",
+      "gene": "ENSG00000005020",
+      "celltype": "CD8_Proliferating"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/B_intermediate_all_credible_snps.tsv",
+    "uncompressed_bytes": 13749778,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 189457,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 878,
+    "pip_ge_50": 1565,
+    "first_row": {
+      "SNP": "1:169683954:TGGCAAGCACCACCTCTCCTGGGG:T",
+      "Index": "625",
+      "PIP": "0.0225513063607837",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000460",
+      "celltype": "B_intermediate"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/B_memory_all_credible_snps.tsv",
+    "uncompressed_bytes": 12206128,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 183356,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 930,
+    "pip_ge_50": 1620,
+    "first_row": {
+      "SNP": "6:53542793:A:ATCACCTG",
+      "Index": "711",
+      "PIP": "0.168762411009137",
+      "Credible_Set": "1",
+      "gene": "ENSG00000001084",
+      "celltype": "B_memory"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/cDC1_all_credible_snps.tsv",
+    "uncompressed_bytes": 1487727,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 23728,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 201,
+    "pip_ge_50": 282,
+    "first_row": {
+      "SNP": "4:17557206:G:A",
+      "Index": "460",
+      "PIP": "0.00580453126659886",
+      "Credible_Set": "1",
+      "gene": "ENSG00000002549",
+      "celltype": "cDC1"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/Plasmablast_all_credible_snps.tsv",
+    "uncompressed_bytes": 2776830,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 39844,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 169,
+    "pip_ge_50": 280,
+    "first_row": {
+      "SNP": "6:46099536:G:A",
+      "Index": "245",
+      "PIP": "0.00616041538602419",
+      "Credible_Set": "1",
+      "gene": "ENSG00000001561",
+      "celltype": "Plasmablast"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD8_TCM_all_credible_snps.tsv",
+    "uncompressed_bytes": 12647002,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 192782,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 1037,
+    "pip_ge_50": 1820,
+    "first_row": {
+      "SNP": "1:169652823:T:C",
+      "Index": "421",
+      "PIP": "0.0331892469408228",
+      "Credible_Set": "1",
+      "gene": "ENSG00000000460",
+      "celltype": "CD8_TCM"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/CD4_Proliferating_all_credible_snps.tsv",
+    "uncompressed_bytes": 1982540,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 26149,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 159,
+    "pip_ge_50": 236,
+    "first_row": {
+      "SNP": "7:26784125:C:CAAA",
+      "Index": "918",
+      "PIP": "0.00127543113523165",
+      "Credible_Set": "1",
+      "gene": "ENSG00000005020",
+      "celltype": "CD4_Proliferating"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/pDC_all_credible_snps.tsv",
+    "uncompressed_bytes": 4650612,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 75352,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 301,
+    "pip_ge_50": 507,
+    "first_row": {
+      "SNP": "6:46075020:C:T",
+      "Index": "149",
+      "PIP": "0.0019068479265596",
+      "Credible_Set": "1",
+      "gene": "ENSG00000001561",
+      "celltype": "pDC"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "susie_summary.zip",
+    "member": "susie_summary/ILC_all_credible_snps.tsv",
+    "uncompressed_bytes": 1072331,
+    "delimiter": ",",
+    "columns": [
+      "SNP",
+      "Index",
+      "PIP",
+      "Credible_Set",
+      "gene",
+      "celltype"
+    ],
+    "kind": "susie",
+    "rows": 17257,
+    "missing": {
+      "SNP": 0,
+      "Index": 0,
+      "PIP": 0,
+      "Credible_Set": 0,
+      "gene": 0,
+      "celltype": 0
+    },
+    "pip_ge_90": 55,
+    "pip_ge_50": 91,
+    "first_row": {
+      "SNP": "14:70741161:G:A",
+      "Index": "530",
+      "PIP": "0.00380263519586477",
+      "Credible_Set": "1",
+      "gene": "ENSG00000006432",
+      "celltype": "ILC"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/NK_Proliferating_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 973228,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 15069,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 41,
+      "top_pval": 41
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0345781404901299",
+      "top_MarkerID": "1:169753724:T:A",
+      "top_pval": "0.000428621"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD14_Mono_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 924144,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 14332,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 241,
+      "top_pval": 241
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0053433807635126",
+      "top_MarkerID": "1:169761275:CT:C",
+      "top_pval": "6.22671e-06"
+    },
+    "smoke_locus_rows": [
+      {
+        "gene": "ENSG00000119535",
+        "ACAT_p": "3.0522674232536e-07",
+        "top_MarkerID": "1:36478697:C:A",
+        "top_pval": "6.00282e-10"
+      },
+      {
+        "gene": "ENSG00000087237",
+        "ACAT_p": "7.95681809329096e-09",
+        "top_MarkerID": "16:56971389:C:T",
+        "top_pval": "2.72929e-11"
+      }
+    ]
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD8_TCM_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 896100,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13819,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 10,
+      "top_pval": 10
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.000417432737487067",
+      "top_MarkerID": "1:169803836:C:T",
+      "top_pval": "1.52371e-05"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/ILC_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 891559,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13767,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 10,
+      "top_pval": 10
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.794903448485102",
+      "top_MarkerID": "1:169991408:A:C",
+      "top_pval": "0.00467741"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/pDC_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 994980,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 15383,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 11,
+      "top_pval": 11
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0653432831479983",
+      "top_MarkerID": "1:169973105:G:GTGTATATATATATATATATA",
+      "top_pval": "5.58287e-05"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD8_TEM_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 864761,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13322,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 52,
+      "top_pval": 52
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "9.03539962600097e-17",
+      "top_MarkerID": "1:169926680:TGTAC:T",
+      "top_pval": "4.8309e-19"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/ASDC_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1030777,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 15890,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 6,
+      "top_pval": 6
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.284255584684236",
+      "top_MarkerID": "1:169927679:G:GT",
+      "top_pval": "0.00199119"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/NK_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 867576,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13329,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 46,
+      "top_pval": 46
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "3.72271102833111e-10",
+      "top_MarkerID": "1:169957546:A:T",
+      "top_pval": "3.99993e-12"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/B_memory_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 908862,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 14028,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 20,
+      "top_pval": 20
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0212747137274456",
+      "top_MarkerID": "1:169973105:G:GTGTATATATA",
+      "top_pval": "0.000505947"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/Plasmablast_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1017365,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 15781,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 73,
+      "top_pval": 73
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.913117645200869",
+      "top_MarkerID": "1:169916177:CGTGTGTGTGT:C",
+      "top_pval": "0.00395316"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD4_Proliferating_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1069456,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 16574,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 41,
+      "top_pval": 41
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.866361067395566",
+      "top_MarkerID": "1:169942910:G:GCC",
+      "top_pval": "0.00220918"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/HSPC_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1132464,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 17538,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 33,
+      "top_pval": 33
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.20443687588053",
+      "top_MarkerID": "1:169787840:C:T",
+      "top_pval": "0.00211164"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD4_TCM_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 886778,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13595,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 35,
+      "top_pval": 35
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "6.19504447740837e-14",
+      "top_MarkerID": "1:169881525:A:T",
+      "top_pval": "1.80573e-16"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/Treg_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 862191,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13279,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 5,
+      "top_pval": 5
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.969356024415036",
+      "top_MarkerID": "1:169814964:G:GT",
+      "top_pval": "7.00939e-05"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/B_naive_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 866958,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13346,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 55,
+      "top_pval": 55
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.00506097591505372",
+      "top_MarkerID": "1:169787840:C:T",
+      "top_pval": "5.68415e-05"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD4_Naive_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 869557,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13338,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 43,
+      "top_pval": 43
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "1.22124532708767e-14",
+      "top_MarkerID": "1:169845392:C:T",
+      "top_pval": "9.12254e-17"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/NK_CD56bright_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 900189,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13878,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 1,
+      "top_pval": 1
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0664683142454443",
+      "top_MarkerID": "1:169916177:CGT:C",
+      "top_pval": "0.000136777"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD8_Naive_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 893330,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13774,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 25,
+      "top_pval": 25
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "5.1179568491877e-05",
+      "top_MarkerID": "1:169761520:G:A",
+      "top_pval": "8.00991e-07"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/dnT_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 898642,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13900,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 7,
+      "top_pval": 7
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.762585400222134",
+      "top_MarkerID": "1:169823752:CG:C",
+      "top_pval": "0.00308763"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/B_intermediate_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 914204,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 14080,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 78,
+      "top_pval": 78
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.100097869232816",
+      "top_MarkerID": "1:169908785:C:CA",
+      "top_pval": "0.000272683"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/MAIT_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 870186,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13413,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 9,
+      "top_pval": 9
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "6.73311406629296e-08",
+      "top_MarkerID": "1:169866260:T:G",
+      "top_pval": "3.30251e-10"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/cDC2_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1045172,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 16142,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 10,
+      "top_pval": 10
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0749272501704907",
+      "top_MarkerID": "1:169928699:C:CAAAAAAAAAAAAAAAAAAAAAAA",
+      "top_pval": "0.000688433"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD4_TEM_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 864963,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13338,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 6,
+      "top_pval": 6
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.000138123462948836",
+      "top_MarkerID": "1:169812968:T:G",
+      "top_pval": "2.8033e-06"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/cDC1_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1039611,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 16085,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 67,
+      "top_pval": 67
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.859123947496831",
+      "top_MarkerID": "1:169948673:G:A",
+      "top_pval": "0.017048"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/gdT_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 878576,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13587,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 17,
+      "top_pval": 17
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.00667170311945275",
+      "top_MarkerID": "1:169939961:T:C",
+      "top_pval": "0.000134774"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD4_CTL_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 839328,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 12969,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 28,
+      "top_pval": 28
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.0411800464857002",
+      "top_MarkerID": "1:169891332:G:A",
+      "top_pval": "0.00139371"
+    },
+    "smoke_locus_rows": []
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD16_Mono_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 906033,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 13982,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 24,
+      "top_pval": 24
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.542104332148784",
+      "top_MarkerID": "1:169867914:C:T",
+      "top_pval": "0.00281022"
+    },
+    "smoke_locus_rows": [
+      {
+        "gene": "ENSG00000087237",
+        "ACAT_p": "2.36515554516981e-05",
+        "top_MarkerID": "16:57020104:G:T",
+        "top_pval": "3.0406e-08"
+      }
+    ]
+  },
+  {
+    "archive": "common_variant_gene_level_results_with_annotated_fails.zip",
+    "member": "gene_level_results_with_annotated_fails/CD8_Proliferating_all_cis_cv_gene_level_results.tsv",
+    "uncompressed_bytes": 1000301,
+    "delimiter": ",",
+    "columns": [
+      "gene",
+      "ACAT_p",
+      "top_MarkerID",
+      "top_pval"
+    ],
+    "kind": "gene",
+    "rows": 15473,
+    "missing": {
+      "gene": 0,
+      "ACAT_p": 0,
+      "top_MarkerID": 18,
+      "top_pval": 18
+    },
+    "pip_ge_90": 0,
+    "pip_ge_50": 0,
+    "first_row": {
+      "gene": "ENSG00000000457",
+      "ACAT_p": "0.67978201996811",
+      "top_MarkerID": "1:169876958:TAA:T",
+      "top_pval": "0.0206269"
+    },
+    "smoke_locus_rows": []
+  }
+]

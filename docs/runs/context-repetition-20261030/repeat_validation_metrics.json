@@ -1,0 +1,184 @@
+{
+  "combined": {
+    "once": {
+      "n_total": 20,
+      "n_missing": 0,
+      "n_abstain": 5,
+      "n_scored": 15,
+      "n_loci": 15,
+      "n_genes": 15,
+      "n_cells": 4,
+      "sign_concordance": 0.7333333333333333,
+      "ci95": [
+        0.4666666666666667,
+        0.9333333333333333
+      ],
+      "spearman": 0.48183200869267184,
+      "permutation_p": 0.07292707292707293,
+      "epsilon": 1e-06,
+      "robust_slope": 2.439386952572189,
+      "spearman_n": 20,
+      "spearman_nonabstaining": 0.5607142857142856,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 15,
+          "sign_concordance": 0.7333333333333333
+        },
+        "1e-06": {
+          "retained": 15,
+          "sign_concordance": 0.7333333333333333
+        },
+        "1e-05": {
+          "retained": 15,
+          "sign_concordance": 0.7333333333333333
+        },
+        "0.0001": {
+          "retained": 15,
+          "sign_concordance": 0.7333333333333333
+        }
+      }
+    },
+    "twice": {
+      "n_total": 20,
+      "n_missing": 0,
+      "n_abstain": 4,
+      "n_scored": 16,
+      "n_loci": 16,
+      "n_genes": 16,
+      "n_cells": 4,
+      "sign_concordance": 0.5625,
+      "ci95": [
+        0.3125,
+        0.8125
+      ],
+      "spearman": 0.34943645025058206,
+      "permutation_p": 0.4095904095904096,
+      "epsilon": 1e-06,
+      "robust_slope": 2.0440230675033577,
+      "spearman_n": 20,
+      "spearman_nonabstaining": 0.4911764705882353,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "1e-06": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "1e-05": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "0.0001": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        }
+      }
+    },
+    "paired": {
+      "n": 20,
+      "baseline_correct_all_pairs": 11,
+      "selected_correct_all_pairs": 9,
+      "difference": -0.1,
+      "ci95": [
+        -0.3,
+        0.1
+      ],
+      "note": "Fresh validation loci are nonoverlapping +/-100kb clusters; original-cohort interval is gene-level descriptive."
+    }
+  },
+  "paraphrase_sentence": {
+    "once": {
+      "n_total": 20,
+      "n_missing": 0,
+      "n_abstain": 4,
+      "n_scored": 16,
+      "n_loci": 16,
+      "n_genes": 16,
+      "n_cells": 4,
+      "sign_concordance": 0.5625,
+      "ci95": [
+        0.3125,
+        0.8125
+      ],
+      "spearman": 0.28679449480609326,
+      "permutation_p": 0.4065934065934066,
+      "epsilon": 1e-06,
+      "robust_slope": 1.9191431298580748,
+      "spearman_n": 20,
+      "spearman_nonabstaining": 0.37941176470588234,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "1e-06": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "1e-05": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        },
+        "0.0001": {
+          "retained": 16,
+          "sign_concordance": 0.5625
+        }
+      }
+    },
+    "twice": {
+      "n_total": 20,
+      "n_missing": 0,
+      "n_abstain": 5,
+      "n_scored": 15,
+      "n_loci": 15,
+      "n_genes": 15,
+      "n_cells": 4,
+      "sign_concordance": 0.6666666666666666,
+      "ci95": [
+        0.4,
+        0.8666666666666667
+      ],
+      "spearman": 0.41667862386944887,
+      "permutation_p": 0.13886113886113885,
+      "epsilon": 1e-06,
+      "robust_slope": 2.3314780763873952,
+      "spearman_n": 20,
+      "spearman_nonabstaining": 0.48214285714285704,
+      "chance_baseline": 0.5,
+      "calibration_sensitivity": {
+        "0": {
+          "retained": 15,
+          "sign_concordance": 0.6666666666666666
+        },
+        "1e-06": {
+          "retained": 15,
+          "sign_concordance": 0.6666666666666666
+        },
+        "1e-05": {
+          "retained": 15,
+          "sign_concordance": 0.6666666666666666
+        },
+        "0.0001": {
+          "retained": 15,
+          "sign_concordance": 0.6666666666666666
+        }
+      }
+    },
+    "paired": {
+      "n": 20,
+      "baseline_correct_all_pairs": 9,
+      "selected_correct_all_pairs": 10,
+      "difference": 0.05,
+      "ci95": [
+        -0.1,
+        0.20124999999999318
+      ],
+      "note": "Fresh validation loci are nonoverlapping +/-100kb clusters; original-cohort interval is gene-level descriptive."
+    }
+  }
+}

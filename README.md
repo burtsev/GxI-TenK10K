@@ -45,3 +45,14 @@ Codex should produce `results/<run_id>/` with a raw-data audit, manifest/checksu
 ## Scientific scope
 
 This is a **zero-shot observational benchmark**, not an intervention, a clinical model validation, or a claim of causal variant identification. An insignificant eQTL is not automatically a true negative, SuSiE PIP is not experimental causality, and published betas may not share units with GI's log(TPM+1).
+
+## Implemented benchmark and executed results
+
+See [setup and reproduction](docs/IMPLEMENTATION.md) and the
+[final live scientific report](docs/runs/live-20261029/report.md).
+The live run completed a 20-pair trial and 100-candidate/100-control matched
+pilot across four discovery cell types, with supplementary cross-cell queries.
+The report records input-geometry and matching adjustments, abstentions,
+uncertainty, source checksums and limitations. Original-protocol and amended
+results are distinguished. The earlier credentials-blocked audit remains as
+historical evidence.

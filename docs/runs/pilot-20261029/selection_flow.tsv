@@ -1,0 +1,9 @@
+stage	rows
+source_susie	4193682
+requested_cells	1012119
+significant_gene_fdr_05	1012057
+pip_threshold	6636
+biallelic_snv	5187
+nonpalindromic_snv	4281
+sampled_distinct_genes	100
+fully_eligible	0

@@ -1,0 +1,14 @@
+{
+  "n_total": 0,
+  "n_missing": 0,
+  "n_abstain": 0,
+  "n_scored": 0,
+  "n_loci": 0,
+  "n_genes": 0,
+  "n_cells": 0,
+  "sign_concordance": null,
+  "ci95": null,
+  "spearman": null,
+  "permutation_p": null,
+  "epsilon": 1e-06
+}

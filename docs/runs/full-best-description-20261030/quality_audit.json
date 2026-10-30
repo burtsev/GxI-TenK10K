@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "observation_rows": 642,
+  "prediction_rows": 1284,
+  "paired_rows": 642,
+  "allele_orientation": "All SNP IDs, genomic REF/ALT and effect alleles agree; minus-strand editing retained ALT-minus-REF.",
+  "geometry": "Every oriented TSS index 20480, effective interval [0,40960), variant covered.",
+  "sequence_control": "Exact REF/ALT sequence hashes equal across descriptions.",
+  "finite_scores": true,
+  "duplicate_rows": 0,
+  "prediction_units": "log(TPM+1), checked by GI adapter on each response."
+}
