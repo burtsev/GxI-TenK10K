@@ -44,7 +44,29 @@
   "ontology": {
     "url": "https://raw.githubusercontent.com/obophenotype/cell-ontology/master/cl.obo",
     "release": "2026-06-08",
-    "sha256": "7e19b4aef8e7fe7720b0c4474c6a5b8713c904ea9ab7b7d5d96f2cb28b8fc51f"
+    "sha256": "7e19b4aef8e7fe7720b0c4474c6a5b8713c904ea9ab7b7d5d96f2cb28b8fc51f",
+    "pinned_url": "https://raw.githubusercontent.com/obophenotype/cell-ontology/8e7c8d7d24b59691cb3c7bbe059cbc4b6ec3d1ab/cl.obo"
   },
-  "recovery_complete": true
+  "recovery_complete": true,
+  "pathways": {
+    "status": "frozen before test inference; exploratory overlapping strata, no pathway significance claim",
+    "source": "https://reactome.org/download/current/ReactomePathways.gmt.zip",
+    "version": 98,
+    "source_sha256": "6056fcd95dc8f09740c8bb64c2765bea1386ce91b9b19cd10bcd45d30451805c",
+    "source_scope": "Official Reactome gene-set annotation, the database family documented by the official TenK10K scDeepID project. Supplementary annotation only; no target association data sourced outside Zenodo.",
+    "membership": "exact GENCODE v44 gene symbol matches; no aliases or imputed membership"
+  },
+  "zenodo_version_relation": {
+    "version": [
+      {
+        "index": 1,
+        "is_last": true,
+        "parent": {
+          "pid_type": "recid",
+          "pid_value": "17474112"
+        }
+      }
+    ]
+  },
+  "zenodo_updated": "2026-01-30T16:34:30.906954+00:00"
 }

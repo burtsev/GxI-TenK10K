@@ -5,7 +5,6 @@ contourpy==1.4.0
 cycler==0.12.1
 duckdb==1.3.2
 fonttools==4.68.0
--e git+https://github.com/burtsev/GxI-TenK10K.git@f57f31505e629232dd602a8fa4f76586200b32c5#egg=gxi_tenk10k
 h11==0.16.0
 httpcore==1.0.9
 httpx==0.28.1

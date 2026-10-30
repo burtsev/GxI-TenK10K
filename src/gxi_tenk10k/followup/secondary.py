@@ -23,13 +23,19 @@ async def geometry(out):
         for row in f.to_dict('records'):
             if row['observation_id'] in done:continue
             result=dict(observation_id=row['observation_id'],locus=row['locus'],gene=row['gene'],cell=row['cell'],SNP=row['SNP'],beta=row['beta'],status='complete')
-            start,end=window(int(row['tss1']),row['strand'],40960)
+            try:start,end=window(int(row['tss1']),row['strand'],40960)
+            except ValueError:start,end=-1,0
             if start<0 or end>fa.get_reference_length(row['chrom']):result.update(status='contig_boundary')
             else:
                 s=fa.fetch(row['chrom'],start,end).upper();ref,alt,tss,index=oriented_pair(s,start,int(row['pos1']),row['ref'],row['alt'],int(row['tss1']),row['strand'])
-                a=await client.predict(ref,contexts[row['gene'],row['cell']],tss);b=await client.predict(alt,contexts[row['gene'],row['cell']],tss)
-                result.update(ref_window=a['window'],alt_window=b['window'],variant_index=index,tss_index=tss,delta=b['score']-a['score'],valid_comparison=a['window']==b['window'] and covered(index,a['window'],len(ref)),ref_cache_key=a['cache_key'],alt_cache_key=b['cache_key'])
-                if not result['valid_comparison']:result['status']='unequal_or_uncovered_effective_window'
+                from ..gi.client import Blocked
+                try:
+                    a=await client.predict(ref,contexts[row['gene'],row['cell']],tss);b=await client.predict(alt,contexts[row['gene'],row['cell']],tss)
+                    result.update(ref_window=a['window'],alt_window=b['window'],variant_index=index,tss_index=tss,delta=b['score']-a['score'],valid_comparison=a['window']==b['window'] and covered(index,a['window'],len(ref)),ref_cache_key=a['cache_key'],alt_cache_key=b['cache_key'])
+                    if not result['valid_comparison']:result['status']='unequal_or_uncovered_effective_window'
+                except Blocked as e:
+                    if 'HTTP 422' not in str(e):raise
+                    result.update(status='API_input_refused',valid_comparison=False,reason=str(e))
             with path.open('a') as h:h.write(json.dumps(result)+'\n')
             rows.append(result)
             if len(rows)%10==0:print('geometry',len(rows),'of',len(f),flush=True)
@@ -53,11 +59,15 @@ def secondary(out):
             strata[field]={str(k):summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby(bins,observed=True)}
         family={k:summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby('family')}
         percell={k:summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby('cell')}
+        pathway_config=json.load(open('configs/followup_pathways.json'));pathways={}
+        for entry in pathway_config['pathways']:
+            group=candidate[candidate.symbol.isin(entry['symbols'])];cg=contrasts(out,'test',group)
+            pathways[entry['id']]={'name':entry['name'],'variant':summary(group.beta,group.delta,group.locus,B=2000),'cross_cell':summary(cg.observed,cg.predicted,cg.locus,B=2000),'n_genes':int(group.gene.nunique())}
         heuristics={}
         for field,sign in [('abs_distance',-1),('maf',1),('gc',1)]:heuristics[field]={'magnitude_spearman_observed':rho(abs(candidate.beta.to_numpy()),sign*candidate[field].to_numpy()),'allele_direction':'unavailable without allele features'}
         # Descriptive precision weighting uses observed SE, never input selection.
         ok=np.isfinite(candidate.delta);weights=1/(candidate.SE.to_numpy()**2);from .analysis import correct
         weighted=float(np.sum(weights*correct(candidate.beta,candidate.delta))/weights.sum())
-        results[arm]={'strata':strata,'family':family,'per_cell_ci':percell,'heuristics':heuristics,'precision_weighted_all_pair_direction':weighted,'cell_agnostic_contrast':{'correct_fraction':0.,'nonzero_coverage':0.,'explanation':'A shared variant effect across cells implies exactly zero contrast.'}}
-    results['external_baselines']={name:{'status':'not_run','reason':reason} for name,reason in [('PromoterAI','No authorized executable model or licensed matched precomputed predictions supplied; published median is an unmatched narrative comparison.'),('AlphaGenome','No authenticated executable external-model access configured for the exact frozen cohort.'),('Borzoi','No validated local checkpoint, output-to-cell mapping and matching executable workflow configured.'),('caQTL','No independent matched caQTL source included in the authorized Zenodo/source release.'),('regulatory_pathways','No prespecified verified pathway-membership source in the frozen allowed-source manifest; do not invent post hoc pathway labels.')]}
+        results[arm]={'pathways':pathways,'pathway_scope':pathway_config['status'],'strata':strata,'family':family,'per_cell_ci':percell,'heuristics':heuristics,'precision_weighted_all_pair_direction':weighted,'cell_agnostic_contrast':{'correct_fraction':0.,'nonzero_coverage':0.,'explanation':'A shared variant effect across cells implies exactly zero contrast.'}}
+    results['external_baselines']={name:{'status':'not_run','reason':reason} for name,reason in [('PromoterAI','No authorized executable model or licensed matched precomputed predictions supplied; published median is an unmatched narrative comparison.'),('AlphaGenome','No authenticated executable external-model access configured for the exact frozen cohort.'),('Borzoi','No validated local checkpoint, output-to-cell mapping and matching executable workflow configured.'),('caQTL','No independent matched caQTL source included in the authorized Zenodo/source release.')]}
     save(out/'secondary_metrics.json',results);return results

@@ -65,3 +65,37 @@ def test_cell_contrast_and_permutation(tmp_path):
     f=pd.DataFrame([dict(pair_id='p',cell='A',beta=1,SE=.01,delta=.2,locus='a',observation_id='x'),dict(pair_id='p',cell='B',beta=-1,SE=.01,delta=-.2,locus='a',observation_id='y')])
     c=contrasts(tmp_path,'test',f);assert c.observed.iloc[0]==2 and c.predicted.iloc[0]==.4 and c.precision_subset.iloc[0]
     a=primary_permutation(f,c,R=30);assert a==primary_permutation(f,c,R=30);assert 0<a['p_A']<=1
+
+def test_contrast_quantization_avoids_float_rank_artifacts(tmp_path):
+    p=pd.DataFrame([dict(split='test',pair_id=k,locus=k,cell_a='A',cell_b='B') for k in ['p','q']]);p.to_csv(tmp_path/'preselected_cell_pairs.tsv',sep='\t',index=False)
+    f=pd.DataFrame([dict(pair_id=k,cell=cell,beta=1 if cell=='A' else 0,SE=.1,delta=d,locus=k,observation_id=k+cell) for k,ds in [('p',[.3,.2]),('q',[.2,.1])] for cell,d in zip(['A','B'],ds)])
+    c=contrasts(tmp_path,'test',f);assert c.predicted.iloc[0]==c.predicted.iloc[1]==.1
+
+def test_runner_checkpoint_resume_and_geometry_failure(tmp_path,monkeypatch):
+    from gxi_tenk10k.followup import runner
+    from gxi_tenk10k.util import save
+    from gxi_tenk10k.gi.client import cache_key
+    frame=pd.DataFrame([dict(gene='g',chrom='chr1',tss1=26001,strand=s,pos1=26001,ref='A',alt='C',observation_id=s,role='candidate',locus='l',cell='B',pair_id='p',beta=1,SE=.1) for s in ['+','-']])
+    frame.to_parquet(tmp_path/'cohort_development.parquet',index=False)
+    save(tmp_path/'api_preflight.json',{'passed':True});save(tmp_path/'gi_openapi.json',{'info':{'version':'fixture'}})
+    monkeypatch.setattr(runner,'freeze',lambda out:None)
+    monkeypatch.setattr(runner,'registry',lambda out:pd.DataFrame([dict(split='development',gene='g',cell='B',arm=arm,description='human B cell') for arm in ['baseline','canonical_cell_only']]))
+    class FA:
+        def __init__(self,*args):pass
+        def fetch(self,c,a,b):return 'A'*(b-a)
+        def close(self):pass
+    monkeypatch.setattr(runner.pysam,'FastaFile',FA)
+    class Client:
+        total=0;concurrency=2;calls=0;hits=0;rate_events=0;bad=False
+        def __init__(self,*args):pass
+        async def predict(self,seq,context,tss):
+            type(self).total+=1
+            return {'score':1+seq.count('C')*.1+seq.count('G')*.1,'window':[0,100] if self.bad else [0,40960],'cache_key':str(type(self).total)}
+        def adapt(self):pass
+        async def close(self):pass
+    monkeypatch.setattr(runner,'AsyncGI',Client)
+    a=asyncio.run(runner.score(tmp_path,'development',arms=['baseline']));assert len(a)==2 and np.allclose(a.delta,.1)
+    calls=Client.total;b=asyncio.run(runner.score(tmp_path,'development',arms=['baseline']));assert len(b)==2 and Client.total==calls
+    # An uncovered ALT/REF interval must fail without accepting a new job.
+    Client.bad=True
+    with pytest.raises(ValueError,match='scored geometry'):asyncio.run(runner.score(tmp_path,'development',arms=['canonical_cell_only']))
