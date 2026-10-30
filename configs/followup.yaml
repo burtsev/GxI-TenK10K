@@ -1,0 +1,86 @@
+# Proposed follow-up. Codex must freeze resolved exact cohort and metadata before test scoring.
+study:
+  name: gxi-tenk10k-followup
+  status: proposed
+  seed: 20261030
+  assembly: GRCh38
+  gencode_release: "44"
+  old_report_is_exploratory: true
+  require_complete_historical_exclusion_ledger_for_confirmatory: true
+sources:
+  zenodo_record: 18221260
+  archives:
+    - common_variant_gene_level_results_with_annotated_fails.zip
+    - susie_summary.zip
+    - common_all_cis_pvalues_100kb.zip
+selection:
+  dev_loci_target: 250
+  test_variant_gene_pairs_target: 1000
+  test_loci_min_target: 600
+  test_pairs_expansion_if_available: 2000
+  min_high_pip: 0.90
+  secondary_pip_floor: 0.50
+  cell_types_min_target: 12
+  cell_types_max: 28
+  cell_contexts_per_variant_max: 6
+  independent_locus_window_bp: 100000
+  min_informative_cell_contrasts_target: 500
+  require_preselected_cell_pairs: true
+  controls_per_candidate_target: 1
+  max_maf_gap: 0.05
+  max_tss_distance_gap_bp: 5000
+  max_local_gc_gap: 0.10
+model:
+  task: expression
+  primary_id: g0-expression-8192
+  primary_sequence_bp: 40960
+  tss_index_zero_based: 20480
+  geometry_sensitivity_bp: 81920
+  geometry_sensitivity_loci: 150
+  require_identical_ref_alt_scored_window: true
+  require_variant_covered_by_both_scored_windows: true
+  primary_description_template: "Human peripheral blood {cell}, unstimulated, 10x 3-prime single-cell RNA-seq"
+  # Verify study assay terminology before freezing test protocol.
+context:
+  development_arms:
+    - baseline
+    - canonical_cell_only
+    - cell_plus_verified_cl_id
+    - verified_cl_id_only
+    - structured_verified_assay
+    - baseline_plus_gene_symbol
+    - baseline_plus_ensembl_id
+    - baseline_plus_symbol_and_ensembl
+    - historical_repeated_paraphrase
+    - duplicated_baseline
+  negative_controls_dev_only:
+    - swapped_gene_label
+    - nonsense_gene_label
+    - shuffled_cell_label
+  minimum_dev_improvement_pp_for_freezing: 3
+  maximum_coverage_loss_pp: 3
+  evaluate_one_selected_alternative_on_test: true
+api:
+  auth_env: GI_API_KEY
+  base_url_env: GI_BASE_URL
+  transport: direct_rest_or_official_gi_client
+  enforce_total_quota: false
+  max_total_requests: null
+  initial_concurrency: 2
+  adaptive_concurrency: true
+  timeout_seconds: 120
+  max_retries_per_request: 5
+  honor_retry_after: true
+  durable_cache: true
+  require_preflight: true
+analysis:
+  co_primary:
+    - cross_cell_all_pair_direction_and_spearman
+    - variant_all_pair_direction
+  near_zero_epsilon: 0.000001
+  secondary_epsilons: [0.0001, 0.001]
+  bootstrap_locus_replicates: 3000
+  permutation_replicates: 2000
+  multiple_testing_method: holm
+  seed: 20261030
+  output_root: results
