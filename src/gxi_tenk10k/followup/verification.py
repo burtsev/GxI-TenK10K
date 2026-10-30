@@ -15,10 +15,13 @@ def verify(out):
     for row in m['reference']:
         p=root/row['name'];assert file_hash(p)==row['sha256'];assert file_hash(p,'md5')==expected[row['name']]==row['md5']
     prior=json.load(open('docs/runs/live-20261029/reference_manifest.json'));fa=root/'GRCh38.primary_assembly.genome.fa';assert file_hash(fa)==prior['sha256']
-    missing=[]
+    missing=[];markers=[]
     for path in sorted((out/'summary_pool').glob('*.parquet')):
         assert file_hash(path)==json.load(open(path.with_suffix('.json')))['sha256']
-        f=pd.read_parquet(path);counts={c:int(f[c].isna().sum()) for c in f.columns};missing.append(dict(cell=path.stem,n_retained=len(f),missing_by_field=counts,invalid_beta=int((~np.isfinite(f.beta)).sum()),invalid_se=int(((~np.isfinite(f.SE))|(f.SE<=0)).sum()),invalid_maf=int((~f.maf.between(0,.5)).sum()),min_N=float(f.N.min()),max_N=float(f.N.max())))
+        f=pd.read_parquet(path)
+        expected_marker=f.chrom.str.removeprefix('chr')+':'+f.pos1.astype('int64').astype(str)+':'+f.ref+':'+f.alt
+        markers.append({'cell':path.stem,'retained_rows':len(f),'marker_column_disagreements':int(f.SNP.ne(expected_marker).sum())})
+        counts={c:int(f[c].isna().sum()) for c in f.columns};missing.append(dict(cell=path.stem,n_retained=len(f),missing_by_field=counts,invalid_beta=int((~np.isfinite(f.beta)).sum()),invalid_se=int(((~np.isfinite(f.SE))|(f.SE<=0)).sum()),invalid_maf=int((~f.maf.between(0,.5)).sum()),min_N=float(f.N.min()),max_N=float(f.N.max())))
     schemas=[]
     with zipfile.ZipFile('data/raw/common_all_cis_pvalues_100kb.zip') as archive:
         from ..data.parse import read_table
@@ -26,5 +29,7 @@ def verify(out):
             if not name.endswith('.tsv'):continue
             with archive.open(name) as raw:
                 reader,delimiter=read_table(raw);first=next(reader);schemas.append({'member':name,'delimiter':delimiter,'columns':reader.fieldnames,'sample_fields':len(first)})
-    save(out/'data_verification.json',{'archive_checks':checks,'reference':prior,'retained_data_missingness':missing,'prior_full_schema_audit':schemas,'all_full_source_members_read_to_eof_and_crc_checked':len(json.load(open(out/'full_source_audit.json')))==28,'missingness_scope':'retained source pool only; entire-archive missing-field counts not computed','live_doi':live['metadata']['doi']})
+    save(out/'data_verification.json',{'archive_checks':checks,'reference':prior,'reference_index_sha256':file_hash(str(fa)+'.fai'),'retained_data_missingness':missing,'prior_full_schema_audit':schemas,'all_full_source_members_read_to_eof_and_crc_checked':len(json.load(open(out/'full_source_audit.json')))==28,'missingness_scope':'retained source pool only; entire-archive missing-field counts not computed','live_doi':live['metadata']['doi']})
+    save(out/'marker_consistency_audit.json',markers)
+    if any(m['marker_column_disagreements'] for m in markers):raise ValueError('Source marker/allele columns disagree')
     return checks

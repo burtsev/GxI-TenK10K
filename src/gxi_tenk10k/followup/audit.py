@@ -17,7 +17,7 @@ async def audit(out):
         r=httpx.get(source['ontology'].get('pinned_url',source['ontology']['url']),timeout=120,follow_redirects=True);r.raise_for_status();ontology.write_bytes(r.content)
     if file_hash(ontology)!=source['ontology']['sha256']:raise ValueError('Ontology version mismatch')
     sources={}
-    for name,url in [('gi_openapi.json','https://api.genomicintelligence.ai/v1/openapi.json'),('gi_models.json','https://api.genomicintelligence.ai/v1/tasks/expression/models'),('gi_docs.md','https://docs.genomicintelligence.ai/rest-api.md')]:
+    for name,url in [('gi_openapi.json','https://api.genomicintelligence.ai/v1/openapi.json'),('gi_models.json','https://api.genomicintelligence.ai/v1/tasks/expression/models'),('gi_docs.md','https://docs.genomicintelligence.ai/rest-api.md'),('gi_limits.md','https://docs.genomicintelligence.ai/reference/limits.md')]:
         r=httpx.get(url,follow_redirects=True,timeout=60);r.raise_for_status()
         p=out/name
         if p.exists() and p.read_bytes()!=r.content:raise ValueError('Pinned API contract changed; explicit amendment required')

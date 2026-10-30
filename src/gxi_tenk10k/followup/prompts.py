@@ -1,17 +1,18 @@
 """Immutable input-only description registry; no association outcomes used."""
 import json
+from typing import Mapping, Any
 from pathlib import Path
 import pandas as pd
 from ..util import save,digest,file_hash
 ARMS=['baseline','canonical_cell_only','cell_plus_verified_cl_id','verified_cl_id_only','structured_verified_assay','baseline_plus_gene_symbol','baseline_plus_ensembl_id','baseline_plus_symbol_and_ensembl','historical_repeated_paraphrase','duplicated_baseline']
 GENE_ARMS=set(ARMS[5:8])
-def descriptions(row,mapping):
+def descriptions(row: Mapping[str, Any], mapping: Mapping[str, Mapping[str, Any]]) -> dict[str, str | None]:
     cell=mapping[row['cell']];name=cell['canonical'];cl=cell.get('cl_id')
     baseline=f'Human peripheral blood {name}, unstimulated, 10x 3-prime single-cell RNA-seq'
     historical=f'Homo sapiens peripheral-blood {name}, unstimulated. Single-cell RNA sequencing with 10x Genomics Chromium 3-prime poly(A) capture; source material: peripheral blood mononuclear cells (PBMCs). '
     eligible=bool(cell['ontology_eligible']) and pd.notna(cl)
     return dict(zip(ARMS,[baseline,name,f'{name}; {cl}' if eligible else None,cl if eligible else None,f'Organism: Homo sapiens. Tissue: peripheral blood mononuclear cells. Cell: {name}. State: unstimulated. Assay: 10x Genomics 3-prime single-cell RNA sequencing.',baseline+f". Gene: {row['symbol']}",baseline+f". Gene: {row['gene']}",baseline+f". Gene: {row['symbol']} ({row['gene']})",historical*2,baseline+' '+baseline]))
-def registry(out):
+def registry(out: str | Path) -> pd.DataFrame:
     out=Path(out);mapping=pd.read_csv(out/'cell_mapping.tsv',sep='\t').set_index('cell').to_dict('index')
     # Actual source header is explicitly checked, never silently substituted.
     rows=[]
@@ -24,4 +25,6 @@ def registry(out):
         old=pd.read_parquet(target)
         if digest(old.to_json())!=digest(frame.to_json()):raise ValueError('Prompt registry changed')
     else:frame.to_parquet(target,index=False)
+    tsv=out/'description_registry.tsv'
+    if not tsv.exists():frame.to_csv(tsv,sep='\t',index=False,na_rep='NA')
     return frame

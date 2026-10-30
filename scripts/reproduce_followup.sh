@@ -8,9 +8,9 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock
 .venv/bin/python -m pip install --no-deps -e .
 .venv/bin/python scripts/fetch_study_sources.py --include-full
-.venv/bin/pytest -q
 outdir=results/followup-20261030
 mkdir -p "$outdir/recovery"
+.venv/bin/pytest -q | tee "$outdir/offline_tests.txt"
 # Historical loci are a frozen audited input, not recomputed from absent caches.
 cp docs/runs/followup-20261030/preregistration/legacy_exclusions.tsv "$outdir/recovery/"
 cp docs/runs/followup-20261030/preregistration/recovery_audit.json "$outdir/recovery/"

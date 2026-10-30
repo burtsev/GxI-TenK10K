@@ -67,6 +67,7 @@ def freeze(out):
                 xp=pip.get((x['gene'],x['SNP'],x['cell']))
                 if xp is not None and xp>=.5:continue
                 if not valid(x) or x['ref']==x['alt']:continue
+                if variant(x['SNP'])!=(x['chrom'].removeprefix('chr'),int(x['pos1']),x['ref'],x['alt']):continue
                 i=int(x['pos1'])-1-start
                 if not 0<=i<len(s) or s[i]!=x['ref']:continue
                 xgc=gc(x['pos1'],start,s,p)

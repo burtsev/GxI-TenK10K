@@ -24,6 +24,8 @@ def main(argv):
         verify(out)
         from .prompts import registry
         registry(out)
+        from .secondary import freeze_geometry
+        freeze_geometry(out)
     elif a.stage=='score-dev':result={'rows':len(asyncio.run(score(out,'development')))}
     elif a.stage=='select-context':result=dev_select(out)
     elif a.stage=='score-test':result={'rows':len(asyncio.run(score(out,'test')))}

@@ -16,7 +16,10 @@ def freeze_geometry(out):
     else:f.to_parquet(target,index=False)
     return f
 async def geometry(out):
-    out=Path(out);f=freeze_geometry(out);reg=pd.read_parquet(out/'prompt_registry.parquet');contexts={(r.gene,r.cell):r.description for r in reg[(reg.split=='development')&(reg.arm=='baseline')].itertuples()}
+    out=Path(out)
+    from .binding import validate_reference
+    validate_reference(out)
+    f=freeze_geometry(out);reg=pd.read_parquet(out/'prompt_registry.parquet');contexts={(r.gene,r.cell):r.description for r in reg[(reg.split=='development')&(reg.arm=='baseline')].itertuples()}
     client=AsyncGI('data/cache/followup-geometry',json.load(open(out/'gi_openapi.json')));fa=pysam.FastaFile(FASTA)
     path=out/'geometry_results.jsonl';rows=[json.loads(l) for l in path.open()] if path.exists() else [];done={r['observation_id'] for r in rows}
     try:

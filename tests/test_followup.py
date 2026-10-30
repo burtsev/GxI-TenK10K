@@ -79,6 +79,7 @@ def test_runner_checkpoint_resume_and_geometry_failure(tmp_path,monkeypatch):
     frame.to_parquet(tmp_path/'cohort_development.parquet',index=False)
     save(tmp_path/'api_preflight.json',{'passed':True});save(tmp_path/'gi_openapi.json',{'info':{'version':'fixture'}})
     monkeypatch.setattr(runner,'freeze',lambda out:None)
+    monkeypatch.setattr(runner,'validate_reference',lambda out:None)
     monkeypatch.setattr(runner,'registry',lambda out:pd.DataFrame([dict(split='development',gene='g',cell='B',arm=arm,description='human B cell') for arm in ['baseline','canonical_cell_only']]))
     class FA:
         def __init__(self,*args):pass
@@ -99,3 +100,51 @@ def test_runner_checkpoint_resume_and_geometry_failure(tmp_path,monkeypatch):
     # An uncovered ALT/REF interval must fail without accepting a new job.
     Client.bad=True
     with pytest.raises(ValueError,match='scored geometry'):asyncio.run(runner.score(tmp_path,'development',arms=['canonical_cell_only']))
+
+def test_cell_permutation_is_shared_across_locus_despite_row_order(tmp_path):
+    p=pd.DataFrame([dict(split='test',pair_id=k,locus='L',cell_a='A',cell_b='B') for k in ['p','q']]);p.to_csv(tmp_path/'preselected_cell_pairs.tsv',sep='\t',index=False)
+    rows=[]
+    for pair,order in [('p',['A','B']),('q',['B','A'])]:
+        for cell in order:rows.append(dict(pair_id=pair,cell=cell,beta=1 if cell=='A' else -1,SE=.1,delta=.2 if cell=='A' else -.2,locus='L',observation_id=pair+cell))
+    f=pd.DataFrame(rows);c=contrasts(tmp_path,'test',f);m=primary_permutation(f,c,R=50)
+    assert {x[0] for x in m['null']}=={0.,1.}
+
+def test_paired_context_comparison_identical_models_has_zero_gain():
+    from gxi_tenk10k.followup.analysis import paired_comparison
+    f=pd.DataFrame({'observation_id':list('abcd'),'locus':['L1','L1','L2','L2'],'beta':[1,2,-1,-2],'delta':[.1,.2,-.1,-.2]})
+    c=pd.DataFrame({'locus':f.locus,'observed':f.beta,'predicted':f.delta})
+    m=paired_comparison(f,f,c,c,B=50,R=30)
+    assert m['variant']['gain']==0 and m['variant']['rho_gain']==0
+    assert m['cross_cell']['ci95']==[0.,0.] and m['cross_cell']['rho_gain_ci95']==[0.,0.]
+    assert m['holm_p']==[1.,1.]
+
+def test_selection_binding_is_immutable_on_resume(tmp_path):
+    from gxi_tenk10k.followup.binding import validate_selection
+    from gxi_tenk10k.followup.analysis import dev_select
+    from gxi_tenk10k.util import save,file_hash
+    source=tmp_path/'analysis_fixture.py';source.write_text('unchanged')
+    save(tmp_path/'code_manifest.json',{str(source):file_hash(source)})
+    lock={'selected_arm':'baseline','file_hashes':{'code_manifest.json':file_hash(tmp_path/'code_manifest.json')}};save(tmp_path/'context_selection.json',lock)
+    assert dev_select(tmp_path)==lock
+    before=(tmp_path/'code_manifest.json').read_bytes();source.write_text('changed')
+    with pytest.raises(ValueError,match='Frozen implementation'):dev_select(tmp_path)
+    assert (tmp_path/'code_manifest.json').read_bytes()==before
+    source.write_text('unchanged');(tmp_path/'code_manifest.json').write_text('{}')
+    with pytest.raises(ValueError,match='Frozen selection input'):validate_selection(tmp_path)
+
+def test_reference_binding_detects_sequence_and_coordinate_changes(tmp_path):
+    from gxi_tenk10k.followup.binding import validate_reference
+    from gxi_tenk10k.util import save,file_hash
+    fa=tmp_path/'fixture.fa';fa.write_text('>chr1\nACGT\n');index=tmp_path/'fixture.fa.fai';index.write_text('fixture-index')
+    save(tmp_path/'data_verification.json',{'reference':{'sha256':file_hash(fa)},'reference_index_sha256':file_hash(index)})
+    validate_reference(tmp_path,fa);index.write_text('different-offset')
+    with pytest.raises(ValueError,match='coordinate index'):validate_reference(tmp_path,fa)
+    fa.write_text('>chr1\nTGCA\n')
+    with pytest.raises(ValueError,match='FASTA changed'):validate_reference(tmp_path,fa)
+
+def test_context_choice_obeys_gene_free_coverage_and_zero_rho_tie_break():
+    from gxi_tenk10k.followup.analysis import select_gene_free
+    def metric(acc,rho,coverage=100):return {'cross_cell':{'all_pair_accuracy':acc,'spearman':rho,'n_all':100,'n_scored':coverage},'variant':{'all_pair_accuracy':.6}}
+    m={'baseline':metric(.4,.1),'canonical_cell_only':metric(.44,0.),'structured_verified_assay':metric(.44,-.05),'baseline_plus_gene_symbol':metric(.99,.9),'duplicated_baseline':metric(.45,.2,96),'historical_repeated_paraphrase':metric(.42,.5)}
+    selected,eligible=select_gene_free(m);assert selected=='canonical_cell_only';assert set(eligible)=={'canonical_cell_only','structured_verified_assay'}
+    assert select_gene_free({'baseline':m['baseline'],'historical_repeated_paraphrase':m['historical_repeated_paraphrase']})==('baseline',[])

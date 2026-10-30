@@ -4,12 +4,25 @@ from pathlib import Path
 import numpy as np,pandas as pd
 from ..util import save,file_hash
 from .freeze import freeze
+from ..data.parse import variant
 from .runner import export
 
+def cohort_metadata(out: str | Path) -> dict:
+    from .analysis import contrasts
+    out=Path(out);result={}
+    for split in ['development','test']:
+        f=pd.read_parquet(out/f'cohort_{split}.parquet');a=f[f.role=='candidate'].copy();a['delta']=np.nan;c=contrasts(out,split,a)
+        result[split]={'genes':int(a.gene.nunique()),'variant_gene_pairs':int(a.pair_id.nunique()),'locus_clusters':int(a.locus.nunique()),'candidate_variant_cell_observations':len(a),'control_variant_cell_observations':len(f[f.role=='control']),'preselected_contrasts':len(c),'precision_contrasts':int(c.precision_subset.sum()),'precision_loci':int(c[c.precision_subset].locus.nunique()),'observed_beta_missing':int(f.beta.isna().sum()),'observed_SE_missing':int(f.SE.isna().sum()),'precision_scope':'Descriptive observed stratum; no model outcomes used.'}
+    save(out/'cohort_description.json',result);return result
+
 def qa(out):
-    out=Path(out);frozen=freeze(out);dev=pd.read_parquet(out/'cohort_development.parquet');test=pd.read_parquet(out/'cohort_test.parquet');legacy=pd.read_csv(out/'recovery/legacy_exclusions.tsv',sep='\t')
+    out=Path(out)
+    from .binding import validate_selection
+    validate_selection(out)
+    frozen=freeze(out);dev=pd.read_parquet(out/'cohort_development.parquet');test=pd.read_parquet(out/'cohort_test.parquet');legacy=pd.read_csv(out/'recovery/legacy_exclusions.tsv',sep='\t')
     checks={'historical_registry_complete':json.load(open(out/'recovery/recovery_audit.json'))['complete'],'no_dev_test_genes':not bool(set(dev.gene)&set(test.gene)),'no_dev_test_clusters':not bool(set(dev.locus)&set(test.locus)),'no_historical_genes':not bool(set(legacy.gene)&set(pd.concat([dev,test]).gene)),'frozen_targets_met':frozen['test_target_met']}
     for split,f in [('development',dev),('test',test)]:
+        checks[split+'_source_allele_and_beta_orientation']=all(variant(r.SNP)==(r.chrom.removeprefix('chr'),int(r.pos1),r.ref,r.alt) and r.effect_allele==r.alt and r.beta_alt==r.beta for r in f.itertuples())
         checks[split+'_unique_observations']=not f.observation_id.duplicated().any();checks[split+'_finite_effects']=bool(np.isfinite(f.beta).all() and np.isfinite(f.SE).all() and (f.SE>0).all());checks[split+'_at_most_six_cells']=bool(f.groupby(['pair_id','role']).cell.nunique().le(6).all())
         a=f[f.role=='candidate'];b=f[f.role=='control'];matched=a.merge(b,on=['pair_id','cell'],suffixes=('_candidate','_control'),validate='one_to_one')
         checks[split+'_matched_all_rows']=len(matched)==len(a)==len(b)
@@ -38,11 +51,16 @@ def qa(out):
         path=next(p for p in candidates if p.exists());response_hashes[key]=file_hash(path);save(out/'response_hashes.json',response_hashes)
     checks['all_inference_cache_files_present']=len(response_hashes)==len(keys)
     import shutil
-    predictions=pd.concat([export(out,s) for s in ['development','test']],ignore_index=True);predictions.to_parquet(out/'predictions.parquet',index=False)
+    predictions=pd.concat([export(out,s) for s in ['development','test']],ignore_index=True)
+    complete=predictions[predictions.status=='complete']
+    from ..genome.variants import covered
+    checks['all_complete_variant_indices_covered']=all(covered(int(r.variant_index),r.scored_window,40960) for r in complete.itertuples())
+    window_counts=complete.scored_window.map(lambda w:str(list(w))).value_counts().to_dict()
+    predictions.to_parquet(out/'predictions.parquet',index=False)
     predictions[predictions.status!='complete'].reindex(columns=['observation_id','split','arm','gene','SNP','cell','status','reason']).to_csv(out/'coverage_exclusions.tsv',sep='\t',index=False)
     pd.concat([dev,test],ignore_index=True).to_parquet(out/'observed_effects.parquet',index=False)
     shutil.copy2(out/'recovery/legacy_exclusions.tsv',out/'legacy_exclusions.tsv');shutil.copy2('scripts/reproduce_followup.sh',out/'reproduce.sh')
-    result={'checks':checks,'passed':sum(bool(v) for v in checks.values()),'failed':sum(not bool(v) for v in checks.values()),'reference_variants_checked':len(alleles),'reference_failures':int((~alleles.ref_pass).sum()),'unit_tests':unit,'response_hashes_sha256':file_hash(out/'response_hashes.json'),'distinct_inference_responses':len(keys)}
+    result={'effective_span_counts':window_counts,'cohort_counts':cohort_metadata(out),'checks':checks,'passed':sum(bool(v) for v in checks.values()),'failed':sum(not bool(v) for v in checks.values()),'reference_variants_checked':len(alleles),'reference_failures':int((~alleles.ref_pass).sum()),'unit_tests':unit,'response_hashes_sha256':file_hash(out/'response_hashes.json'),'distinct_inference_responses':len(keys)}
     save(out/'qa.json',result)
     if result['failed']:raise ValueError('Scientific acceptance QA failed: '+str([k for k,v in checks.items() if not v]))
     return result

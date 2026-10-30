@@ -4,12 +4,13 @@ from pathlib import Path
 from datetime import datetime,timezone
 from email.utils import parsedate_to_datetime
 import httpx
+from typing import Any
 from ..gi.client import cache_key,validate_response,Blocked
 from ..util import digest,save
 
 
 class AsyncGI:
-    def __init__(self,root,contract,model='g0-expression-8192',timeout=120,retries=5):
+    def __init__(self, root: str | Path, contract: dict[str, Any], model: str = 'g0-expression-8192', timeout: float = 120, retries: int = 5) -> None:
         self.root=Path(root);self.root.mkdir(parents=True,exist_ok=True)
         self.contract=contract;self.model=model;self.contract_hash=digest(contract)
         self.base=os.getenv('GI_BASE_URL','https://api.genomicintelligence.ai').rstrip('/')
@@ -21,17 +22,17 @@ class AsyncGI:
         self.next_request=0.;self.interval=.1;self.cooldown=0.;self.calls=0;self.hits=0;self.rate_events=0
         self.concurrency=2;self.maximum_concurrency=32;self.batch_successes=0
         self.ledger=self.root/'requests.jsonl';self.responses=self.root/'responses.jsonl'
-    def key_for(self,seq,context,tss):
+    def key_for(self, seq: str, context: str, tss: int) -> str:
         return cache_key(seq,context,self.model,tss,self.contract['info']['version'],self.contract_hash,self.base)
-    async def log(self,path,row):
+    async def log(self, path: Path, row: dict[str, Any]) -> None:
         async with self.io_lock:
             with path.open('a') as f:f.write(json.dumps(row,allow_nan=False)+'\n')
-    async def pace(self):
+    async def pace(self) -> None:
         async with self.pace_lock:
             delay=max(self.next_request,self.cooldown)-time.monotonic()
             if delay>0:await asyncio.sleep(delay)
             self.next_request=time.monotonic()+self.interval
-    async def predict(self,seq,context,tss,force=False):
+    async def predict(self, seq: str, context: str, tss: int, force: bool = False) -> dict[str, Any]:
         if not 9198<=len(seq)<=500000 or not 4599<=tss<=len(seq)-4599:raise ValueError('Invalid input geometry')
         if set(seq)-set('ACGTN') or not context.strip():raise ValueError('Invalid sequence/context')
         key=self.key_for(seq,context,tss);path=self.root/(key+'.json')
@@ -74,8 +75,8 @@ class AsyncGI:
                 save(path,data);self.batch_successes+=1
                 return dict(result,cache_key=key)
             raise Blocked('Bounded retries exhausted')
-    def adapt(self,had_errors=False):
+    def adapt(self, had_errors: bool = False) -> None:
         if had_errors:self.concurrency=max(2,self.concurrency//2)
         elif self.batch_successes>=32:
             self.concurrency=min(self.maximum_concurrency,self.concurrency*2);self.batch_successes=0
-    async def close(self):await self.http.aclose()
+    async def close(self) -> None:await self.http.aclose()
