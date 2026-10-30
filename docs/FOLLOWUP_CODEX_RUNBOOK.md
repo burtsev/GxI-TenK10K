@@ -1,0 +1,32 @@
+# Follow-up execution instructions for Codex
+
+Execute **docs/FOLLOWUP_PROTOCOL.md** using **configs/followup.yaml**. This is a new study, not an amendment to the original pilot. GI access is via `GI_API_KEY` (direct official API or pinned GI integration-kit); **unlimited total usage for this key** is user-provided information. Do not install/use GI ChatGPT skill/MCP as a requirement. Continue to obey server concurrency, 429, Retry-After and bounded retry policy. Do not set a hard total-call cap. Use the VM and local persistent cache.
+
+## Mandatory stage gates
+
+**Stage 0 — recovery, not computation:** Inspect `git status`, remote branches, git logs, previous VM's working directory (including untracked `results/`, `data/`, scripts and cache), and Slack reports. The GitHub `main` branch inspected on 30 October contained only the original 8 setup files, not the completed pilot source. Back up working artifacts and identify the exact source/commit if possible; never overwrite previous code/results with a blind clone, pull, or reset. Recover the full historical scoring registry (including smoke, both prompt rounds, old and amended geometries, all ref/alt cells, control variants). If missing, declare the new evaluation exploratory pending proven isolation.
+
+**Stage 1 — data and API audit:** Verify actual Zenodo ZIP content/schema, archive hashes, GENCODE v44, GRCh38, effect-allele mapping and cell metadata. Test the GI API auth without printing the key; resolve and pin `g0-expression-8192`, request/response format, TSS indexing, `options.description`, scored-window behavior, model ID/version and usage. Run local offline tests and one real REF/ALT smoke. Confirm 40,960 bp + TSS 20480 full effective coverage for reference AND alternate. On mismatch stop, fix before freezing, and record amendment. If data are available from prior VM, reuse verified checksums; avoid needless 16.6-GB re-download.
+
+**Stage 2 — build and freeze cohorts:** Create stable historical exclusions and cluster old and prospective loci by at least overlapping +/-100-kb TSS windows and LD if available. Sample development and **entirely unseen test loci** deterministically (target 250 dev and 1000 test variant-gene pairs/600 clusters). Use PIP >=0.90, verified ALT beta, unique SNP/gene/tissue IDs, REF match, identical scored geometry, prespecified cell pairs and matched uncertain controls. **Candidate/control matching and test membership are frozen before any confirmatory prediction**; never adjust after seeing GI outcomes. Capture cohort and source hash, set `frozen_protocol.json` and immutable file/checksum.
+
+**Stage 3 — implement/extend Python code:** Reuse local existing package if present; otherwise implement `gxi-tenk10k followup audit|freeze|score-dev|select-context|score-test|evaluate|report|resume`. Use typed, tested functions for geometry, correct SNV edits including negative strand, effect-allele orientation, request cache, retries, prompt registry, candidate/control matching, locus bootstrap, clustered permutation, Holm correction, and plots. Add smoke and exact reproducibility checks. Unit tests must be runnable offline, and integration tests must exercise the real API only when deliberately enabled.
+
+**Stage 4 — exploration only on development:** Score all 10 preregistered context arms for up to 250 dev loci and 6 measured cell types; evaluate exact frozen registry. Give a separate, clearly marked gene-aware track for prompts containing symbol/Ensembl ID, and include shuffled/nonsense label diagnostics. Use all-pair, not conditional-only, correctness as primary selection. Select exactly one competing alternative from gene-free arms via preregistered 3pp gain and <=3pp coverage-loss rule, or retain baseline. Keep gene-aware track exploratory. Lock the decision, CI code, registry and config before opening test inference.
+
+**Stage 5 — confirmatory holdout:** Score original baseline and at most one preselected *gene-free* alternate on every eligible test locus/cell, with identical REF/ALT context and identical model geometry. Test locus count target >=600; pairs >=1000 if available. Query and log HTTP 429 with Retry-After, use adaptive concurrency and resume; no quota budget cap. Save raw response hashes, prediction units, model version, exclusions and coverage. Do not inspect test outputs to further tune descriptions, threshold, matching or model. Run test comparisons only after the complete intended cohort or a clearly documented partial completion.
+
+**Stage 6 — secondary analyses:** Matched uncertain controls, PIP ranking, geometry sensitivity (40,960 vs 81,920 independently labelled), independent precision-aware cell differences and selected regulatory pathway stratification; compare PromoterAI/AlphaGenome/Borzoi only when executable and licensed on the EXACT matching cohort, otherwise mark unrun. Do not compare incompatible 0.66 published median to GI pooled rho as head-to-head.
+
+**Stage 7 — report:** Generate `results/followup-<UTC timestamp>/report.md` with study-wide flow diagram, effective n for all endpoints, co-primary effects and adjusted p, CIs by independent locus, unscored/zero rates, per-cell-type metrics with caveats, ablation matrix (all arms, no selected-only report), negatives, limitations, model/data versions, geometry observations, full provenance and reproduction commands. Generate sanitized `docs/runs/followup-<date>/summary.md` to commit plus code/config/tests. A failed benchmark or no signal is valid and must be reported without spinning.
+
+## Minimum QA acceptance
+- No historical scored locus appears in final test, proven via provenance ledger; otherwise label study exploratory.
+- No overlap between development and test by locus cluster or gene and if available LD block.
+- Reconstruct beta sign from verified reference/alt and Allele2 orientation; tests on plus/minus strands, palindromic cases, REF mismatch.
+- Same exact cell text/assay for each REF vs ALT. No unrecorded changes.
+- Variant within both effective scored windows; identical scored spans. No geometry pooling.
+- All-pair direction includes near-zero predictions in denominator. Conditional accuracy and abstentions shown.
+- Cross-cell primary reported with full n and grouped CIs, alongside rho; no significance claim from independent SE subtraction without covariance.
+- No quota max imposed, but cache/429/backoff/concurrency/tracing implemented.
+- Code/docs/results can be reproduced from frozen manifests with the configured GI key. No unauthorized sharing of secrets.
