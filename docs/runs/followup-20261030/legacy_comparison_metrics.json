@@ -1,0 +1,44 @@
+{
+  "variant": {
+    "n_all": 100,
+    "n_loci": 95,
+    "n_scored": 100,
+    "n_missing": 0,
+    "n_observed_exact_zero": 0,
+    "n_zero": 23,
+    "n_nonzero": 77,
+    "n_correct": 52,
+    "all_pair_accuracy": 0.52,
+    "conditional_accuracy": 0.6753246753246753,
+    "spearman": 0.36961144475681806,
+    "accuracy_ci95": [
+      0.42574257425742573,
+      0.6161616161616161
+    ],
+    "spearman_ci95": [
+      0.19686844481951238,
+      0.5308861032141381
+    ]
+  },
+  "cross_cell_trial_only": {
+    "n_all": 81,
+    "n_loci": 17,
+    "n_scored": 81,
+    "n_missing": 0,
+    "n_observed_exact_zero": 0,
+    "n_zero": 10,
+    "n_nonzero": 71,
+    "n_correct": 32,
+    "all_pair_accuracy": 0.3950617283950617,
+    "conditional_accuracy": 0.4507042253521127,
+    "spearman": -0.0402276640573293,
+    "accuracy_ci95": [
+      0.24096385542168675,
+      0.5574036619118586
+    ],
+    "spearman_ci95": [
+      -0.37750826230607243,
+      0.2521087322169797
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "historical_ledger_requests": 2783,
+  "unique_keys": 2783,
+  "mapped_keys": 2783,
+  "unmapped_keys": [],
+  "historical_genes": 167,
+  "historical_tss": 167,
+  "preledger_diagnostics": {
+    "count": 1,
+    "gene": "ENSG00000244734",
+    "record": "results/pilot-20261029/positive_control_response.json"
+  },
+  "complete": true,
+  "sources": [
+    {
+      "path": "results/context-optimization-20261030/predictions.parquet",
+      "sha256": "7699ce4f0fd749bdf7c9d867769db5e11abfa1501c1941a115eeebe05d1dfbfc",
+      "rows": 204
+    },
+    {
+      "path": "results/context-repetition-20261030/predictions.parquet",
+      "sha256": "16895fba31aab7515e42a78afe4ef64e365896d55d4dd04608e69ecd75bf2f6b",
+      "rows": 316
+    },
+    {
+      "path": "results/context-repetition-20261030/repeat_validation_predictions.parquet",
+      "sha256": "9da538be0e4aef44fce1a85a51430b2bb7eb19e885314cb618d66d5b121a2525",
+      "rows": 80
+    },
+    {
+      "path": "results/full-best-description-20261030/predictions.parquet",
+      "sha256": "15e870df38a39ccce41f5eca9ca506e5612093a88011716fd45b6050f44df778",
+      "rows": 1284
+    },
+    {
+      "path": "results/live-20261029/initial_unmatched_pass/predictions.parquet",
+      "sha256": "371cfd7f8bc9a62ad828e6eeefe5d2bccd29f297c95356d2f7b6c5c1916753d0",
+      "rows": 178
+    },
+    {
+      "path": "results/live-20261029/predictions.parquet",
+      "sha256": "64e72ea4849cd57470ee5bfee327dddadfd591fc8b73aa1e6dff065397bd1d9e",
+      "rows": 202
+    },
+    {
+      "path": "results/live-20261029/trial_comparison_predictions.parquet",
+      "sha256": "6ab7d35e4f116fc9aec4ae37c1f15c761fa3b3fb4f2a8ad7229e04b038c8dc28",
+      "rows": 63
+    }
+  ]
+}

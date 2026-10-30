@@ -1,0 +1,11 @@
+{
+  "requests": 59688,
+  "unique_cache_keys": 59680,
+  "response_statuses": {
+    "200": 59682
+  },
+  "total_call_cap": null,
+  "attempts_without_recorded_response": 6,
+  "http_429": 0,
+  "transport_failures": 0
+}

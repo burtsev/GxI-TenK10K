@@ -1,0 +1,72 @@
+{
+  "doi": "10.5281/zenodo.18221260",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "files": [
+    {
+      "name": "common_all_cis_pvalues_100kb.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/common_all_cis_pvalues_100kb.zip/content",
+      "provided_checksum": "md5:dd54714b2effb91160ac171ccb941534",
+      "sha256": "9be398a12c2b4e1b8118b03dca1123f7a1b3036f79e0322c1f392beb6505e5e0",
+      "size": 16559137990
+    },
+    {
+      "name": "susie_summary.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/susie_summary.zip/content",
+      "provided_checksum": "md5:f321c719030cc837cf27e09cd2ea6b65",
+      "sha256": "0a2e2cb0dec4b76d18e42b29c36b243a9ccd67b8761f17d20a83ae51f656e7ff",
+      "size": 59669579
+    },
+    {
+      "name": "common_variant_gene_level_results_with_annotated_fails.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/common_variant_gene_level_results_with_annotated_fails.zip/content",
+      "provided_checksum": "md5:b5cd2ee1f34f90539ebf6683dcd35a2e",
+      "sha256": "fcb99a4454a2a5f0feb11c56bcedad667400ebbeead2b39f256a25f48b71ae74",
+      "size": 10137272
+    }
+  ],
+  "reference": [
+    {
+      "name": "gencode.v44.basic.annotation.gtf.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/gencode.v44.basic.annotation.gtf.gz",
+      "md5": "7450ef42cf9cb3d29625320b22d4bb45",
+      "sha256": "3e52f82c63f8fd860bf632ccde10441c05751f4c342ad08c0a98e9e2700171a5"
+    },
+    {
+      "name": "GRCh38.primary_assembly.genome.fa.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/GRCh38.primary_assembly.genome.fa.gz",
+      "md5": "9c3fc2ca260a767530dddb0f26721a6b",
+      "sha256": "e9a2d5a5cd225293646ae298998ad4ea8c11e8f22729bc2d6f5c3dcfefbf8ef8"
+    }
+  ],
+  "full_archive_opt_in": true,
+  "ontology": {
+    "url": "https://raw.githubusercontent.com/obophenotype/cell-ontology/master/cl.obo",
+    "release": "2026-06-08",
+    "sha256": "7e19b4aef8e7fe7720b0c4474c6a5b8713c904ea9ab7b7d5d96f2cb28b8fc51f",
+    "pinned_url": "https://raw.githubusercontent.com/obophenotype/cell-ontology/8e7c8d7d24b59691cb3c7bbe059cbc4b6ec3d1ab/cl.obo"
+  },
+  "recovery_complete": true,
+  "pathways": {
+    "status": "frozen before test inference; exploratory overlapping strata, no pathway significance claim",
+    "source": "https://reactome.org/download/current/ReactomePathways.gmt.zip",
+    "version": 98,
+    "source_sha256": "6056fcd95dc8f09740c8bb64c2765bea1386ce91b9b19cd10bcd45d30451805c",
+    "source_scope": "Official Reactome gene-set annotation, the database family documented by the official TenK10K scDeepID project. Supplementary annotation only; no target association data sourced outside Zenodo.",
+    "membership": "exact GENCODE v44 gene symbol matches; no aliases or imputed membership"
+  },
+  "zenodo_version_relation": {
+    "version": [
+      {
+        "index": 1,
+        "is_last": true,
+        "parent": {
+          "pid_type": "recid",
+          "pid_value": "17474112"
+        }
+      }
+    ]
+  },
+  "zenodo_updated": "2026-01-30T16:34:30.906954+00:00"
+}

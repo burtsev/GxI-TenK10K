@@ -1,0 +1,45 @@
+{
+  "data_preparation": "Recovery, prescreen/extract, cohort freeze and initial audit were invoked through their Python functions before the CLI dispatcher was finalized; all source hashes and frozen outputs are retained.",
+  "published_before_test": {
+    "status": "published_before_confirmatory_inference",
+    "published_utc": "2026-10-30T17:02:23.888519+00:00",
+    "github_commit": "3727141f1f020e40d02ab807326ed610487dbf68",
+    "github_url": "https://github.com/burtsev/GxI-TenK10K/commit/3727141f1f020e40d02ab807326ed610487dbf68",
+    "tree_sha": "e80d4d51721e2233d8c46ab9516949dcea14a46a",
+    "context_selection_sha256": "d455ffec6579353d9fc04ac60dc8722b76c734adb7082ad0560a73d815c21ff4",
+    "code_manifest_sha256": "e6dd09180be6b54c122637eb6f3ef121711c7b744e209b9185497c4a1e5bcc60",
+    "selected_arm": "baseline",
+    "test_jobs_at_publication": 0
+  },
+  "primary_metrics_sha256": "dcee867ea2d02304cab5252d3ea467ecbffef9d83402b6364ab48f0fdf5173b4",
+  "frozen_code_manifest_sha256": "e6dd09180be6b54c122637eb6f3ef121711c7b744e209b9185497c4a1e5bcc60",
+  "timestamp_utc": "2026-10-30T18:10:37.179425+00:00",
+  "equivalent_reproduction_commands": [
+    ".venv/bin/gxi-tenk10k followup audit",
+    ".venv/bin/gxi-tenk10k followup freeze",
+    ".venv/bin/pytest -q",
+    ".venv/bin/gxi-tenk10k followup score-dev",
+    ".venv/bin/gxi-tenk10k followup diagnostics",
+    ".venv/bin/gxi-tenk10k followup select-context",
+    ".venv/bin/gxi-tenk10k followup score-test",
+    ".venv/bin/gxi-tenk10k followup geometry",
+    ".venv/bin/gxi-tenk10k followup evaluate",
+    ".venv/bin/python scripts/followup_report_io.py",
+    ".venv/bin/python scripts/followup_reporting_supplement.py"
+  ],
+  "completed_stages": [
+    "historical recovery",
+    "source/schema/reference audit",
+    "offline tests",
+    "historical-locus live smoke",
+    "cohort freeze",
+    "ten-arm development",
+    "fixed negative diagnostics",
+    "context selection/publication",
+    "full confirmatory baseline inference",
+    "150-locus geometry sensitivity",
+    "co-primary and secondary analyses",
+    "final QA",
+    "manuscript generation/review"
+  ]
+}

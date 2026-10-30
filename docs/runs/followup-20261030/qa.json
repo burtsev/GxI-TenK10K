@@ -1,0 +1,69 @@
+{
+  "effective_span_counts": {
+    "[0, 40960]": 40334
+  },
+  "cohort_counts": {
+    "development": {
+      "genes": 250,
+      "variant_gene_pairs": 250,
+      "locus_clusters": 250,
+      "candidate_variant_cell_observations": 1467,
+      "control_variant_cell_observations": 1467,
+      "preselected_contrasts": 3616,
+      "precision_contrasts": 973,
+      "precision_loci": 189,
+      "observed_beta_missing": 0,
+      "observed_SE_missing": 0,
+      "precision_scope": "Descriptive observed stratum; no model outcomes used."
+    },
+    "test": {
+      "genes": 877,
+      "variant_gene_pairs": 1000,
+      "locus_clusters": 777,
+      "candidate_variant_cell_observations": 5863,
+      "control_variant_cell_observations": 5863,
+      "preselected_contrasts": 14446,
+      "precision_contrasts": 3333,
+      "precision_loci": 551,
+      "observed_beta_missing": 0,
+      "observed_SE_missing": 0,
+      "precision_scope": "Descriptive observed stratum; no model outcomes used."
+    }
+  },
+  "checks": {
+    "historical_registry_complete": true,
+    "no_dev_test_genes": true,
+    "no_dev_test_clusters": true,
+    "no_historical_genes": true,
+    "frozen_targets_met": true,
+    "development_source_allele_and_beta_orientation": true,
+    "development_unique_observations": true,
+    "development_finite_effects": true,
+    "development_at_most_six_cells": true,
+    "development_matched_all_rows": true,
+    "development_maf_match": true,
+    "development_distance_match": true,
+    "development_gc_match": true,
+    "development_discovery_pip": true,
+    "test_source_allele_and_beta_orientation": true,
+    "test_unique_observations": true,
+    "test_finite_effects": true,
+    "test_at_most_six_cells": true,
+    "test_matched_all_rows": true,
+    "test_maf_match": true,
+    "test_distance_match": true,
+    "test_gc_match": true,
+    "test_discovery_pip": true,
+    "reference_all_pass": true,
+    "offline_tests_passed": true,
+    "all_inference_cache_files_present": true,
+    "all_complete_variant_indices_covered": true
+  },
+  "passed": 27,
+  "failed": 0,
+  "reference_variants_checked": 2500,
+  "reference_failures": 0,
+  "unit_tests": "68 passed in 7.68s",
+  "response_hashes_sha256": "dd44b6794c16b5763d3b2b1ff953dfdce5bba58d3fefb0bfa6adf4cabd4c31ea",
+  "distinct_inference_responses": 59676
+}

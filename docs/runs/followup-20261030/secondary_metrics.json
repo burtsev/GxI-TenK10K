@@ -1,0 +1,1553 @@
+{
+  "baseline": {
+    "pathways": {
+      "R-HSA-913531": {
+        "name": "Interferon Signaling",
+        "variant": {
+          "n_all": 120,
+          "n_loci": 17,
+          "n_scored": 120,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 69,
+          "n_nonzero": 51,
+          "n_correct": 25,
+          "all_pair_accuracy": 0.20833333333333334,
+          "conditional_accuracy": 0.49019607843137253,
+          "spearman": 0.0927396614754773,
+          "accuracy_ci95": [
+            0.11666666666666667,
+            0.31956018518518453
+          ],
+          "spearman_ci95": [
+            -0.31968217419016554,
+            0.43805623974629204
+          ]
+        },
+        "cross_cell": {
+          "n_all": 300,
+          "n_loci": 17,
+          "n_scored": 300,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 128,
+          "n_nonzero": 172,
+          "n_correct": 90,
+          "all_pair_accuracy": 0.3,
+          "conditional_accuracy": 0.5232558139534884,
+          "spearman": 0.062092647375864736,
+          "accuracy_ci95": [
+            0.23333333333333334,
+            0.3700092592592592
+          ],
+          "spearman_ci95": [
+            -0.09577594305385356,
+            0.20832840328348345
+          ]
+        },
+        "n_genes": 17
+      },
+      "R-HSA-9758274": {
+        "name": "Regulation of NF-kappa B signaling",
+        "variant": {
+          "n_all": 0,
+          "n_loci": 0,
+          "n_scored": 0,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 0,
+          "n_nonzero": 0,
+          "n_correct": 0,
+          "all_pair_accuracy": null,
+          "conditional_accuracy": null,
+          "spearman": null
+        },
+        "cross_cell": {
+          "n_all": 0,
+          "n_loci": 0,
+          "n_scored": 0,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 0,
+          "n_nonzero": 0,
+          "n_correct": 0,
+          "all_pair_accuracy": null,
+          "conditional_accuracy": null,
+          "spearman": null
+        },
+        "n_genes": 0
+      },
+      "R-HSA-449147": {
+        "name": "Signaling by Interleukins",
+        "variant": {
+          "n_all": 114,
+          "n_loci": 16,
+          "n_scored": 114,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 41,
+          "n_nonzero": 73,
+          "n_correct": 40,
+          "all_pair_accuracy": 0.3508771929824561,
+          "conditional_accuracy": 0.547945205479452,
+          "spearman": 0.17023429170473148,
+          "accuracy_ci95": [
+            0.20829166666666668,
+            0.5208333333333334
+          ],
+          "spearman_ci95": [
+            -0.11663683205701522,
+            0.48473270375575295
+          ]
+        },
+        "cross_cell": {
+          "n_all": 285,
+          "n_loci": 16,
+          "n_scored": 285,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 74,
+          "n_nonzero": 211,
+          "n_correct": 100,
+          "all_pair_accuracy": 0.3508771929824561,
+          "conditional_accuracy": 0.47393364928909953,
+          "spearman": -0.011514546374311681,
+          "accuracy_ci95": [
+            0.22133030303030302,
+            0.5019607843137255
+          ],
+          "spearman_ci95": [
+            -0.2796975116009859,
+            0.2981340362349127
+          ]
+        },
+        "n_genes": 16
+      },
+      "R-HSA-983705": {
+        "name": "Signaling by the B Cell Receptor (BCR)",
+        "variant": {
+          "n_all": 32,
+          "n_loci": 6,
+          "n_scored": 32,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 14,
+          "n_nonzero": 18,
+          "n_correct": 12,
+          "all_pair_accuracy": 0.375,
+          "conditional_accuracy": 0.6666666666666666,
+          "spearman": 0.43729440078953313,
+          "accuracy_ci95": [
+            0.1388888888888889,
+            0.71875
+          ],
+          "spearman_ci95": [
+            -0.15014510773220105,
+            0.7097415945096189
+          ]
+        },
+        "cross_cell": {
+          "n_all": 76,
+          "n_loci": 6,
+          "n_scored": 76,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 22,
+          "n_nonzero": 54,
+          "n_correct": 27,
+          "all_pair_accuracy": 0.35526315789473684,
+          "conditional_accuracy": 0.5,
+          "spearman": 0.029252044121682308,
+          "accuracy_ci95": [
+            0.2111111111111111,
+            0.5161290322580645
+          ],
+          "spearman_ci95": [
+            -0.2941704532428176,
+            0.3014783305004798
+          ]
+        },
+        "n_genes": 6
+      },
+      "R-HSA-202403": {
+        "name": "TCR signaling",
+        "variant": {
+          "n_all": 12,
+          "n_loci": 2,
+          "n_scored": 12,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 9,
+          "n_nonzero": 3,
+          "n_correct": 1,
+          "all_pair_accuracy": 0.08333333333333333,
+          "conditional_accuracy": 0.3333333333333333,
+          "spearman": -0.07343158832057563,
+          "accuracy_ci95": [
+            0.0,
+            0.16666666666666666
+          ],
+          "spearman_ci95": [
+            -0.3380617018914066,
+            0.6546536707079772
+          ]
+        },
+        "cross_cell": {
+          "n_all": 30,
+          "n_loci": 2,
+          "n_scored": 30,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 16,
+          "n_nonzero": 14,
+          "n_correct": 8,
+          "all_pair_accuracy": 0.26666666666666666,
+          "conditional_accuracy": 0.5714285714285714,
+          "spearman": 0.010416617457932598,
+          "accuracy_ci95": [
+            0.2,
+            0.3333333333333333
+          ],
+          "spearman_ci95": [
+            -0.5925906552182063,
+            0.5771788596202904
+          ]
+        },
+        "n_genes": 2
+      },
+      "R-HSA-168898": {
+        "name": "Toll-like Receptor Cascades",
+        "variant": {
+          "n_all": 72,
+          "n_loci": 10,
+          "n_scored": 72,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 43,
+          "n_nonzero": 29,
+          "n_correct": 12,
+          "all_pair_accuracy": 0.16666666666666666,
+          "conditional_accuracy": 0.41379310344827586,
+          "spearman": -0.09935209277799036,
+          "accuracy_ci95": [
+            0.07291666666666667,
+            0.31666666666666665
+          ],
+          "spearman_ci95": [
+            -0.3991181352877101,
+            0.2589548688595785
+          ]
+        },
+        "cross_cell": {
+          "n_all": 180,
+          "n_loci": 10,
+          "n_scored": 180,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 74,
+          "n_nonzero": 106,
+          "n_correct": 51,
+          "all_pair_accuracy": 0.2833333333333333,
+          "conditional_accuracy": 0.4811320754716981,
+          "spearman": -0.022147930488202322,
+          "accuracy_ci95": [
+            0.13886904761904761,
+            0.48
+          ],
+          "spearman_ci95": [
+            -0.2609761743888314,
+            0.2276103051182285
+          ]
+        },
+        "n_genes": 10
+      }
+    },
+    "pathway_scope": "frozen before test inference; exploratory overlapping strata, no pathway significance claim",
+    "strata": {
+      "maf": {
+        "(0.009000000000000001, 0.0413]": {
+          "n_all": 1466,
+          "n_loci": 241,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 386,
+          "n_nonzero": 1080,
+          "n_correct": 688,
+          "all_pair_accuracy": 0.4693042291950887,
+          "conditional_accuracy": 0.6370370370370371,
+          "spearman": 0.31717263256018186,
+          "accuracy_ci95": [
+            0.4240540153030536,
+            0.5151426201562553
+          ],
+          "spearman_ci95": [
+            0.23035373325634567,
+            0.39905978123733105
+          ]
+        },
+        "(0.0413, 0.146]": {
+          "n_all": 1466,
+          "n_loci": 232,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 416,
+          "n_nonzero": 1050,
+          "n_correct": 614,
+          "all_pair_accuracy": 0.41882673942701226,
+          "conditional_accuracy": 0.5847619047619048,
+          "spearman": 0.19919420731014756,
+          "accuracy_ci95": [
+            0.37675921863436335,
+            0.4585275185101107
+          ],
+          "spearman_ci95": [
+            0.09858328367877231,
+            0.2921010250701133
+          ]
+        },
+        "(0.146, 0.312]": {
+          "n_all": 1465,
+          "n_loci": 228,
+          "n_scored": 1465,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 447,
+          "n_nonzero": 1018,
+          "n_correct": 533,
+          "all_pair_accuracy": 0.36382252559726963,
+          "conditional_accuracy": 0.5235756385068763,
+          "spearman": 0.06521277377265777,
+          "accuracy_ci95": [
+            0.31975281277923917,
+            0.40878705740624344
+          ],
+          "spearman_ci95": [
+            -0.031805276518140614,
+            0.16005842121876973
+          ]
+        },
+        "(0.312, 0.499]": {
+          "n_all": 1466,
+          "n_loci": 225,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 483,
+          "n_nonzero": 983,
+          "n_correct": 557,
+          "all_pair_accuracy": 0.37994542974079126,
+          "conditional_accuracy": 0.5666327568667345,
+          "spearman": 0.1184906367447148,
+          "accuracy_ci95": [
+            0.338722320557743,
+            0.42134451867597933
+          ],
+          "spearman_ci95": [
+            0.026230948921397327,
+            0.20419057100669383
+          ]
+        }
+      },
+      "gc": {
+        "(0.0338, 0.423]": {
+          "n_all": 1542,
+          "n_loci": 238,
+          "n_scored": 1542,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 567,
+          "n_nonzero": 975,
+          "n_correct": 532,
+          "all_pair_accuracy": 0.3450064850843061,
+          "conditional_accuracy": 0.5456410256410257,
+          "spearman": 0.08754408415764971,
+          "accuracy_ci95": [
+            0.3094774921786246,
+            0.38183045904524004
+          ],
+          "spearman_ci95": [
+            0.006909436169475313,
+            0.1664719094867991
+          ]
+        },
+        "(0.423, 0.498]": {
+          "n_all": 1416,
+          "n_loci": 214,
+          "n_scored": 1416,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 468,
+          "n_nonzero": 948,
+          "n_correct": 534,
+          "all_pair_accuracy": 0.3771186440677966,
+          "conditional_accuracy": 0.5632911392405063,
+          "spearman": 0.1637189398658227,
+          "accuracy_ci95": [
+            0.3385030118070226,
+            0.4174119109679162
+          ],
+          "spearman_ci95": [
+            0.07607611923726498,
+            0.24894771357155918
+          ]
+        },
+        "(0.498, 0.587]": {
+          "n_all": 1440,
+          "n_loci": 211,
+          "n_scored": 1440,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 425,
+          "n_nonzero": 1015,
+          "n_correct": 612,
+          "all_pair_accuracy": 0.425,
+          "conditional_accuracy": 0.6029556650246305,
+          "spearman": 0.21789717967779607,
+          "accuracy_ci95": [
+            0.38230206858863774,
+            0.4683963299763453
+          ],
+          "spearman_ci95": [
+            0.12574517369582253,
+            0.3078714709640155
+          ]
+        },
+        "(0.587, 0.826]": {
+          "n_all": 1465,
+          "n_loci": 209,
+          "n_scored": 1465,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 272,
+          "n_nonzero": 1193,
+          "n_correct": 714,
+          "all_pair_accuracy": 0.48737201365187716,
+          "conditional_accuracy": 0.5984911986588433,
+          "spearman": 0.24221545929382404,
+          "accuracy_ci95": [
+            0.43837859058418055,
+            0.5364865531211684
+          ],
+          "spearman_ci95": [
+            0.1332489036524179,
+            0.3439314317921208
+          ]
+        }
+      },
+      "abs_distance": {
+        "(11020.0, 20360.0]": {
+          "n_all": 1465,
+          "n_loci": 224,
+          "n_scored": 1465,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 576,
+          "n_nonzero": 889,
+          "n_correct": 471,
+          "all_pair_accuracy": 0.32150170648464166,
+          "conditional_accuracy": 0.5298087739032621,
+          "spearman": 0.08061402453511236,
+          "accuracy_ci95": [
+            0.28552356853567223,
+            0.35543592254118567
+          ],
+          "spearman_ci95": [
+            0.004384961007301192,
+            0.15270086708817587
+          ]
+        },
+        "(2.999, 757.0]": {
+          "n_all": 1470,
+          "n_loci": 234,
+          "n_scored": 1470,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 173,
+          "n_nonzero": 1297,
+          "n_correct": 798,
+          "all_pair_accuracy": 0.5428571428571428,
+          "conditional_accuracy": 0.6152659984579799,
+          "spearman": 0.30889379377615284,
+          "accuracy_ci95": [
+            0.4939956790123457,
+            0.5897850772978467
+          ],
+          "spearman_ci95": [
+            0.19281496286027433,
+            0.40903400468358897
+          ]
+        },
+        "(4589.0, 11020.0]": {
+          "n_all": 1462,
+          "n_loci": 223,
+          "n_scored": 1462,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 543,
+          "n_nonzero": 919,
+          "n_correct": 516,
+          "all_pair_accuracy": 0.35294117647058826,
+          "conditional_accuracy": 0.5614798694232862,
+          "spearman": 0.12224241352880101,
+          "accuracy_ci95": [
+            0.31398560291713823,
+            0.3921224932710777
+          ],
+          "spearman_ci95": [
+            0.03991534933739261,
+            0.20078622617732955
+          ]
+        },
+        "(757.0, 4589.0]": {
+          "n_all": 1466,
+          "n_loci": 223,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 440,
+          "n_nonzero": 1026,
+          "n_correct": 607,
+          "all_pair_accuracy": 0.4140518417462483,
+          "conditional_accuracy": 0.5916179337231969,
+          "spearman": 0.20282309974483315,
+          "accuracy_ci95": [
+            0.37146791767554477,
+            0.4538322464460543
+          ],
+          "spearman_ci95": [
+            0.11649311835824475,
+            0.28739692926650107
+          ]
+        }
+      },
+      "PIP": {
+        "(0.0039054199999999997, 0.918169]": {
+          "n_all": 499,
+          "n_loci": 280,
+          "n_scored": 499,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 145,
+          "n_nonzero": 354,
+          "n_correct": 202,
+          "all_pair_accuracy": 0.40480961923847697,
+          "conditional_accuracy": 0.5706214689265536,
+          "spearman": 0.21927678549154178,
+          "accuracy_ci95": [
+            0.3439014829690276,
+            0.463877293405989
+          ],
+          "spearman_ci95": [
+            0.08416413114846982,
+            0.33992177902471327
+          ]
+        },
+        "(0.918169, 0.992614]": {
+          "n_all": 498,
+          "n_loci": 395,
+          "n_scored": 498,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 139,
+          "n_nonzero": 359,
+          "n_correct": 205,
+          "all_pair_accuracy": 0.41164658634538154,
+          "conditional_accuracy": 0.5710306406685237,
+          "spearman": 0.18591113576194604,
+          "accuracy_ci95": [
+            0.3664584419894742,
+            0.459572907012666
+          ],
+          "spearman_ci95": [
+            0.08929259936690145,
+            0.27930167470557293
+          ]
+        },
+        "(0.992614, 0.999996]": {
+          "n_all": 498,
+          "n_loci": 342,
+          "n_scored": 498,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 137,
+          "n_nonzero": 361,
+          "n_correct": 234,
+          "all_pair_accuracy": 0.46987951807228917,
+          "conditional_accuracy": 0.6481994459833795,
+          "spearman": 0.31969149604249397,
+          "accuracy_ci95": [
+            0.41715371762740183,
+            0.5229067150997588
+          ],
+          "spearman_ci95": [
+            0.20627014597882554,
+            0.42405948797114484
+          ]
+        },
+        "(0.999996, 1.0]": {
+          "n_all": 499,
+          "n_loci": 259,
+          "n_scored": 499,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 142,
+          "n_nonzero": 357,
+          "n_correct": 242,
+          "all_pair_accuracy": 0.4849699398797595,
+          "conditional_accuracy": 0.6778711484593838,
+          "spearman": 0.33788290791596687,
+          "accuracy_ci95": [
+            0.4218064768748849,
+            0.5470098039215687
+          ],
+          "spearman_ci95": [
+            0.20777673188315926,
+            0.45828655290885706
+          ]
+        },
+        "unknown": {
+          "n_all": 3869,
+          "n_loci": 766,
+          "n_scored": 3869,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 1169,
+          "n_nonzero": 2700,
+          "n_correct": 1509,
+          "all_pair_accuracy": 0.39002326182476094,
+          "conditional_accuracy": 0.5588888888888889,
+          "spearman": 0.12389061479498814,
+          "accuracy_ci95": [
+            0.3693917637798411,
+            0.41190703809024914
+          ],
+          "spearman_ci95": [
+            0.08129931585535302,
+            0.16943826667601644
+          ]
+        }
+      },
+      "SE": {
+        "(-0.00015400000000000006, 0.0169]": {
+          "n_all": 1466,
+          "n_loci": 429,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 631,
+          "n_nonzero": 835,
+          "n_correct": 441,
+          "all_pair_accuracy": 0.30081855388813095,
+          "conditional_accuracy": 0.5281437125748503,
+          "spearman": 0.05897970720302599,
+          "accuracy_ci95": [
+            0.26984098880345336,
+            0.3340057928996712
+          ],
+          "spearman_ci95": [
+            -0.017909633875756944,
+            0.13329805126790423
+          ]
+        },
+        "(0.0169, 0.0339]": {
+          "n_all": 1466,
+          "n_loci": 573,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 425,
+          "n_nonzero": 1041,
+          "n_correct": 608,
+          "all_pair_accuracy": 0.4147339699863574,
+          "conditional_accuracy": 0.5840537944284342,
+          "spearman": 0.18915020333516838,
+          "accuracy_ci95": [
+            0.3801678928870992,
+            0.44879456446815125
+          ],
+          "spearman_ci95": [
+            0.11575655163747707,
+            0.262015069678584
+          ]
+        },
+        "(0.0339, 0.0742]": {
+          "n_all": 1465,
+          "n_loci": 603,
+          "n_scored": 1465,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 359,
+          "n_nonzero": 1106,
+          "n_correct": 672,
+          "all_pair_accuracy": 0.45870307167235497,
+          "conditional_accuracy": 0.6075949367088608,
+          "spearman": 0.24362417769075806,
+          "accuracy_ci95": [
+            0.42232037345862194,
+            0.4927324147483586
+          ],
+          "spearman_ci95": [
+            0.1695924585549682,
+            0.3159493867772758
+          ]
+        },
+        "(0.0742, 1.579]": {
+          "n_all": 1466,
+          "n_loci": 503,
+          "n_scored": 1466,
+          "n_missing": 0,
+          "n_observed_exact_zero": 0,
+          "n_zero": 317,
+          "n_nonzero": 1149,
+          "n_correct": 671,
+          "all_pair_accuracy": 0.45770804911323326,
+          "conditional_accuracy": 0.5839860748476936,
+          "spearman": 0.19473116114996883,
+          "accuracy_ci95": [
+            0.4266570974827151,
+            0.48991443392952555
+          ],
+          "spearman_ci95": [
+            0.12819952139095211,
+            0.2574614514630304
+          ]
+        }
+      }
+    },
+    "strata_row_totals": {
+      "maf": 5863,
+      "gc": 5863,
+      "abs_distance": 5863,
+      "PIP": 5863,
+      "SE": 5863
+    },
+    "stratification_missing_metadata": {
+      "maf": 0,
+      "gc": 0,
+      "abs_distance": 0,
+      "PIP": 3869,
+      "SE": 0
+    },
+    "family": {
+      "B": {
+        "n_all": 1190,
+        "n_loci": 690,
+        "n_scored": 1190,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 332,
+        "n_nonzero": 858,
+        "n_correct": 499,
+        "all_pair_accuracy": 0.419327731092437,
+        "conditional_accuracy": 0.5815850815850816,
+        "spearman": 0.16464791750496358,
+        "accuracy_ci95": [
+          0.3862848689771767,
+          0.45422842197035745
+        ],
+        "spearman_ci95": [
+          0.09143342497923641,
+          0.2391781702021727
+        ]
+      },
+      "CD4": {
+        "n_all": 1575,
+        "n_loci": 718,
+        "n_scored": 1575,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 479,
+        "n_nonzero": 1096,
+        "n_correct": 629,
+        "all_pair_accuracy": 0.39936507936507937,
+        "conditional_accuracy": 0.573905109489051,
+        "spearman": 0.1895098869599407,
+        "accuracy_ci95": [
+          0.369152838126401,
+          0.42990826425405865
+        ],
+        "spearman_ci95": [
+          0.11842412047322885,
+          0.2579183082116387
+        ]
+      },
+      "CD8": {
+        "n_all": 1232,
+        "n_loci": 715,
+        "n_scored": 1232,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 396,
+        "n_nonzero": 836,
+        "n_correct": 488,
+        "all_pair_accuracy": 0.3961038961038961,
+        "conditional_accuracy": 0.583732057416268,
+        "spearman": 0.17723513779662628,
+        "accuracy_ci95": [
+          0.3645606037796698,
+          0.4275191610979827
+        ],
+        "spearman_ci95": [
+          0.10708819825630694,
+          0.24172495724369583
+        ]
+      },
+      "NK": {
+        "n_all": 1128,
+        "n_loci": 661,
+        "n_scored": 1128,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 347,
+        "n_nonzero": 781,
+        "n_correct": 448,
+        "all_pair_accuracy": 0.3971631205673759,
+        "conditional_accuracy": 0.5736235595390525,
+        "spearman": 0.17253802179873315,
+        "accuracy_ci95": [
+          0.3654385505595745,
+          0.42932271900421987
+        ],
+        "spearman_ci95": [
+          0.10503661497456354,
+          0.24034019651083774
+        ]
+      },
+      "T": {
+        "n_all": 176,
+        "n_loci": 112,
+        "n_scored": 176,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 33,
+        "n_nonzero": 143,
+        "n_correct": 85,
+        "all_pair_accuracy": 0.48295454545454547,
+        "conditional_accuracy": 0.5944055944055944,
+        "spearman": 0.23612407672038482,
+        "accuracy_ci95": [
+          0.4011676646706587,
+          0.5714285714285714
+        ],
+        "spearman_ci95": [
+          0.06297416679906909,
+          0.4047587585718409
+        ]
+      },
+      "dendritic": {
+        "n_all": 268,
+        "n_loci": 127,
+        "n_scored": 268,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 67,
+        "n_nonzero": 201,
+        "n_correct": 108,
+        "all_pair_accuracy": 0.40298507462686567,
+        "conditional_accuracy": 0.5373134328358209,
+        "spearman": 0.14248086772349894,
+        "accuracy_ci95": [
+          0.3345281862745098,
+          0.48078703703703696
+        ],
+        "spearman_ci95": [
+          -0.005930076917884875,
+          0.2717138911322303
+        ]
+      },
+      "innate": {
+        "n_all": 29,
+        "n_loci": 26,
+        "n_scored": 29,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 7,
+        "n_nonzero": 22,
+        "n_correct": 9,
+        "all_pair_accuracy": 0.3103448275862069,
+        "conditional_accuracy": 0.4090909090909091,
+        "spearman": -0.16869699779607278,
+        "accuracy_ci95": [
+          0.14814814814814814,
+          0.48148148148148145
+        ],
+        "spearman_ci95": [
+          -0.47336115878864066,
+          0.21493899607390055
+        ]
+      },
+      "monocyte": {
+        "n_all": 224,
+        "n_loci": 120,
+        "n_scored": 224,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 64,
+        "n_nonzero": 160,
+        "n_correct": 102,
+        "all_pair_accuracy": 0.45535714285714285,
+        "conditional_accuracy": 0.6375,
+        "spearman": 0.28958094565610154,
+        "accuracy_ci95": [
+          0.3771787423103213,
+          0.5336398961102206
+        ],
+        "spearman_ci95": [
+          0.138762147810468,
+          0.43256981405438166
+        ]
+      },
+      "progenitor": {
+        "n_all": 41,
+        "n_loci": 39,
+        "n_scored": 41,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 7,
+        "n_nonzero": 34,
+        "n_correct": 24,
+        "all_pair_accuracy": 0.5853658536585366,
+        "conditional_accuracy": 0.7058823529411765,
+        "spearman": 0.31602944661696164,
+        "accuracy_ci95": [
+          0.4186046511627907,
+          0.7317073170731707
+        ],
+        "spearman_ci95": [
+          0.035796314522158104,
+          0.5360612589176578
+        ]
+      }
+    },
+    "per_cell_ci": {
+      "ASDC": {
+        "n_all": 68,
+        "n_loci": 59,
+        "n_scored": 68,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 17,
+        "n_nonzero": 51,
+        "n_correct": 23,
+        "all_pair_accuracy": 0.3382352941176471,
+        "conditional_accuracy": 0.45098039215686275,
+        "spearman": 0.07529181986604362,
+        "accuracy_ci95": [
+          0.21875,
+          0.463768115942029
+        ],
+        "spearman_ci95": [
+          -0.16735444402046523,
+          0.3053411912249379
+        ]
+      },
+      "B_intermediate": {
+        "n_all": 268,
+        "n_loci": 242,
+        "n_scored": 268,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 74,
+        "n_nonzero": 194,
+        "n_correct": 117,
+        "all_pair_accuracy": 0.43656716417910446,
+        "conditional_accuracy": 0.6030927835051546,
+        "spearman": 0.2152532850221672,
+        "accuracy_ci95": [
+          0.3763726659822989,
+          0.5
+        ],
+        "spearman_ci95": [
+          0.10673230275642824,
+          0.3301773912538607
+        ]
+      },
+      "B_memory": {
+        "n_all": 315,
+        "n_loci": 248,
+        "n_scored": 315,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 86,
+        "n_nonzero": 229,
+        "n_correct": 132,
+        "all_pair_accuracy": 0.41904761904761906,
+        "conditional_accuracy": 0.5764192139737991,
+        "spearman": 0.13716473314366592,
+        "accuracy_ci95": [
+          0.3587146074646075,
+          0.47878787878787876
+        ],
+        "spearman_ci95": [
+          0.005425582336938473,
+          0.26470217605398094
+        ]
+      },
+      "B_naive": {
+        "n_all": 287,
+        "n_loci": 253,
+        "n_scored": 287,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 90,
+        "n_nonzero": 197,
+        "n_correct": 111,
+        "all_pair_accuracy": 0.3867595818815331,
+        "conditional_accuracy": 0.5634517766497462,
+        "spearman": 0.18168620060495352,
+        "accuracy_ci95": [
+          0.3333333333333333,
+          0.4440772128060263
+        ],
+        "spearman_ci95": [
+          0.06470713172779939,
+          0.3010791688226255
+        ]
+      },
+      "CD14_Mono": {
+        "n_all": 117,
+        "n_loci": 105,
+        "n_scored": 117,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 30,
+        "n_nonzero": 87,
+        "n_correct": 55,
+        "all_pair_accuracy": 0.4700854700854701,
+        "conditional_accuracy": 0.632183908045977,
+        "spearman": 0.28245352198723017,
+        "accuracy_ci95": [
+          0.37718938740293356,
+          0.5603448275862069
+        ],
+        "spearman_ci95": [
+          0.1252814135768588,
+          0.42676115488231126
+        ]
+      },
+      "CD16_Mono": {
+        "n_all": 107,
+        "n_loci": 98,
+        "n_scored": 107,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 34,
+        "n_nonzero": 73,
+        "n_correct": 47,
+        "all_pair_accuracy": 0.4392523364485981,
+        "conditional_accuracy": 0.6438356164383562,
+        "spearman": 0.3110306395266288,
+        "accuracy_ci95": [
+          0.3461448598130841,
+          0.528860294117647
+        ],
+        "spearman_ci95": [
+          0.12008941207012981,
+          0.4807946012075418
+        ]
+      },
+      "CD4_CTL": {
+        "n_all": 242,
+        "n_loci": 210,
+        "n_scored": 242,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 68,
+        "n_nonzero": 174,
+        "n_correct": 92,
+        "all_pair_accuracy": 0.38016528925619836,
+        "conditional_accuracy": 0.5287356321839081,
+        "spearman": 0.1860760966488746,
+        "accuracy_ci95": [
+          0.3160062273791782,
+          0.4435378893537888
+        ],
+        "spearman_ci95": [
+          0.04429615724598369,
+          0.31655406584289125
+        ]
+      },
+      "CD4_Naive": {
+        "n_all": 273,
+        "n_loci": 239,
+        "n_scored": 273,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 77,
+        "n_nonzero": 196,
+        "n_correct": 113,
+        "all_pair_accuracy": 0.4139194139194139,
+        "conditional_accuracy": 0.576530612244898,
+        "spearman": 0.17316104688692677,
+        "accuracy_ci95": [
+          0.3555494505494506,
+          0.4723297919792384
+        ],
+        "spearman_ci95": [
+          0.05211645891494201,
+          0.2949585927580009
+        ]
+      },
+      "CD4_Proliferating": {
+        "n_all": 293,
+        "n_loci": 249,
+        "n_scored": 293,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 79,
+        "n_nonzero": 214,
+        "n_correct": 124,
+        "all_pair_accuracy": 0.4232081911262799,
+        "conditional_accuracy": 0.5794392523364486,
+        "spearman": 0.15619110099222647,
+        "accuracy_ci95": [
+          0.368928596020106,
+          0.47750865051903113
+        ],
+        "spearman_ci95": [
+          0.046623308969596884,
+          0.2567082240298397
+        ]
+      },
+      "CD4_TCM": {
+        "n_all": 327,
+        "n_loci": 278,
+        "n_scored": 327,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 113,
+        "n_nonzero": 214,
+        "n_correct": 126,
+        "all_pair_accuracy": 0.3853211009174312,
+        "conditional_accuracy": 0.5887850467289719,
+        "spearman": 0.20881348747698128,
+        "accuracy_ci95": [
+          0.3322532527334718,
+          0.4396317468014473
+        ],
+        "spearman_ci95": [
+          0.10386756807366293,
+          0.31115936017157786
+        ]
+      },
+      "CD4_TEM": {
+        "n_all": 231,
+        "n_loci": 199,
+        "n_scored": 231,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 81,
+        "n_nonzero": 150,
+        "n_correct": 86,
+        "all_pair_accuracy": 0.3722943722943723,
+        "conditional_accuracy": 0.5733333333333334,
+        "spearman": 0.16539932520933281,
+        "accuracy_ci95": [
+          0.3106202743098294,
+          0.4342105263157895
+        ],
+        "spearman_ci95": [
+          0.03252875280549872,
+          0.3028208426160907
+        ]
+      },
+      "CD8_Naive": {
+        "n_all": 293,
+        "n_loci": 253,
+        "n_scored": 293,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 88,
+        "n_nonzero": 205,
+        "n_correct": 129,
+        "all_pair_accuracy": 0.4402730375426621,
+        "conditional_accuracy": 0.6292682926829268,
+        "spearman": 0.2660698891660108,
+        "accuracy_ci95": [
+          0.3835010023692364,
+          0.4964794888210381
+        ],
+        "spearman_ci95": [
+          0.15805933174762107,
+          0.3649901367955242
+        ]
+      },
+      "CD8_Proliferating": {
+        "n_all": 322,
+        "n_loci": 277,
+        "n_scored": 322,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 113,
+        "n_nonzero": 209,
+        "n_correct": 120,
+        "all_pair_accuracy": 0.37267080745341613,
+        "conditional_accuracy": 0.5741626794258373,
+        "spearman": 0.11670734707224124,
+        "accuracy_ci95": [
+          0.32063492063492066,
+          0.42508783915674403
+        ],
+        "spearman_ci95": [
+          -0.0006447714490031582,
+          0.22313700805704084
+        ]
+      },
+      "CD8_TCM": {
+        "n_all": 306,
+        "n_loci": 258,
+        "n_scored": 306,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 91,
+        "n_nonzero": 215,
+        "n_correct": 128,
+        "all_pair_accuracy": 0.41830065359477125,
+        "conditional_accuracy": 0.5953488372093023,
+        "spearman": 0.2180751921382699,
+        "accuracy_ci95": [
+          0.3610223642172524,
+          0.4738757446330223
+        ],
+        "spearman_ci95": [
+          0.09981004547822211,
+          0.336557385860903
+        ]
+      },
+      "CD8_TEM": {
+        "n_all": 311,
+        "n_loci": 281,
+        "n_scored": 311,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 104,
+        "n_nonzero": 207,
+        "n_correct": 111,
+        "all_pair_accuracy": 0.35691318327974275,
+        "conditional_accuracy": 0.5362318840579711,
+        "spearman": 0.0987008589502968,
+        "accuracy_ci95": [
+          0.30063291139240506,
+          0.4075265060000399
+        ],
+        "spearman_ci95": [
+          -0.026375503659391335,
+          0.2118286516944006
+        ]
+      },
+      "HSPC": {
+        "n_all": 41,
+        "n_loci": 39,
+        "n_scored": 41,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 7,
+        "n_nonzero": 34,
+        "n_correct": 24,
+        "all_pair_accuracy": 0.5853658536585366,
+        "conditional_accuracy": 0.7058823529411765,
+        "spearman": 0.31602944661696164,
+        "accuracy_ci95": [
+          0.4186046511627907,
+          0.7317073170731707
+        ],
+        "spearman_ci95": [
+          0.035796314522158104,
+          0.5360612589176578
+        ]
+      },
+      "ILC": {
+        "n_all": 29,
+        "n_loci": 26,
+        "n_scored": 29,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 7,
+        "n_nonzero": 22,
+        "n_correct": 9,
+        "all_pair_accuracy": 0.3103448275862069,
+        "conditional_accuracy": 0.4090909090909091,
+        "spearman": -0.16869699779607278,
+        "accuracy_ci95": [
+          0.14814814814814814,
+          0.48148148148148145
+        ],
+        "spearman_ci95": [
+          -0.47336115878864066,
+          0.21493899607390055
+        ]
+      },
+      "MAIT": {
+        "n_all": 62,
+        "n_loci": 52,
+        "n_scored": 62,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 7,
+        "n_nonzero": 55,
+        "n_correct": 30,
+        "all_pair_accuracy": 0.4838709677419355,
+        "conditional_accuracy": 0.5454545454545454,
+        "spearman": 0.3112203914859701,
+        "accuracy_ci95": [
+          0.35,
+          0.6072185230024209
+        ],
+        "spearman_ci95": [
+          0.04368676196068817,
+          0.5209408056276746
+        ]
+      },
+      "NK": {
+        "n_all": 351,
+        "n_loci": 291,
+        "n_scored": 351,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 111,
+        "n_nonzero": 240,
+        "n_correct": 152,
+        "all_pair_accuracy": 0.43304843304843305,
+        "conditional_accuracy": 0.6333333333333333,
+        "spearman": 0.29665856895481846,
+        "accuracy_ci95": [
+          0.3803834567437608,
+          0.4881674208144796
+        ],
+        "spearman_ci95": [
+          0.18713657278376986,
+          0.39355995821556716
+        ]
+      },
+      "NK_CD56bright": {
+        "n_all": 361,
+        "n_loci": 305,
+        "n_scored": 361,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 105,
+        "n_nonzero": 256,
+        "n_correct": 146,
+        "all_pair_accuracy": 0.40443213296398894,
+        "conditional_accuracy": 0.5703125,
+        "spearman": 0.14477267433131388,
+        "accuracy_ci95": [
+          0.3531073446327684,
+          0.453781512605042
+        ],
+        "spearman_ci95": [
+          0.04191276502960771,
+          0.23777513974926337
+        ]
+      },
+      "NK_Proliferating": {
+        "n_all": 416,
+        "n_loci": 345,
+        "n_scored": 416,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 131,
+        "n_nonzero": 285,
+        "n_correct": 150,
+        "all_pair_accuracy": 0.3605769230769231,
+        "conditional_accuracy": 0.5263157894736842,
+        "spearman": 0.08301060023691188,
+        "accuracy_ci95": [
+          0.31526757447224635,
+          0.40741452991452987
+        ],
+        "spearman_ci95": [
+          -0.00832038273816417,
+          0.17885122900747868
+        ]
+      },
+      "Plasmablast": {
+        "n_all": 320,
+        "n_loci": 282,
+        "n_scored": 320,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 82,
+        "n_nonzero": 238,
+        "n_correct": 139,
+        "all_pair_accuracy": 0.434375,
+        "conditional_accuracy": 0.5840336134453782,
+        "spearman": 0.12848749305114862,
+        "accuracy_ci95": [
+          0.3808009587536203,
+          0.48562300319488816
+        ],
+        "spearman_ci95": [
+          0.005675002489339963,
+          0.23447561254987612
+        ]
+      },
+      "Treg": {
+        "n_all": 209,
+        "n_loci": 182,
+        "n_scored": 209,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 61,
+        "n_nonzero": 148,
+        "n_correct": 88,
+        "all_pair_accuracy": 0.42105263157894735,
+        "conditional_accuracy": 0.5945945945945946,
+        "spearman": 0.2400824000625818,
+        "accuracy_ci95": [
+          0.34950311412346585,
+          0.4881544400685312
+        ],
+        "spearman_ci95": [
+          0.10314108077615956,
+          0.37531883948324124
+        ]
+      },
+      "cDC1": {
+        "n_all": 61,
+        "n_loci": 57,
+        "n_scored": 61,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 10,
+        "n_nonzero": 51,
+        "n_correct": 28,
+        "all_pair_accuracy": 0.45901639344262296,
+        "conditional_accuracy": 0.5490196078431373,
+        "spearman": 0.1334025684335559,
+        "accuracy_ci95": [
+          0.3385752688172043,
+          0.5901639344262295
+        ],
+        "spearman_ci95": [
+          -0.11154284568389096,
+          0.3683517418241195
+        ]
+      },
+      "cDC2": {
+        "n_all": 83,
+        "n_loci": 70,
+        "n_scored": 83,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 24,
+        "n_nonzero": 59,
+        "n_correct": 33,
+        "all_pair_accuracy": 0.39759036144578314,
+        "conditional_accuracy": 0.559322033898305,
+        "spearman": 0.18097804594128072,
+        "accuracy_ci95": [
+          0.3076923076923077,
+          0.4936708860759494
+        ],
+        "spearman_ci95": [
+          -0.013649424470132714,
+          0.35743952700675047
+        ]
+      },
+      "dnT": {
+        "n_all": 47,
+        "n_loci": 47,
+        "n_scored": 47,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 10,
+        "n_nonzero": 37,
+        "n_correct": 23,
+        "all_pair_accuracy": 0.48936170212765956,
+        "conditional_accuracy": 0.6216216216216216,
+        "spearman": 0.19508737810007679,
+        "accuracy_ci95": [
+          0.3404255319148936,
+          0.6382978723404256
+        ],
+        "spearman_ci95": [
+          -0.12528351569776272,
+          0.4824644014898967
+        ]
+      },
+      "gdT": {
+        "n_all": 67,
+        "n_loci": 55,
+        "n_scored": 67,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 16,
+        "n_nonzero": 51,
+        "n_correct": 32,
+        "all_pair_accuracy": 0.47761194029850745,
+        "conditional_accuracy": 0.6274509803921569,
+        "spearman": 0.21080112405886936,
+        "accuracy_ci95": [
+          0.36764705882352944,
+          0.5964912280701754
+        ],
+        "spearman_ci95": [
+          0.00802229607939494,
+          0.42433606603550583
+        ]
+      },
+      "pDC": {
+        "n_all": 56,
+        "n_loci": 51,
+        "n_scored": 56,
+        "n_missing": 0,
+        "n_observed_exact_zero": 0,
+        "n_zero": 16,
+        "n_nonzero": 40,
+        "n_correct": 24,
+        "all_pair_accuracy": 0.42857142857142855,
+        "conditional_accuracy": 0.6,
+        "spearman": 0.2554988838589503,
+        "accuracy_ci95": [
+          0.2982456140350877,
+          0.5636963979416806
+        ],
+        "spearman_ci95": [
+          0.0155925679871847,
+          0.48082837707903103
+        ]
+      }
+    },
+    "heuristics": {
+      "abs_distance": {
+        "magnitude_spearman_observed": 0.0013901428739473156,
+        "allele_direction": "unavailable without allele features"
+      },
+      "maf": {
+        "magnitude_spearman_observed": -0.12264958883096015,
+        "allele_direction": "unavailable without allele features"
+      },
+      "gc": {
+        "magnitude_spearman_observed": 0.05319482309305225,
+        "allele_direction": "unavailable without allele features"
+      }
+    },
+    "precision_weighted_all_pair_direction": 0.21297161102638906,
+    "cell_agnostic_contrast": {
+      "correct_fraction": 0.0,
+      "nonzero_coverage": 0.0,
+      "explanation": "A shared variant effect across cells implies exactly zero contrast."
+    }
+  },
+  "external_baselines": {
+    "PromoterAI": {
+      "status": "not_run",
+      "reason": "No authorized executable model or licensed matched precomputed predictions supplied; published median is an unmatched narrative comparison."
+    },
+    "AlphaGenome": {
+      "status": "not_run",
+      "reason": "No authenticated executable external-model access configured for the exact frozen cohort."
+    },
+    "Borzoi": {
+      "status": "not_run",
+      "reason": "No validated local checkpoint, output-to-cell mapping and matching executable workflow configured."
+    },
+    "caQTL": {
+      "status": "not_run",
+      "reason": "No independent matched caQTL source included in the authorized Zenodo/source release."
+    }
+  }
+}

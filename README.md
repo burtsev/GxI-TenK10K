@@ -63,3 +63,9 @@ historical evidence.
 The initial 100-candidate exploratory pilot, its weak cell-specific contrast results, and subsequent prompt-conditioning experiments motivate a larger independent evaluation. Start with **[Follow-up Codex instructions](docs/FOLLOWUP_START.md)**, **[preregistered protocol](docs/FOLLOWUP_PROTOCOL.md)**, **[execution runbook](docs/FOLLOWUP_CODEX_RUNBOOK.md)**, and **[follow-up configuration](configs/followup.yaml)**. Prior results are summarized with caveats in [prior findings](docs/FOLLOWUP_PRIOR_FINDINGS.md).
 
 The follow-up uses the GI API through your `GI_API_KEY` with no total quota cap for this key, while respecting network/server rate limits. Old pilot targets and `api.max_requests: 1600` belong **only** to the historical pilot, not the new study. Study instructions are committed; future inference/results are not claimed complete.
+
+## Completed independent follow-up (30 October 2026)
+
+The frozen test includes 1,000 variant–gene pairs across 877 genes and 777 physical locus clusters, with 1,000 matched uncertain controls and 28 immune populations. None of the gene-free alternatives qualified on 250 development loci, so baseline alone was tested. All-pair direction was 40.8% for variants (95% locus CI 38.6–43.0%) and 42.9% for cell contrasts (41.4–44.4%); weak positive rank associations were detected, but neither endpoint crossed the published 50% utility gate. All 68 offline tests and 27 final QA checks passed.
+
+Read the [five-page manuscript](docs/runs/followup-20261030/GI_TenK10K_followup_manuscript.pdf), [full summary](docs/runs/followup-20261030/summary.md), and [reporting/reproduction notes](docs/FOLLOWUP_REPORTING_NOTES.md). Frozen inputs and the pre-test decision are committed alongside the sanitized aggregates. Raw data and inference caches remain on the VM.

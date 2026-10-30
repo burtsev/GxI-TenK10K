@@ -1,0 +1,55 @@
+{
+  "status": "reporting supplement completed after frozen primary analysis; no primary parameters or data changed",
+  "bootstrap_replicates": 3000,
+  "seed": 20261030,
+  "ranking": {
+    "n_all": 5863,
+    "wins": 2752,
+    "ties": 1683,
+    "losses": 1428,
+    "all_pair_win_fraction": 0.46938427426232304,
+    "all_pair_ci95": [
+      0.4471972526708324,
+      0.4931922711900067
+    ],
+    "non_tied_n": 4180,
+    "non_tied_win_fraction": 0.6583732057416268,
+    "non_tied_ci95": [
+      0.6351807201883595,
+      0.682810687976359
+    ]
+  },
+  "reported_pip_ordering": {
+    "n_both_pip_reported": 178,
+    "n_equal_pip": 0,
+    "metrics": {
+      "n_all": 178,
+      "n_loci": 111,
+      "n_scored": 178,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 46,
+      "n_nonzero": 132,
+      "n_correct": 86,
+      "all_pair_accuracy": 0.48314606741573035,
+      "conditional_accuracy": 0.6515151515151515,
+      "spearman": 0.17291944860007422,
+      "accuracy_ci95": [
+        0.4044943820224719,
+        0.5606949921668197
+      ],
+      "spearman_ci95": [
+        0.02012695327093873,
+        0.30637390825988753
+      ]
+    },
+    "interpretation": "Reported posterior-probability ordering only; unknown PIP omitted explicitly, never imputed zero. Not experimental causal truth."
+  },
+  "observed_expression_stratification": {
+    "status": "not_run",
+    "reason": "The authorized association summary tables do not provide observed gene-expression means; donor-level expression is not reconstructed."
+  },
+  "timing_utc": "2026-10-30T18:09:27.388898+00:00",
+  "frozen_primary_metrics_sha256": "dcee867ea2d02304cab5252d3ea467ecbffef9d83402b6364ab48f0fdf5173b4",
+  "supplement_source_sha256": "33e200c63aefa1203fd2ba5fa484d907bdb6d156a284bd557cb408db8ab40be9"
+}

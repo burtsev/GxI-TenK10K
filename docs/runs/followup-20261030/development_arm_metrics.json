@@ -1,0 +1,292 @@
+{
+  "baseline": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 395,
+      "n_nonzero": 1072,
+      "n_correct": 676,
+      "all_pair_accuracy": 0.4608043626448534,
+      "conditional_accuracy": 0.6305970149253731,
+      "spearman": 0.2937771585211261
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 593,
+      "n_nonzero": 3023,
+      "n_correct": 1658,
+      "all_pair_accuracy": 0.45851769911504425,
+      "conditional_accuracy": 0.5484617929209394,
+      "spearman": 0.12377689967964305
+    }
+  },
+  "canonical_cell_only": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 408,
+      "n_nonzero": 1059,
+      "n_correct": 661,
+      "all_pair_accuracy": 0.4505794137695978,
+      "conditional_accuracy": 0.6241737488196412,
+      "spearman": 0.2942964931346842
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 534,
+      "n_nonzero": 3082,
+      "n_correct": 1611,
+      "all_pair_accuracy": 0.44551991150442477,
+      "conditional_accuracy": 0.5227125243348475,
+      "spearman": 0.08771905495509075
+    }
+  },
+  "cell_plus_verified_cl_id": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1065,
+      "n_missing": 402,
+      "n_observed_exact_zero": 0,
+      "n_zero": 259,
+      "n_nonzero": 806,
+      "n_correct": 517,
+      "all_pair_accuracy": 0.35241990456714384,
+      "conditional_accuracy": 0.641439205955335,
+      "spearman": 0.33150201172337124
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 1863,
+      "n_missing": 1753,
+      "n_observed_exact_zero": 0,
+      "n_zero": 215,
+      "n_nonzero": 1648,
+      "n_correct": 921,
+      "all_pair_accuracy": 0.25470132743362833,
+      "conditional_accuracy": 0.5588592233009708,
+      "spearman": 0.18978405487975938
+    }
+  },
+  "verified_cl_id_only": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1065,
+      "n_missing": 402,
+      "n_observed_exact_zero": 0,
+      "n_zero": 329,
+      "n_nonzero": 736,
+      "n_correct": 400,
+      "all_pair_accuracy": 0.27266530334015,
+      "conditional_accuracy": 0.5434782608695652,
+      "spearman": 0.11399737126282238
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 1863,
+      "n_missing": 1753,
+      "n_observed_exact_zero": 0,
+      "n_zero": 323,
+      "n_nonzero": 1540,
+      "n_correct": 801,
+      "all_pair_accuracy": 0.2215154867256637,
+      "conditional_accuracy": 0.5201298701298701,
+      "spearman": 0.03749805842511796
+    }
+  },
+  "structured_verified_assay": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 368,
+      "n_nonzero": 1099,
+      "n_correct": 681,
+      "all_pair_accuracy": 0.46421267893660534,
+      "conditional_accuracy": 0.6196542311191993,
+      "spearman": 0.2917055727782404
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 618,
+      "n_nonzero": 2998,
+      "n_correct": 1608,
+      "all_pair_accuracy": 0.4446902654867257,
+      "conditional_accuracy": 0.5363575717144763,
+      "spearman": 0.1008493426674615
+    }
+  },
+  "baseline_plus_gene_symbol": {
+    "gene_aware": true,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 386,
+      "n_nonzero": 1081,
+      "n_correct": 665,
+      "all_pair_accuracy": 0.45330606680299934,
+      "conditional_accuracy": 0.6151711378353376,
+      "spearman": 0.27981322080100235
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 550,
+      "n_nonzero": 3066,
+      "n_correct": 1627,
+      "all_pair_accuracy": 0.4499446902654867,
+      "conditional_accuracy": 0.530658838878017,
+      "spearman": 0.09279431521807775
+    }
+  },
+  "baseline_plus_ensembl_id": {
+    "gene_aware": true,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 400,
+      "n_nonzero": 1067,
+      "n_correct": 667,
+      "all_pair_accuracy": 0.4546693933197001,
+      "conditional_accuracy": 0.6251171508903468,
+      "spearman": 0.2845575649239332
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 604,
+      "n_nonzero": 3012,
+      "n_correct": 1612,
+      "all_pair_accuracy": 0.44579646017699115,
+      "conditional_accuracy": 0.5351925630810093,
+      "spearman": 0.10477804188999806
+    }
+  },
+  "baseline_plus_symbol_and_ensembl": {
+    "gene_aware": true,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 387,
+      "n_nonzero": 1080,
+      "n_correct": 652,
+      "all_pair_accuracy": 0.4444444444444444,
+      "conditional_accuracy": 0.6037037037037037,
+      "spearman": 0.2625511152853398
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 618,
+      "n_nonzero": 2998,
+      "n_correct": 1585,
+      "all_pair_accuracy": 0.43832964601769914,
+      "conditional_accuracy": 0.528685790527018,
+      "spearman": 0.06388152506140028
+    }
+  },
+  "historical_repeated_paraphrase": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 362,
+      "n_nonzero": 1105,
+      "n_correct": 711,
+      "all_pair_accuracy": 0.48466257668711654,
+      "conditional_accuracy": 0.6434389140271494,
+      "spearman": 0.3121187681177129
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 567,
+      "n_nonzero": 3049,
+      "n_correct": 1593,
+      "all_pair_accuracy": 0.4405420353982301,
+      "conditional_accuracy": 0.5224663824204657,
+      "spearman": 0.08640125970426268
+    }
+  },
+  "duplicated_baseline": {
+    "gene_aware": false,
+    "variant": {
+      "n_all": 1467,
+      "n_loci": 250,
+      "n_scored": 1467,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 367,
+      "n_nonzero": 1100,
+      "n_correct": 686,
+      "all_pair_accuracy": 0.4676209952283572,
+      "conditional_accuracy": 0.6236363636363637,
+      "spearman": 0.2803762960676016
+    },
+    "cross_cell": {
+      "n_all": 3616,
+      "n_loci": 250,
+      "n_scored": 3616,
+      "n_missing": 0,
+      "n_observed_exact_zero": 0,
+      "n_zero": 547,
+      "n_nonzero": 3069,
+      "n_correct": 1600,
+      "all_pair_accuracy": 0.4424778761061947,
+      "conditional_accuracy": 0.5213424568263278,
+      "spearman": 0.07012377956727042
+    }
+  }
+}

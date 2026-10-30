@@ -1,0 +1,24 @@
+{
+  "selected_arm": "baseline",
+  "eligible_alternatives": [],
+  "gene_free_only": true,
+  "selection_rule": "3pp cross-cell all-pair gain; <=3pp pair-coverage loss; rho then variant direction tie-break",
+  "git_commit": "a45d6884b55e24b01e849e7d7c1e1b8bcbcd65f4",
+  "frozen_utc": "2026-10-30T16:59:36.506477+00:00",
+  "file_hashes": {
+    "data_verification.json": "452fa7838ff563db8841fbe24279968cac73b10bffb9764b0143b56a94470066",
+    "source_manifest.json": "05b1fc064f061fe04c150b268b690396ff141656a9fecaf4a2946210aa9d25c0",
+    "gi_models.json": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c",
+    "gi_docs.md": "e4c07eff9810b512d87db823d38c0c797a14d8806128ecd6590bd2724dfed58a",
+    "gi_limits.md": "e00d71edbbcdac31adcc292b4a0b81238b79f94fa8f44360c20a2a368479b97d",
+    "code_manifest.json": "e6dd09180be6b54c122637eb6f3ef121711c7b744e209b9185497c4a1e5bcc60",
+    "description_registry.tsv": "bdbbda8e41c0727db2d77c93fd9c3754aa3b5e94a6f1118451a4de0d407af80e",
+    "diagnostic_description_registry.tsv": "8dd2411e055af3d2e96b8404ab50bfde3f7c61db09aac569742d4b9b3c786ef2",
+    "geometry_cohort.parquet": "7263c1230457660a60c9f4273e5da7407aa494e2aa967f036dd91ce35062a49b",
+    "frozen_protocol.json": "ad9742953f51919283131653a8e4c9ced44ca160edb439b9439e7695f25ba1df",
+    "prompt_registry.parquet": "82339326f938978a7fe1aeae9b791348f1e4a878228fc8c33e41d6e32bd9192c",
+    "analysis_plan.json": "4ea4024fbb08eb8218226bb50c6486434768c19bc8210415b2e44f623a63a2ea",
+    "gi_openapi.json": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a",
+    "development_arm_metrics.json": "09e1959fc6c6a400485519b6735a043ce09a0c315c61723751978b64fb9a9a1b"
+  }
+}

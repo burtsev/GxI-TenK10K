@@ -1,0 +1,11 @@
+{
+  "status": "published_before_confirmatory_inference",
+  "published_utc": "2026-10-30T17:02:23.888519+00:00",
+  "github_commit": "3727141f1f020e40d02ab807326ed610487dbf68",
+  "github_url": "https://github.com/burtsev/GxI-TenK10K/commit/3727141f1f020e40d02ab807326ed610487dbf68",
+  "tree_sha": "e80d4d51721e2233d8c46ab9516949dcea14a46a",
+  "context_selection_sha256": "d455ffec6579353d9fc04ac60dc8722b76c734adb7082ad0560a73d815c21ff4",
+  "code_manifest_sha256": "e6dd09180be6b54c122637eb6f3ef121711c7b744e209b9185497c4a1e5bcc60",
+  "selected_arm": "baseline",
+  "test_jobs_at_publication": 0
+}
