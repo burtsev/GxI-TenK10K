@@ -45,3 +45,10 @@ Codex should produce `results/<run_id>/` with a raw-data audit, manifest/checksu
 ## Scientific scope
 
 This is a **zero-shot observational benchmark**, not an intervention, a clinical model validation, or a claim of causal variant identification. An insignificant eQTL is not automatically a true negative, SuSiE PIP is not experimental causality, and published betas may not share units with GI's log(TPM+1).
+
+
+## Follow-up study (30 October 2026)
+
+The initial 100-candidate exploratory pilot, its weak cell-specific contrast results, and subsequent prompt-conditioning experiments motivate a larger independent evaluation. Start with **[Follow-up Codex instructions](docs/FOLLOWUP_START.md)**, **[preregistered protocol](docs/FOLLOWUP_PROTOCOL.md)**, **[execution runbook](docs/FOLLOWUP_CODEX_RUNBOOK.md)**, and **[follow-up configuration](configs/followup.yaml)**. Prior results are summarized with caveats in [prior findings](docs/FOLLOWUP_PRIOR_FINDINGS.md).
+
+The follow-up uses the GI API through your `GI_API_KEY` with no total quota cap for this key, while respecting network/server rate limits. Old pilot targets and `api.max_requests: 1600` belong **only** to the historical pilot, not the new study. Study instructions are committed; future inference/results are not claimed complete.
