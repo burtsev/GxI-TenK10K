@@ -1,0 +1,11 @@
+{
+  "full_registry_sha256": "82339326f938978a7fe1aeae9b791348f1e4a878228fc8c33e41d6e32bd9192c",
+  "full_tsv_sha256": "bdbbda8e41c0727db2d77c93fd9c3754aa3b5e94a6f1118451a4de0d407af80e",
+  "diagnostic_tsv_sha256": "8dd2411e055af3d2e96b8404ab50bfde3f7c61db09aac569742d4b9b3c786ef2",
+  "diagnostic_rows_by_arm": {
+    "swapped_gene_label": 292,
+    "nonsense_gene_label": 292,
+    "shuffled_cell_label": 292
+  },
+  "selected_descriptions_sha256": "41bfddff3833cff55794fd5a218ddb81d489fee4485ed9c5cb919d90a8f34088"
+}

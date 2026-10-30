@@ -1,0 +1,24 @@
+{
+  "frozen_utc": "2026-10-30T17:00:17.458765+00:00",
+  "status": "development_complete; context_locked; no_test_predictions",
+  "test_prediction_jobs_at_publication": 0,
+  "selected_arm": "baseline",
+  "development_job_counts": {
+    "baseline": 2934,
+    "baseline_plus_ensembl_id": 2934,
+    "baseline_plus_gene_symbol": 2934,
+    "baseline_plus_symbol_and_ensembl": 2934,
+    "canonical_cell_only": 2934,
+    "cell_plus_verified_cl_id": 2934,
+    "duplicated_baseline": 2934,
+    "historical_repeated_paraphrase": 2934,
+    "nonsense_gene_label": 292,
+    "shuffled_cell_label": 292,
+    "structured_verified_assay": 2934,
+    "swapped_gene_label": 292,
+    "verified_cl_id_only": 2934
+  },
+  "local_git_source_commit": "a45d6884b55e24b01e849e7d7c1e1b8bcbcd65f4",
+  "context_selection_sha256": "d455ffec6579353d9fc04ac60dc8722b76c734adb7082ad0560a73d815c21ff4",
+  "code_manifest_sha256": "e6dd09180be6b54c122637eb6f3ef121711c7b744e209b9185497c4a1e5bcc60"
+}

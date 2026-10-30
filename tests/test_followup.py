@@ -148,3 +148,10 @@ def test_context_choice_obeys_gene_free_coverage_and_zero_rho_tie_break():
     m={'baseline':metric(.4,.1),'canonical_cell_only':metric(.44,0.),'structured_verified_assay':metric(.44,-.05),'baseline_plus_gene_symbol':metric(.99,.9),'duplicated_baseline':metric(.45,.2,96),'historical_repeated_paraphrase':metric(.42,.5)}
     selected,eligible=select_gene_free(m);assert selected=='canonical_cell_only';assert set(eligible)=={'canonical_cell_only','structured_verified_assay'}
     assert select_gene_free({'baseline':m['baseline'],'historical_repeated_paraphrase':m['historical_repeated_paraphrase']})==('baseline',[])
+
+def test_missing_pip_is_an_explicit_unknown_stratum():
+    from gxi_tenk10k.followup.secondary import stratification_bins
+    x=pd.Series([1.,float('nan'),1.])
+    assert stratification_bins(x).tolist()==['constant','unknown','constant']
+    labels=stratification_bins(pd.Series([.1,.2,.3,.4,float('nan')]))
+    assert len(labels)==5 and labels.iloc[-1]=='unknown' and labels.notna().all()

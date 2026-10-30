@@ -1,0 +1,29 @@
+arm	cell	description	context_hash
+baseline	ASDC	Human peripheral blood AXL-positive SIGLEC6-positive dendritic cell, unstimulated, 10x 3-prime single-cell RNA-seq	8c296b9fd0d580cbbc5654af5060be1dab0de5ed904487ec4327d6ddcdefc1fd
+baseline	B_intermediate	Human peripheral blood intermediate B cell, unstimulated, 10x 3-prime single-cell RNA-seq	60b4b38a0c56894c2861b0f4c3ae1bc9d728165a456a70e206ee2989ae2a33ac
+baseline	B_memory	Human peripheral blood memory B cell, unstimulated, 10x 3-prime single-cell RNA-seq	9e6e4210285968740ffc65a28e19b56414a881b7388d05f919480bb77839cd51
+baseline	B_naive	Human peripheral blood B naive, unstimulated, 10x 3-prime single-cell RNA-seq	6fd8b7af71a879f096e9a932d3c0a4c8e2bc795914418e92fe2cba358cdda159
+baseline	CD14_Mono	Human peripheral blood CD14 classical monocyte, unstimulated, 10x 3-prime single-cell RNA-seq	c39e6a3f0eb57777fc013feaba38a746659362520b948d77d06c140e10d4c2ab
+baseline	CD16_Mono	Human peripheral blood CD16 nonclassical monocyte, unstimulated, 10x 3-prime single-cell RNA-seq	b1167328096a6c83ce2ce2303eac960ab46684843a806d58e6c67b3dc036b636
+baseline	CD4_CTL	Human peripheral blood CD4 cytotoxic T cell, unstimulated, 10x 3-prime single-cell RNA-seq	cf79573a0a8656946a8afca7d830b1f16e8dc5061f2acd39f02810130d9654c1
+baseline	CD4_Naive	Human peripheral blood CD4 naive T, unstimulated, 10x 3-prime single-cell RNA-seq	02fa061abe79ae5f0f7d0be3e10b5e2fdd5f533007c122bb1d29b7040f418b9b
+baseline	CD4_Proliferating	Human peripheral blood proliferating CD4 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	7a86bfcf6053d164aedb9cd597d4082a2d621e280521572f48b1f2b393ea185a
+baseline	CD4_TCM	Human peripheral blood central memory CD4 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	a7bfe9485acf71f8001ec7047ad10bad36cca952940eb9b1d6b6d78a8b2104a3
+baseline	CD4_TEM	Human peripheral blood effector memory CD4 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	523e92443da1128415e21f4b6e067ac6147548eda547642377252582454f8979
+baseline	CD8_Naive	Human peripheral blood naive CD8 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	e0489a5737c2d0d20a365fdc39173fa02613b5eff3555b568e82dc814bbb0a07
+baseline	CD8_Proliferating	Human peripheral blood proliferating CD8 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	66124fda32353aecf52299a4509199320464b0fa93f74dc85404cfe1b6ebd953
+baseline	CD8_TCM	Human peripheral blood central memory CD8 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	67c49afda5fe908c27f1d84eebca44fa77fd8ee9d0c8f556741878f4c695c5d3
+baseline	CD8_TEM	Human peripheral blood effector memory CD8 T cell, unstimulated, 10x 3-prime single-cell RNA-seq	4e33819165d98e93c8704759fa917162e18b1ee22b1dc60a52ce9a741ee47366
+baseline	HSPC	Human peripheral blood hematopoietic stem and progenitor cell, unstimulated, 10x 3-prime single-cell RNA-seq	932a2626fcc7c249fdb0a74d024bdc78344bdce9b72ca074002c98106a720c1a
+baseline	ILC	Human peripheral blood innate lymphoid cell, unstimulated, 10x 3-prime single-cell RNA-seq	0a125b9696ecff8e02f28a44b79589626b617852126146d604cade6af3f73458
+baseline	MAIT	Human peripheral blood mucosal-associated invariant T cell, unstimulated, 10x 3-prime single-cell RNA-seq	5f8d6aeed62ee8ea91da39e9d94953b9fc182df7f6b75e1f96eb6ceb9397ab1f
+baseline	NK	Human peripheral blood natural killer cell, unstimulated, 10x 3-prime single-cell RNA-seq	2419ba804a3b96ff67a46fa7d0b063a64ff6683f19d32cec2eac016489a7ae00
+baseline	NK_CD56bright	Human peripheral blood CD56-bright natural killer cell, unstimulated, 10x 3-prime single-cell RNA-seq	e130c174fec7a8be27bfd16a9ce2bdfa2fa0970cec942cda1483c34eddee1b56
+baseline	NK_Proliferating	Human peripheral blood proliferating natural killer cell, unstimulated, 10x 3-prime single-cell RNA-seq	08cfb849c4fca6ae445287f5d01f550b6a1eb03d24f77c8220aaf7dccd8f2b06
+baseline	Plasmablast	Human peripheral blood plasmablast, unstimulated, 10x 3-prime single-cell RNA-seq	e909ec409196a8e3b83f5f5ed23bb9f54259aef4d39bb58b329d82829ed2d862
+baseline	Treg	Human peripheral blood regulatory T cell, unstimulated, 10x 3-prime single-cell RNA-seq	ccb5871a6c88c6652df3457cba07c230f175e5c92258fd920ee7b5d50acf82f1
+baseline	cDC1	Human peripheral blood conventional dendritic cell type 1, unstimulated, 10x 3-prime single-cell RNA-seq	7d030199400fdf8ace9df19f8bc4eb546a3a756a6b0407f91b7a28c29d404b89
+baseline	cDC2	Human peripheral blood conventional dendritic cell type 2, unstimulated, 10x 3-prime single-cell RNA-seq	d79a0fbdee1e595c12d69312706f08611971c03c8d6dd3403427c71ad902923c
+baseline	dnT	Human peripheral blood double-negative T cell, unstimulated, 10x 3-prime single-cell RNA-seq	2a6a7275dde263bce40f29aa83c75eeb5d1c290802d085867807fcecd440cd45
+baseline	gdT	Human peripheral blood gamma-delta T cell, unstimulated, 10x 3-prime single-cell RNA-seq	bf079462679dc0e0dd7129b41a0d7e2bed10741f21a248fec54a1415421ba7fd
+baseline	pDC	Human peripheral blood plasmacytoid dendritic cell, unstimulated, 10x 3-prime single-cell RNA-seq	ff8c1ac679d35fbc3a6d6fdeae294d19c9fc5989564fdef8e26d3cf1e85ef13a

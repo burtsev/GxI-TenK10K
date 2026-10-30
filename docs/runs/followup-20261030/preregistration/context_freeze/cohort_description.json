@@ -1,0 +1,28 @@
+{
+  "development": {
+    "genes": 250,
+    "variant_gene_pairs": 250,
+    "locus_clusters": 250,
+    "candidate_variant_cell_observations": 1467,
+    "control_variant_cell_observations": 1467,
+    "preselected_contrasts": 3616,
+    "precision_contrasts": 973,
+    "precision_loci": 189,
+    "observed_beta_missing": 0,
+    "observed_SE_missing": 0,
+    "precision_scope": "Descriptive observed stratum; no model outcomes used."
+  },
+  "test": {
+    "genes": 877,
+    "variant_gene_pairs": 1000,
+    "locus_clusters": 777,
+    "candidate_variant_cell_observations": 5863,
+    "control_variant_cell_observations": 5863,
+    "preselected_contrasts": 14446,
+    "precision_contrasts": 3333,
+    "precision_loci": 551,
+    "observed_beta_missing": 0,
+    "observed_SE_missing": 0,
+    "precision_scope": "Descriptive observed stratum; no model outcomes used."
+  }
+}

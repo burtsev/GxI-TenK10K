@@ -49,6 +49,10 @@ async def geometry(out):
     m={'n_preselected':len(f),'n_attempted':len(g),'status_counts':g.status.value_counts().to_dict(),'n_exact_effective_spans':int(len(valid)),'primary_40960':summary(g.beta,g.delta_40960,g.locus,B=3000),'sensitivity_81920_valid_only':summary(valid.beta,valid.delta,valid.locus,B=3000),'not_pooled':True}
     save(out/'geometry_metrics.json',m);return m
 
+def stratification_bins(x: pd.Series) -> pd.Series:
+    bins=pd.qcut(x,4,duplicates='drop') if x.nunique()>1 else pd.Series('constant',index=x.index)
+    return pd.Series([str(label) if pd.notna(value) else 'unknown' for label,value in zip(bins,x)],index=x.index)
+
 def secondary(out):
     from .analysis import observations,summary,contrasts,rho
     from .data import CELLS
@@ -58,7 +62,7 @@ def secondary(out):
         strata={}
         for field in ['maf','gc','abs_distance','PIP','SE']:
             # Fixed domain edges or descriptive quantiles only; no retuning primary.
-            x=candidate[field];bins=pd.qcut(x,4,duplicates='drop') if x.nunique()>1 else pd.Series('constant',index=x.index)
+            x=candidate[field];bins=stratification_bins(x)
             strata[field]={str(k):summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby(bins,observed=True)}
         family={k:summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby('family')}
         percell={k:summary(g.beta,g.delta,g.locus,B=2000) for k,g in candidate.groupby('cell')}
@@ -71,6 +75,6 @@ def secondary(out):
         # Descriptive precision weighting uses observed SE, never input selection.
         ok=np.isfinite(candidate.delta);weights=1/(candidate.SE.to_numpy()**2);from .analysis import correct
         weighted=float(np.sum(weights*correct(candidate.beta,candidate.delta))/weights.sum())
-        results[arm]={'pathways':pathways,'pathway_scope':pathway_config['status'],'strata':strata,'family':family,'per_cell_ci':percell,'heuristics':heuristics,'precision_weighted_all_pair_direction':weighted,'cell_agnostic_contrast':{'correct_fraction':0.,'nonzero_coverage':0.,'explanation':'A shared variant effect across cells implies exactly zero contrast.'}}
+        results[arm]={'pathways':pathways,'pathway_scope':pathway_config['status'],'strata':strata,'strata_row_totals':{field:sum(g['n_all'] for g in groups.values()) for field,groups in strata.items()},'stratification_missing_metadata':{field:int(candidate[field].isna().sum()) for field in strata},'family':family,'per_cell_ci':percell,'heuristics':heuristics,'precision_weighted_all_pair_direction':weighted,'cell_agnostic_contrast':{'correct_fraction':0.,'nonzero_coverage':0.,'explanation':'A shared variant effect across cells implies exactly zero contrast.'}}
     results['external_baselines']={name:{'status':'not_run','reason':reason} for name,reason in [('PromoterAI','No authorized executable model or licensed matched precomputed predictions supplied; published median is an unmatched narrative comparison.'),('AlphaGenome','No authenticated executable external-model access configured for the exact frozen cohort.'),('Borzoi','No validated local checkpoint, output-to-cell mapping and matching executable workflow configured.'),('caQTL','No independent matched caQTL source included in the authorized Zenodo/source release.')]}
     save(out/'secondary_metrics.json',results);return results

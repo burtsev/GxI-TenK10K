@@ -1,0 +1,142 @@
+[
+  {
+    "cell": "ASDC",
+    "retained_rows": 334691,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "B_intermediate",
+    "retained_rows": 315344,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "B_memory",
+    "retained_rows": 317187,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "B_naive",
+    "retained_rows": 300110,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD14_Mono",
+    "retained_rows": 310687,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD16_Mono",
+    "retained_rows": 309823,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD4_CTL",
+    "retained_rows": 303368,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD4_Naive",
+    "retained_rows": 310195,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD4_Proliferating",
+    "retained_rows": 354846,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD4_TCM",
+    "retained_rows": 319963,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD4_TEM",
+    "retained_rows": 313914,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD8_Naive",
+    "retained_rows": 320279,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD8_Proliferating",
+    "retained_rows": 344758,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD8_TCM",
+    "retained_rows": 322941,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "CD8_TEM",
+    "retained_rows": 310967,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "HSPC",
+    "retained_rows": 347671,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "ILC",
+    "retained_rows": 319133,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "MAIT",
+    "retained_rows": 317229,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "NK",
+    "retained_rows": 309975,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "NK_CD56bright",
+    "retained_rows": 316493,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "NK_Proliferating",
+    "retained_rows": 340280,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "Plasmablast",
+    "retained_rows": 330277,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "Treg",
+    "retained_rows": 310060,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "cDC1",
+    "retained_rows": 337018,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "cDC2",
+    "retained_rows": 338423,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "dnT",
+    "retained_rows": 316406,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "gdT",
+    "retained_rows": 322924,
+    "marker_column_disagreements": 0
+  },
+  {
+    "cell": "pDC",
+    "retained_rows": 325682,
+    "marker_column_disagreements": 0
+  }
+]
