@@ -1,4 +1,4 @@
-# Instructions for Codex (read before making changes)
+> **New study (30 October 2026):** If the task asks for the GI–TenK10K follow-up, follow [docs/FOLLOWUP_START.md](docs/FOLLOWUP_START.md), [docs/FOLLOWUP_PROTOCOL.md](docs/FOLLOWUP_PROTOCOL.md), [docs/FOLLOWUP_CODEX_RUNBOOK.md](docs/FOLLOWUP_CODEX_RUNBOOK.md), and [configs/followup.yaml](configs/followup.yaml). These override the original pilot's call limit and cohort size. GI_API_KEY is stated to have no total quota; keep rate limits, retries and checkpointing. Recover historical VM results before scoring an untouched holdout. Do not reset local uncommitted work.\n\n# Instructions for Codex (read before making changes)
 
 You are the implementing research engineer. Execute an auditable, reproducible **zero-shot** assessment of Genomic Intelligence (GI) DNA-to-expression predictions against TenK10K immune-cell cis-eQTL summary statistics. Read README.md, docs/BENCHMARK_PROTOCOL.md, docs/CODEX_RUNBOOK.md, configs/pilot.yaml and docs/VM_SETUP.md in that order. Implement working code and tests, not just a proposed plan.
 
