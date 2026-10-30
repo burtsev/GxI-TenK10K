@@ -1,0 +1,25 @@
+{
+  "files": {
+    "api_preflight.json": "05e8d98c6ea1b28da81fe8368a5ad21d8f1997ccaeea31af2f4746751d98f082",
+    "quality_audit.json": "f68d0b71b8547c5533a4b666ec19d28b7a7adc51a6d0c76292edcb9f62dba318",
+    "discovery_metrics.json": "d3f8f7c2ff9ff308cd87df0d30f5042299180ac1a4dd7ffebd2625d24c799d64",
+    "best_cell_contrasts.tsv": "ecbcf53c6e7d22c830e924b77d41e41ac7e4c4f15131a85710b3ed4df2e106a3",
+    "measured_predictions.tsv": "c7595098ee3154ecc77df64655a7bc5d0381f42b05d7019290d752e061e3a715",
+    "test_results.txt": "308495a7fa6a92a8905f9f44f1072834e52c4e7ed4ada9e6f5bfd1be7ed5e2c1",
+    "discovery_gate.json": "749af075f749200edebe3f1628a32474fcace6ae4bd96e17a7b293e6cadb4255",
+    "exclusions.tsv": "1d4e9c69a0f730460873913aaa5c99468f26085cf24f6f8ccf18c4b238dfdb38",
+    "execution.json": "7c488d2e8a42f11f196ef83e180b5d966b9059ae79e3966220570350771a068f",
+    "design.json": "712b51323ed3b4f58394a739ad88b84a8a4f542d22db84cb383d77969d6595a9",
+    "GI_full_best_description_report.pdf": "dc4b834a83476187fd458e307ab11d1e66267c8169a9c695125f2f84a607f7fb",
+    "baseline_cell_contrasts.tsv": "6ea6a36406d3a9fae28d4ff6c449f54205ef4f7ea7334a8be0af9cd585e38f45",
+    "metrics.json": "d1fdb691a50f61ad9e7c72a3b6ee4e06dcaa210dd6ae1e458616fb748273d5ba"
+  },
+  "source_commit": "6704481d88aec8ca39758805ddd7d8bdd7a33dfc",
+  "code_hashes": {
+    "scripts/full_best_description.py": "68a370ceff0a117c34aab0ead5b1c1a18fd2fd262665ed73cc7560705e732224",
+    "scripts/report_full_best.py": "c968366985fa6f7860f1dea57ea5c17f4b00e3a36bf7f81752b8a1ab546af194"
+  },
+  "scope": "Paired prompt-tuned repeat and all-available-cell scoring; no new zero-shot or independent validation claim.",
+  "slack_file": "https://genomicintelligence.slack.com/files/U0BBZSMAUEQ/F0CD274H6NT/gi_full_best_description_report.pdf",
+  "slack_channel": "C0BCCNHV6UU (#general)"
+}

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "gene": "ENSG00000119535",
+      "SNP": "1:36478697:C:A",
+      "ref_score": 4.9757,
+      "alt_score": 4.9757,
+      "delta": 0.0,
+      "scored_window": [
+        0,
+        40960
+      ],
+      "tss_index": 20480,
+      "variant_index": 24696,
+      "exact_repeat_equal": true,
+      "passed": true
+    },
+    {
+      "gene": "ENSG00000087237",
+      "SNP": "16:56971389:C:T",
+      "ref_score": 0.3143,
+      "alt_score": 0.3112,
+      "delta": -0.003100000000000047,
+      "scored_window": [
+        0,
+        40960
+      ],
+      "tss_index": 20480,
+      "variant_index": 29919,
+      "exact_repeat_equal": true,
+      "passed": true
+    }
+  ],
+  "sources": {
+    "gi_openapi.json": {
+      "url": "https://api.genomicintelligence.ai/v1/openapi.json",
+      "sha256": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a"
+    },
+    "gi_models.json": {
+      "url": "https://api.genomicintelligence.ai/v1/tasks/expression/models",
+      "sha256": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c"
+    },
+    "gi_docs.md": {
+      "url": "https://docs.genomicintelligence.ai/rest-api.md",
+      "sha256": "e4c07eff9810b512d87db823d38c0c797a14d8806128ecd6590bd2724dfed58a"
+    }
+  },
+  "total_call_cap": null,
+  "unrestricted_total_usage": "user API developer authorization",
+  "requests": 6,
+  "rate_events": 0,
+  "rate_interval_seconds": 0.06666666666666667
+}

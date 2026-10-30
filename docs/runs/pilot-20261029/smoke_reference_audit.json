@@ -1,0 +1,38 @@
+[
+  {
+    "gene": "ENSG00000119535",
+    "variant": "1:36478697:C:A",
+    "assembly": "GRCh38",
+    "genomic_ref_matches": true,
+    "ensembl_gene_boundary_tss": 36483322,
+    "strand": -1,
+    "distance_from_gene_boundary_tss": -4625,
+    "annotation_sha256": "0be080646c252fafed37cff182d30d65fd00fd4d4a99b4a9b97ae4c6cf0a2228",
+    "sequence_record_sha256": "955ed0078f3e664211343c03a9f96b1ebd8e9ae0b35c8a8a0413470beb0e6119",
+    "note": "Ensembl current gene boundary only; not a validated GENCODE v44 canonical transcript TSS"
+  },
+  {
+    "gene": "ENSG00000087237",
+    "variant": "16:56971389:C:T",
+    "assembly": "GRCh38",
+    "genomic_ref_matches": true,
+    "ensembl_gene_boundary_tss": 56961922,
+    "strand": 1,
+    "distance_from_gene_boundary_tss": 9467,
+    "annotation_sha256": "c4ba0f847a20c60ab252829121ef1a33f989bed3e5f94aae7d39bdce69b8d92e",
+    "sequence_record_sha256": "de364424bb79fede4bcd204d2abf3eb42d0652c3cdc4b36589a30456f458502d",
+    "note": "Ensembl current gene boundary only; not a validated GENCODE v44 canonical transcript TSS"
+  },
+  {
+    "gene": "ENSG00000087237",
+    "variant": "16:57020104:G:T",
+    "assembly": "GRCh38",
+    "genomic_ref_matches": true,
+    "ensembl_gene_boundary_tss": 56961922,
+    "strand": 1,
+    "distance_from_gene_boundary_tss": 58182,
+    "annotation_sha256": "c4ba0f847a20c60ab252829121ef1a33f989bed3e5f94aae7d39bdce69b8d92e",
+    "sequence_record_sha256": "cf4a08c7407bb98fb30de097a8b7a08f5a3b17cf324fe5f7f3b267d8cba01f68",
+    "note": "Ensembl current gene boundary only; not a validated GENCODE v44 canonical transcript TSS"
+  }
+]

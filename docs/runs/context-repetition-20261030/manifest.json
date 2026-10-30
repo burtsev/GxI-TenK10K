@@ -1,0 +1,22 @@
+{
+  "files": {
+    "GI_repetition_paraphrasing_report.pdf": "15e845e6971080340c99a8bdabc0904f52cede78ee0fe4dbe0144cb4b233bb01",
+    "frozen_selection.json": "1690d670f6a2421e5c7d1b4ef219e39dcab45c553e12302bf1e155139f765e7c",
+    "summary.json": "1f814cc475c1a8dd50249665fd9329bef491c1423f3081d59e79da6cf7b86bc6",
+    "measured_predictions.tsv": "ea6d217817a471558cc79bae990faffb986719a0df650f9479199a436505ca2a",
+    "test_results.txt": "e24a6cbaade6d34d8701326390ea3a1080ca0f36a9886e4f4326a7570b268c3c",
+    "design.json": "e564426ff0e82507cdeaf355bec063dd1785e99bf5c731c602b50c2038c59726",
+    "repeat_validation_predictions.tsv": "6458319abc5a44f5b3499d8bd435b38ed8a88bf61c2238721370c60db4cadfae",
+    "selection_note.txt": "4b619d4323a6c99fe1ceb1c317744e84a29708d2165c94ff86df2d32e6935afc",
+    "fresh_panel.tsv": "18e28e8dd813f0d56f9fa3ebdbe316e9eaf4ad40eb33a03f27b235733f5a8fe0",
+    "repeat_validation_calls.json": "0b264e695463c90aaf23ac361ec4d3a4f54c7d7450e7efc7bd503d79ae3f5a02",
+    "repeat_validation_design.json": "0c39d1155294f1b93d7fcee8dc1419561f570b76e12154574236277da50cdbcd",
+    "repeat_validation_metrics.json": "9731973ed43535d39fd580cb115e28fae42e4ddae96aff3e25b1d0b904410642",
+    "development_metrics.json": "968cb7ed2f7e57f09a45c962f6af3fdfa0a057f5603de4f82e2e8d96fba4dd07",
+    "development_panel.tsv": "3fc426f7383658b5a21d534ffee4536675d211ec11f46aca897da58ae34270c1",
+    "fresh_metrics.json": "7c809e75cdacb484275fcc2533a5f07b32e597212fd7966ebddf988d69ef921c"
+  },
+  "quota_preflight": "User confirmed as API developer that quota was lifted for the key; software cap1600 retained.",
+  "total_prediction_attempts_including_preledger": 1444,
+  "scope": "Exploratory supervised prompt search; original zero-shot results unchanged; future gene/cell ID tests proposed, not executed."
+}

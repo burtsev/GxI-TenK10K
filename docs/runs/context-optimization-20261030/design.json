@@ -1,0 +1,16 @@
+{
+  "templates": {
+    "baseline": "Human peripheral blood {cell}, unstimulated, 10x 3-prime single-cell RNA-seq",
+    "structured": "assay term name is single-cell RNA sequencing. library preparation is 10x Genomics Chromium 3-prime RNA-seq. biosample summary is Homo sapiens peripheral blood mononuclear cells, {cell}, unstimulated.",
+    "compact": "Homo sapiens; peripheral blood mononuclear cells (PBMCs); {cell}; unstimulated; 10x Genomics Chromium 3-prime single-cell RNA sequencing.",
+    "biosample_first": "biosample summary is unstimulated human {cell} from peripheral blood mononuclear cells. assay term name is single-cell RNA sequencing using 10x Genomics 3-prime poly(A) capture."
+  },
+  "seed": 20261030,
+  "development_n": 16,
+  "fresh_n": 20,
+  "selection": "Maximize correct directions / all 16 pairs; abstentions=incorrect; retain baseline on primary ties; Spearman breaks ties only among strictly better alternatives.",
+  "cap": 790,
+  "initial_preledger_calls": 1,
+  "worst_case_new_calls": 344,
+  "interpretation": "Outcome-tuned exploratory experiment; original zero-shot results unchanged."
+}

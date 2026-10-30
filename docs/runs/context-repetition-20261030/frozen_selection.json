@@ -1,0 +1,46 @@
+{
+  "winner": "paraphrase_sentence_twice",
+  "template": "Homo sapiens peripheral-blood {cell}, unstimulated. Single-cell RNA sequencing with 10x Genomics Chromium 3-prime poly(A) capture; source material: peripheral blood mononuclear cells (PBMCs). Homo sapiens peripheral-blood {cell}, unstimulated. Single-cell RNA sequencing with 10x Genomics Chromium 3-prime poly(A) capture; source material: peripheral blood mononuclear cells (PBMCs).",
+  "design_hash": "db033f353f2e8f2422f371e3ea804b1a0d77b1675798adc778543a3dbaef4404",
+  "development_metrics": {
+    "n_total": 16,
+    "n_missing": 0,
+    "n_abstain": 2,
+    "n_scored": 14,
+    "n_loci": 14,
+    "n_genes": 14,
+    "n_cells": 4,
+    "sign_concordance": 0.6428571428571429,
+    "ci95": [
+      0.42857142857142855,
+      0.8571428571428571
+    ],
+    "spearman": 0.44444456476747146,
+    "permutation_p": 0.2017982017982018,
+    "epsilon": 1e-06,
+    "robust_slope": 9.530947580645144,
+    "spearman_n": 16,
+    "spearman_nonabstaining": 0.389010989010989,
+    "chance_baseline": 0.5,
+    "calibration_sensitivity": {
+      "0": {
+        "retained": 14,
+        "sign_concordance": 0.6428571428571429
+      },
+      "1e-06": {
+        "retained": 14,
+        "sign_concordance": 0.6428571428571429
+      },
+      "1e-05": {
+        "retained": 14,
+        "sign_concordance": 0.6428571428571429
+      },
+      "0.0001": {
+        "retained": 14,
+        "sign_concordance": 0.6428571428571429
+      }
+    },
+    "correct_all_pairs": 9
+  },
+  "calls_at_freeze": 1075
+}

@@ -1,0 +1,161 @@
+{
+  "doi": "10.5281/zenodo.18221260",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "files": [
+    {
+      "name": "common_all_cis_pvalues_100kb.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/common_all_cis_pvalues_100kb.zip/content",
+      "provided_checksum": "md5:dd54714b2effb91160ac171ccb941534",
+      "sha256": "9be398a12c2b4e1b8118b03dca1123f7a1b3036f79e0322c1f392beb6505e5e0",
+      "size": 16559137990
+    },
+    {
+      "name": "susie_summary.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/susie_summary.zip/content",
+      "provided_checksum": "md5:f321c719030cc837cf27e09cd2ea6b65",
+      "sha256": "0a2e2cb0dec4b76d18e42b29c36b243a9ccd67b8761f17d20a83ae51f656e7ff",
+      "size": 59669579
+    },
+    {
+      "name": "common_variant_gene_level_results_with_annotated_fails.zip",
+      "url": "https://zenodo.org/api/records/18221260/files/common_variant_gene_level_results_with_annotated_fails.zip/content",
+      "provided_checksum": "md5:b5cd2ee1f34f90539ebf6683dcd35a2e",
+      "sha256": "fcb99a4454a2a5f0feb11c56bcedad667400ebbeead2b39f256a25f48b71ae74",
+      "size": 10137272
+    }
+  ],
+  "reference": [
+    {
+      "name": "gencode.v44.basic.annotation.gtf.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/gencode.v44.basic.annotation.gtf.gz",
+      "md5": "7450ef42cf9cb3d29625320b22d4bb45",
+      "sha256": "3e52f82c63f8fd860bf632ccde10441c05751f4c342ad08c0a98e9e2700171a5"
+    },
+    {
+      "name": "GRCh38.primary_assembly.genome.fa.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/GRCh38.primary_assembly.genome.fa.gz",
+      "md5": "9c3fc2ca260a767530dddb0f26721a6b",
+      "sha256": "e9a2d5a5cd225293646ae298998ad4ea8c11e8f22729bc2d6f5c3dcfefbf8ef8"
+    }
+  ],
+  "full_archive_opt_in": true,
+  "api": {
+    "base_url": "https://api.genomicintelligence.ai",
+    "openapi_sha256": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a",
+    "model_catalog_sha256": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c",
+    "model_id": "g0-expression-8192",
+    "immutable_weights_revision": "not_exposed"
+  },
+  "coordinates": "GRCh38 pos1/TSS one-based genomic plus; input and scored windows zero-based half-open",
+  "observed_effect": "SAIGE-QTL beta for Allele2=ALT, count model; predictions ALT-minus-REF log(TPM+1)",
+  "schema_version": 1,
+  "positive_controls": {
+    "positive_control_request_redacted.json": {
+      "model": "g0-expression-8192",
+      "sequence_hash": "7bb9556e4b9d08474aecec58958697ca27716c71539e44b3a24553c3b09d7df2",
+      "length": 9198,
+      "tss_index": 4599,
+      "context": "assay term name is polyA plus RNA-seq. biosample summary is Homo sapiens K562.",
+      "attempts": 1
+    },
+    "positive_control_response.json": {
+      "status": 200,
+      "rate_headers": {
+        "ratelimit-limit": "200",
+        "ratelimit-remaining": "199",
+        "ratelimit-reset": "1",
+        "ratelimit-policy": "200;w=60"
+      },
+      "response": {
+        "data": {
+          "task": "expression",
+          "model": "g0-expression-8192",
+          "input": {
+            "sequence_name": "official_HBB_positive_control",
+            "description": "assay term name is polyA plus RNA-seq. biosample summary is Homo sapiens K562.",
+            "tss_index": 4599
+          },
+          "summary": {
+            "expression_log_tpm": 0.5954,
+            "expression_tpm": 0.8138,
+            "sequence_length": 9198
+          },
+          "prediction": {
+            "expression": 0.5954,
+            "expression_log_tpm": 0.5954,
+            "expression_tpm": 0.8138,
+            "unit": "log(TPM+1)"
+          }
+        },
+        "meta": {
+          "job_id": "74d6e6b2-a3a7-466d-a69e-eaab469aa60a",
+          "request_id": "50e0991e-6ed2-4965-9af8-2f1e01e09f96",
+          "task": "expression",
+          "model": "g0-expression-8192",
+          "cold_start": false,
+          "model_load_time_ms": 0,
+          "inference_time_ms": 172,
+          "sequence_length": 9198,
+          "task_specific_counts": {
+            "task": "expression",
+            "tss_index": 4599,
+            "scored_window": [
+              0,
+              9198
+            ]
+          }
+        }
+      }
+    },
+    "long_positive_control.json": {
+      "gene": "HBB",
+      "assembly": "GRCh38",
+      "annotation": "GENCODE v44",
+      "tss1": 5227071,
+      "strand": "-",
+      "input_length": 81920,
+      "result": {
+        "score": 1.508,
+        "window": [
+          14799,
+          68912
+        ],
+        "model": "g0-expression-8192",
+        "unit": "log(TPM+1)"
+      },
+      "calls": 1
+    }
+  },
+  "official_project_evidence": {
+    "project_repository": "https://github.com/powellgenomicslab/tenk10k_phase1",
+    "commit": "9792e11c616ec2da4a389cb1811104da8232d169",
+    "annotation_evidence_file": "Scanpy/combine_files_add_gene_info.py",
+    "annotation_evidence_lines": [
+      32,
+      35
+    ],
+    "annotation_evidence_text": [
+      "# Load gencode (v44) gene info file",
+      "gencode_text_file = (",
+      "    # \"/share/ScratchGeneral/anncuo/reference_data/gencode.v44.basic.annotation_df.txt\"",
+      "    \"/directflow/SCCGGroupShare/projects/anncuo/reference_data/gencode.v44.basic.annotation_df.txt\""
+    ],
+    "gi_integration_kit_url": "https://docs.genomicintelligence.ai/integration-kit.tar.gz",
+    "gi_integration_kit_sha256": "82aa5cfb55c446807ee3cdf0438108b918acfc0f5d4bd13c69cb372b253cf71f",
+    "gi_client_sha256": "f6351c7efda4105cccd69dc4315b0873d9bc2484841f14e40ef193769ef265b3",
+    "adapter_choice": "httpx REST: supported client returns JSON but discards successful rate-limit headers",
+    "saige_tenk10k_commit": "dc303fd59b28fe3f8a7888f189ebebfc56e252c1",
+    "effect_allele_documentation_url": "https://weizhou0.github.io/SAIGE-QTL-doc/docs/single_step2.html",
+    "effect_allele_documentation_sha256": "08f0e3e64bbf87e80127eb1d0a374455612f487d7c227be9e3a94bb6bae58c55"
+  },
+  "api_post_breakdown": {
+    "matched_pilot": 300,
+    "initial_unmatched_candidate_queries": 48,
+    "additional_trial_comparison_queries": 86,
+    "diagnostics_and_positive_controls": 10,
+    "total": 444
+  },
+  "reproducibility_check": "Reading measured_predictions.tsv with pandas float_precision=round_trip exactly reproduces candidate/control counts, abstentions, sign estimates, locus CIs and Spearman correlations."
+}

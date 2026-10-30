@@ -1,0 +1,65 @@
+{
+  "audit": {
+    "status": "complete"
+  },
+  "selection": {
+    "status": "provisional_only"
+  },
+  "smoke": {
+    "status": "blocked",
+    "reasons": [
+      "GI_API_KEY absent",
+      "observations not supplied",
+      "fasta not supplied",
+      "reference_manifest not supplied",
+      "quota_preflight not supplied"
+    ],
+    "n_scored": 0,
+    "requests": 0
+  },
+  "trial": {
+    "status": "blocked",
+    "reasons": [
+      "live smoke gate not passed",
+      "GI_API_KEY absent",
+      "observations not supplied",
+      "fasta not supplied",
+      "reference_manifest not supplied",
+      "quota_preflight not supplied"
+    ],
+    "n_scored": 0,
+    "requests": 0
+  },
+  "pilot": {
+    "status": "blocked",
+    "reasons": [
+      "live smoke gate not passed",
+      "GI_API_KEY absent",
+      "observations not supplied",
+      "fasta not supplied",
+      "reference_manifest not supplied",
+      "quota_preflight not supplied"
+    ],
+    "n_scored": 0,
+    "requests": 0
+  },
+  "infer": {
+    "status": "blocked",
+    "reasons": [
+      "live smoke gate not passed",
+      "GI_API_KEY absent",
+      "observations not supplied",
+      "fasta not supplied",
+      "reference_manifest not supplied",
+      "quota_preflight not supplied"
+    ],
+    "n_scored": 0,
+    "requests": 0
+  },
+  "offline_tests": {
+    "status": "complete",
+    "passed": 46,
+    "failed": 0,
+    "evidence": "test_results.txt"
+  }
+}

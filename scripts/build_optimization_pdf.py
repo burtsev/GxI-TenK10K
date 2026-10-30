@@ -1,0 +1,34 @@
+"""Build the exploratory prompt-optimization report from executed results."""
+import json
+from pathlib import Path
+from xml.sax.saxutils import escape
+from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,Table,TableStyle,PageBreak
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+
+
+def main():
+    root=Path('results/context-optimization-20261030');out=Path('docs/runs/context-optimization-20261030');out.mkdir(parents=True,exist_ok=True)
+    s=json.load(open(root/'summary.json'));d=json.load(open(root/'design.json'));dev=json.load(open(root/'development_metrics.json'))
+    styles=getSampleStyleSheet();styles['Normal'].fontName='Times-Roman';styles['Normal'].fontSize=10.5;styles['Normal'].leading=13
+    def p(x,style='Normal'):return Paragraph(x,styles[style])
+    def pct(x):return 'NA' if x is None else f'{100*x:.1f}%'
+    def ci(x):return 'NA' if x is None else f'{100*x[0]:.1f} to {100*x[1]:.1f}%'
+    story=[p('Optimizing GI experimental-context descriptions','Title'),p('Exploratory follow-up | 30 October 2026'),Spacer(1,12)]
+    winner=s['winner'];b=s['baseline_original'];n=s['selected_original'];fresh=s['fresh'];paired=fresh['paired']
+    story += [p('Summary','Heading2'),p(f"Three accurate biological-context formats were searched on 16 development pairs. The frozen choice was <b>{escape(winner)}</b>. On the original 100-pair cohort, direction agreement changed from {pct(b['sign_concordance'])} ({b['n_scored']} non-abstaining) to {pct(n['sign_concordance'])} ({n['n_scored']} non-abstaining); pooled Spearman rho changed from {b['spearman']:.3f} to {n['spearman']:.3f}. This original-cohort result is post-tuning and is not independent validation."),p(f"The cleaner check used 20 previously unscored, non-overlapping loci, balanced across four cells. Correct directions per all 20 pairs changed from {paired['baseline_correct_all_pairs']}/20 to {paired['selected_correct_all_pairs']}/20. The paired change was {100*paired['difference']:.1f} percentage points (95% locus-bootstrap interval: {100*paired['ci95'][0]:.1f} to {100*paired['ci95'][1]:.1f}). A wide interval or failure to improve here limits any claim of generalization.")]
+    story.append(p(f"On the original 100 pairs, all-pair correct directions declined from {s['original_paired']['baseline_correct_all_pairs']}/100 to {s['original_paired']['selected_correct_all_pairs']}/100, while abstentions rose from {b['n_abstain']} to {n['n_abstain']}. Thus the development gain did not translate into improved original-cohort directional utility. Correlation improved descriptively, but a reliable general improvement has not been established."))
+    def table(rows):
+        t=Table([[p(escape(str(x))) for x in row] for row in rows],colWidths=[155,105,115,130]);t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e5ebf2')),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),6),('BOTTOMPADDING',(0,0),(-1,-1),6)]));return t
+    story += [p('Development search','Heading2'),table([['Description','Correct / 16','Sign-eligible','Spearman rho']]+[[k,str(v['correct_all_pairs']),str(v['n_scored']),f"{v['spearman']:.3f}" if v['spearman'] is not None else 'NA'] for k,v in dev.items()]),p('Selection maximized correct directions divided by all 16 development pairs, counting abstentions as incorrect. Baseline was retained on primary ties; Spearman broke ties only among strictly better alternatives. No fresh-locus effects were evaluated until selection was frozen.'),p('Fresh-locus validation','Heading2'),table([['Condition','Correct / all','Direction agreement','95% locus CI'],['Baseline',f"{paired['baseline_correct_all_pairs']}/20",pct(fresh['baseline']['sign_concordance']),ci(fresh['baseline']['ci95'])],['Frozen choice',f"{paired['selected_correct_all_pairs']}/20",pct(fresh['selected']['sign_concordance']),ci(fresh['selected']['ci95'])]])]
+    story += [PageBreak(),p('Descriptions, methods and interpretation','Heading1')]
+    for key,value in d['templates'].items():story += [p(key,'Heading3'),p(escape(value))]
+    story += [p('Methods and limits','Heading2'),p('The {cell} placeholder uses the same four human-readable cell identities as the original benchmark. All descriptions retain human peripheral-blood origin, unstimulated state and 10x 3-prime single-cell RNA sequencing; no fictitious donor or assay labels were tried. Only text changed: model g0-expression-8192, genomic alleles, context pairing, GENCODE v44 TSSs and matched 40,960-bp effective windows were fixed. REF and ALT received exactly the same description.'),p('Development loci came only from the existing development split. Fresh loci came from the prescreened high-PIP source queue and were separated by more than 200 kb from previously scored gene TSSs and from one another. This is a geometric independence proxy, not measured LD. Their source betas existed in the public summary release, but no GI effects for these loci had been evaluated. The original 100-pair cohort had already been reported and cannot serve as an untouched test set.'),p('This is outcome-supervised prompt selection and multiple-comparison exploration, not a new zero-shot claim. Sixteen tuning pairs and twenty validation pairs are small samples. Neither an improved in-sample score nor a higher conditional concordance proves a better model; abstention rates, all-pair accuracy and the fresh paired interval must be considered together. Original benchmark files and its manuscript remain unchanged.'),p(f"Requests: {s['new_calls']} new attempts; {s['total_calls_including_preledger']} cumulative prediction attempts including the one initial preledger control. The cumulative ledger cap was 790, with no automatic retries, keeping this experiment below 800 total attempts. Available monetary quota was not exposed. Exact descriptions, frozen choice, cohort identities, metrics and measured predictions accompany this PDF."),p('Reproduction','Heading2'),p('With GI_API_KEY exported: python scripts/optimize_context.py; python scripts/build_optimization_pdf.py. Shared cache avoids replaying successful calls. Original data: doi:10.5281/zenodo.18221260. Original benchmark: docs/runs/live-20261029/report.md.')]
+    def footer(c,doc):c.setFont('Times-Roman',8);c.drawString(44,22,'GI × TenK10K | Exploratory prompt optimization');c.drawRightString(A4[0]-44,22,str(doc.page))
+    path=out/'GI_context_optimization_report.pdf';SimpleDocTemplate(str(path),pagesize=A4,rightMargin=44,leftMargin=44,topMargin=40,bottomMargin=40).build(story,onFirstPage=footer,onLaterPages=footer)
+    import shutil
+    for name in ['design.json','development_panel.tsv','fresh_panel.tsv','development_metrics.json','frozen_selection.json','fresh_metrics.json','summary.json','measured_predictions.tsv']:shutil.copyfile(root/name,out/name)
+    print(path)
+
+if __name__=='__main__':main()

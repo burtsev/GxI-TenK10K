@@ -1,0 +1,19 @@
+{
+  "project_repository": "https://github.com/powellgenomicslab/tenk10k_phase1",
+  "commit": "9792e11c616ec2da4a389cb1811104da8232d169",
+  "annotation_evidence_file": "Scanpy/combine_files_add_gene_info.py",
+  "annotation_evidence_lines": [
+    32,
+    35
+  ],
+  "annotation_evidence_text": [
+    "# Load gencode (v44) gene info file",
+    "gencode_text_file = (",
+    "    # \"/share/ScratchGeneral/anncuo/reference_data/gencode.v44.basic.annotation_df.txt\"",
+    "    \"/directflow/SCCGGroupShare/projects/anncuo/reference_data/gencode.v44.basic.annotation_df.txt\""
+  ],
+  "gi_integration_kit_url": "https://docs.genomicintelligence.ai/integration-kit.tar.gz",
+  "gi_integration_kit_sha256": "82aa5cfb55c446807ee3cdf0438108b918acfc0f5d4bd13c69cb372b253cf71f",
+  "gi_client_sha256": "f6351c7efda4105cccd69dc4315b0873d9bc2484841f14e40ef193769ef265b3",
+  "adapter_choice": "httpx REST: supported client returns JSON but discards successful rate-limit headers"
+}

@@ -1,0 +1,34 @@
+{
+  "source_sha256": "9be398a12c2b4e1b8118b03dca1123f7a1b3036f79e0322c1f392beb6505e5e0",
+  "source_md5": "dd54714b2effb91160ac171ccb941534",
+  "effect_allele_source": "https://weizhou0.github.io/SAIGE-QTL-doc/docs/single_step2.html (Allele2 effect allele; BETA effect of Allele2)",
+  "scanned_members": [
+    {
+      "cell": "B_naive",
+      "rows_scanned": 15633912,
+      "rows_retained": 322341,
+      "member_crc32": "1898d50f"
+    },
+    {
+      "cell": "CD4_Naive",
+      "rows_scanned": 15513193,
+      "rows_retained": 309282,
+      "member_crc32": "87eaf99d"
+    },
+    {
+      "cell": "CD14_Mono",
+      "rows_scanned": 16475052,
+      "rows_retained": 333011,
+      "member_crc32": "e4beb180"
+    },
+    {
+      "cell": "CD16_Mono",
+      "rows_scanned": 16364774,
+      "rows_retained": 330203,
+      "member_crc32": "a2551469"
+    }
+  ],
+  "normalization": "SAIGE-QTL count-model beta; not log(TPM+1)",
+  "coordinate": "GRCh38 one-based POS, Allele1=REF, Allele2=ALT/effect",
+  "genes_retained": 302
+}

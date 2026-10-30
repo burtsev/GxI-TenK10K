@@ -1,0 +1,20 @@
+{
+  "source_susie_rows": 4193682,
+  "requested_cell_rows": 1012119,
+  "gene_fdr_05_rows": 1012057,
+  "pip_threshold": 0.9,
+  "screened_pairs": 100,
+  "screened_genes": 100,
+  "screened_by_cell": {
+    "B_naive": 25,
+    "CD14_Mono": 25,
+    "CD16_Mono": 25,
+    "CD4_Naive": 25
+  },
+  "eligible_candidates": 0,
+  "eligible_controls": 0,
+  "reference_checked": 0,
+  "excluded_screened_pairs": 100,
+  "config_hash": "5650ec2f1c49104a0ac073f069cc20a482645c9ff7e97822434147ed2f261087",
+  "note": "Screening only; all screened rows fail downstream eligibility. Source filtering counts are aggregate, not eligible efficacy denominators."
+}

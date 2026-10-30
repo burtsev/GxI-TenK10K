@@ -1,0 +1,14 @@
+{
+  "completed_records": 1284,
+  "description_counts": {
+    "baseline": 642,
+    "best": 642
+  },
+  "new_requests": 1340,
+  "ledger_requests": 2783,
+  "total_requests_including_initial_preledger": 2784,
+  "resume_start_ledger": 1443,
+  "gate_passed": true,
+  "completed_all_available_cells": true,
+  "source_hash": "d6ac5da3b470e781e235e4c66ede0fa5021699663b0bcf714b467cc28bee52fe"
+}

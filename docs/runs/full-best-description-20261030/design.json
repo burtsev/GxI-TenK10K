@@ -1,0 +1,14 @@
+{
+  "best_template": "Homo sapiens peripheral-blood {cell}, unstimulated. Single-cell RNA sequencing with 10x Genomics Chromium 3-prime poly(A) capture; source material: peripheral blood mononuclear cells (PBMCs). Homo sapiens peripheral-blood {cell}, unstimulated. Single-cell RNA sequencing with 10x Genomics Chromium 3-prime poly(A) capture; source material: peripheral blood mononuclear cells (PBMCs).",
+  "baseline_template": "Human peripheral blood {cell}, unstimulated, 10x 3-prime single-cell RNA-seq",
+  "model": "g0-expression-8192",
+  "flank_bp": 20480,
+  "input_bp": 40960,
+  "max_cumulative_requests": 4000,
+  "expected_complete_observations_per_description": 642,
+  "potential_observations_per_description": 800,
+  "missing_observed_betas_per_description": 158,
+  "quota_preflight": "User/API developer confirmed quota lifted for key and explicitly requested full scoring. Serial bounded requests; rate headers retained. Monetary price not published, no cost estimate claimed.",
+  "gate": "Discovery-candidate correct/all-pairs and Spearman must both improve over original baseline, before all-cell expansion.",
+  "interpretation": "Outcome-tuned prompt repeat, not a new zero-shot study or independent validation."
+}

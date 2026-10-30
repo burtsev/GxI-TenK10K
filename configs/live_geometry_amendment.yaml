@@ -1,0 +1,28 @@
+# Transparent execution amendments; original pilot.yaml remains unchanged.
+parent_protocol: docs/BENCHMARK_PROTOCOL.md
+geometry:
+  model: g0-expression-8192
+  original_input_bp: 81920
+  input_bp: 40960
+  flank_bp: 20480
+  require_identical_scored_windows: true
+  reason: Original REF/ALT smoke effective window endpoints differed by 4-7 bp.
+  timing: Before the 20-pair trial, based on geometry rather than efficacy optimization.
+matching:
+  maf_difference_max: 0.05
+  absolute_tss_distance_difference_max_bp: 5000
+  reference_gc_window_bp: 201
+  gc_fraction_difference_max: 0.1
+  eligibility_before_inference: true
+  timing: Moved before inference after initial 100-candidate/76-control pass; initial pass retained as sensitivity.
+  outcome_independent: true
+  control_category: matched_low_or_unreported_PIP_uncertain
+budget:
+  cumulative_ledger_attempt_cap: 760
+  initial_preledger_positive_control_posts: 1
+  reason: No published monetary quota/cost endpoint; keep execution below 800 attempts.
+contexts:
+  pilot_discovery_contexts_per_pair: 1
+  trial_comparison_pairs: 20
+  requested_comparison_cells: 4
+interpretation: Amended-geometry observational assessment; not an unchanged confirmatory primary endpoint.

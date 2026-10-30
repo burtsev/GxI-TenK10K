@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "doi": "10.5281/zenodo.18221260",
+  "version": {
+    "version": [
+      {
+        "index": 1,
+        "is_last": true,
+        "parent": {
+          "pid_type": "recid",
+          "pid_value": "17474112"
+        }
+      }
+    ]
+  },
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "config_hash": "5650ec2f1c49104a0ac073f069cc20a482645c9ff7e97822434147ed2f261087",
+  "files": [
+    {
+      "name": "part3_common_all_cis_pvalues_1Mb.zip",
+      "size": 18174665771,
+      "provided_checksum": "md5:1d61eab97edbe1f4f4d17b2a371af79e",
+      "url": "https://zenodo.org/api/records/18221260/files/part3_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part4_common_all_cis_pvalues_1Mb.zip",
+      "size": 19075830497,
+      "provided_checksum": "md5:27bf43a2bacb791ff5f8ef4bf95ada2c",
+      "url": "https://zenodo.org/api/records/18221260/files/part4_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part5_common_all_cis_pvalues_1Mb.zip",
+      "size": 18280244663,
+      "provided_checksum": "md5:d5d1b7fae979c272fff9b1aa01366d2a",
+      "url": "https://zenodo.org/api/records/18221260/files/part5_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "common_all_cis_pvalues_100kb.zip",
+      "size": 16559137990,
+      "provided_checksum": "md5:dd54714b2effb91160ac171ccb941534",
+      "url": "https://zenodo.org/api/records/18221260/files/common_all_cis_pvalues_100kb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part1_common_all_cis_pvalues_1Mb.zip",
+      "size": 18298114410,
+      "provided_checksum": "md5:c31e80e00971ab5a2d2c1a9702173bcf",
+      "url": "https://zenodo.org/api/records/18221260/files/part1_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "rare_all_cis_pvalues_100kb_single_variant_test.zip",
+      "size": 23495135237,
+      "provided_checksum": "md5:508e1ac3db9ba3a313ce4844f3b2e1e4",
+      "url": "https://zenodo.org/api/records/18221260/files/rare_all_cis_pvalues_100kb_single_variant_test.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part2_common_all_cis_pvalues_1Mb.zip",
+      "size": 22562193381,
+      "provided_checksum": "md5:f8746a83e227aa0aa0b17bceae61edbc",
+      "url": "https://zenodo.org/api/records/18221260/files/part2_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "coloc_100kb.zip",
+      "size": 626505208,
+      "provided_checksum": "md5:c627f1c4bc47706e331039d1e9e6e7d1",
+      "url": "https://zenodo.org/api/records/18221260/files/coloc_100kb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part6_common_all_cis_pvalues_1Mb.zip",
+      "size": 14432257914,
+      "provided_checksum": "md5:956d1ad23a888dcb5a217e69b4b85f49",
+      "url": "https://zenodo.org/api/records/18221260/files/part6_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "part7_common_all_cis_pvalues_1Mb.zip",
+      "size": 18861605718,
+      "provided_checksum": "md5:a483190d361f4fe68c794f0e21db1d60",
+      "url": "https://zenodo.org/api/records/18221260/files/part7_common_all_cis_pvalues_1Mb.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "rare_variant_gene_level_results.zip",
+      "size": 78839180,
+      "provided_checksum": "md5:b428aed74bd8f0cbc2abea8113ab3625",
+      "url": "https://zenodo.org/api/records/18221260/files/rare_variant_gene_level_results.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "rare_variant_gene_level_results_functional_annotations.zip",
+      "size": 33718024,
+      "provided_checksum": "md5:eef1582c2d78f617765ee189930c4a70",
+      "url": "https://zenodo.org/api/records/18221260/files/rare_variant_gene_level_results_functional_annotations.zip/content",
+      "downloaded": false
+    },
+    {
+      "name": "susie_summary.zip",
+      "size": 59669579,
+      "provided_checksum": "md5:f321c719030cc837cf27e09cd2ea6b65",
+      "url": "https://zenodo.org/api/records/18221260/files/susie_summary.zip/content",
+      "downloaded": true,
+      "sha256": "0a2e2cb0dec4b76d18e42b29c36b243a9ccd67b8761f17d20a83ae51f656e7ff",
+      "checksum_verified": true
+    },
+    {
+      "name": "common_variant_gene_level_results_with_annotated_fails.zip",
+      "size": 10137272,
+      "provided_checksum": "md5:b5cd2ee1f34f90539ebf6683dcd35a2e",
+      "url": "https://zenodo.org/api/records/18221260/files/common_variant_gene_level_results_with_annotated_fails.zip/content",
+      "downloaded": true,
+      "sha256": "fcb99a4454a2a5f0feb11c56bcedad667400ebbeead2b39f256a25f48b71ae74",
+      "checksum_verified": true
+    },
+    {
+      "name": "results_iscovariateoffset_true.zip",
+      "size": 20606814,
+      "provided_checksum": "md5:ccf33c0de5eab71977252423752ddebb",
+      "url": "https://zenodo.org/api/records/18221260/files/results_iscovariateoffset_true.zip/content",
+      "downloaded": false
+    }
+  ],
+  "total_compressed_bytes": 170568661658
+}

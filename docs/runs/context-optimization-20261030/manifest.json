@@ -1,0 +1,24 @@
+{
+  "source_commit": "83dd6635d1fccfce40464b96d70082e3347dd99a",
+  "API_contract_unchanged": true,
+  "model_catalog_unchanged": true,
+  "cohort_source": "docs/runs/live-20261029",
+  "code_hashes": {
+    "scripts/optimize_context.py": "d2eeb4259bab1990b44fa78f3787f006a1468634f34523a29b75a300115f978b",
+    "scripts/build_optimization_pdf.py": "13b207cc15686b481bd83e77cb7a480be9cf9b35edd9a7e7bdd4787f450456a3",
+    "tests/test_context_optimization.py": "2c3b3fcf4c1317b5dec83321f6d87b7f32585bd1f5bc24e72e773dd6daf53590"
+  },
+  "files": {
+    "frozen_selection.json": "761eec32b5eadd03b03202677663d4768832d3ca0b028fa5ba9c8adc7962c3b6",
+    "summary.json": "db87112840e06632f235600801bfbe106011fbd22729a79ec1ea52967de3b34c",
+    "measured_predictions.tsv": "5e9ad86eefe04a33c69adf0b5cda39cdf48fecd4e2004d261882176591a4b5e4",
+    "test_results.txt": "a44a4d9fe4086f7e8b0d1635ea50ca3b0baf24d3a5fe962975a72d39c76c4beb",
+    "design.json": "4cad7128d8ffde9cd21c9053f79a29176ff34827424ee68b44eec7c0b814eeed",
+    "GI_context_optimization_report.pdf": "a5dc60b4900288d092b83f6bf1aea10a4390fc11348dfd632c07dae3e4b45264",
+    "fresh_panel.tsv": "d37b3081de6183da133d31e8d8b582da8d75b91d0f5f74c0e2be8abd81c95070",
+    "development_metrics.json": "d899363ef93ba62acfe58e7078e30e1c2df0226ba32d4bdc9cc358df86fd846f",
+    "development_panel.tsv": "3fc426f7383658b5a21d534ffee4536675d211ec11f46aca897da58ae34270c1",
+    "fresh_metrics.json": "594f9cd83967bb979028ae63f0a8ab36d50d0e8cb25671b37bcba5e407264c78"
+  },
+  "scope": "Exploratory outcome-supervised prompt tuning. Freeze before fresh-locus test. Original zero-shot report unchanged."
+}

@@ -1,0 +1,19 @@
+{
+  "assembly": "GRCh38",
+  "annotation_release": "GENCODE v44",
+  "sha256": "e49b92b3e4f321bf254c042f25b726d9931c4d74c7523e8b6bb530e63b0cfd4b",
+  "sources": [
+    {
+      "name": "gencode.v44.basic.annotation.gtf.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/gencode.v44.basic.annotation.gtf.gz",
+      "md5": "7450ef42cf9cb3d29625320b22d4bb45",
+      "sha256": "3e52f82c63f8fd860bf632ccde10441c05751f4c342ad08c0a98e9e2700171a5"
+    },
+    {
+      "name": "GRCh38.primary_assembly.genome.fa.gz",
+      "url": "https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/GRCh38.primary_assembly.genome.fa.gz",
+      "md5": "9c3fc2ca260a767530dddb0f26721a6b",
+      "sha256": "e9a2d5a5cd225293646ae298998ad4ea8c11e8f22729bc2d6f5c3dcfefbf8ef8"
+    }
+  ]
+}

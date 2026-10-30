@@ -1,0 +1,46 @@
+{
+  "winner": "compact",
+  "template": "Homo sapiens; peripheral blood mononuclear cells (PBMCs); {cell}; unstimulated; 10x Genomics Chromium 3-prime single-cell RNA sequencing.",
+  "design_hash": "4ef4635933d037736333447b35a146303b8f40e725b26ba834f024f382d0ef03",
+  "development_metrics": {
+    "n_total": 16,
+    "n_missing": 0,
+    "n_abstain": 3,
+    "n_scored": 13,
+    "n_loci": 13,
+    "n_genes": 13,
+    "n_cells": 4,
+    "sign_concordance": 0.5384615384615384,
+    "ci95": [
+      0.23076923076923078,
+      0.7692307692307693
+    ],
+    "spearman": 0.5162264348011146,
+    "permutation_p": 0.4905094905094905,
+    "epsilon": 1e-06,
+    "robust_slope": 6.8883438155136165,
+    "spearman_n": 16,
+    "spearman_nonabstaining": 0.6483516483516483,
+    "chance_baseline": 0.5,
+    "calibration_sensitivity": {
+      "0": {
+        "retained": 13,
+        "sign_concordance": 0.5384615384615384
+      },
+      "1e-06": {
+        "retained": 13,
+        "sign_concordance": 0.5384615384615384
+      },
+      "1e-05": {
+        "retained": 13,
+        "sign_concordance": 0.5384615384615384
+      },
+      "0.0001": {
+        "retained": 13,
+        "sign_concordance": 0.5384615384615384
+      }
+    },
+    "correct_all_pairs": 7
+  },
+  "calls_at_freeze": 539
+}

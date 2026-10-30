@@ -1,0 +1,11 @@
+{
+  "sha256": "15fcd6fc1861d0dcdc2a7cee43bc4f4bc71ba04b6d2d834a3e32b4d1e0f67aa7",
+  "bytes": 150566,
+  "pages": 3,
+  "data_commit": "b7ecbed",
+  "source_paper_preprint": "https://www.medrxiv.org/content/10.1101/2025.03.20.25324352v2",
+  "source_paper_nature": "https://www.nature.com/articles/s41586-026-10721-2",
+  "verified_nature_result": "Median correlation 0.66 between PromoterAI scores and lead-eQTL effects; main text does not specify Pearson/Spearman.",
+  "slack_file": "https://genomicintelligence.slack.com/files/U0BBZSMAUEQ/F0CCY4Z1B9V/gi_tenk10k_short_report.pdf",
+  "slack_thread": "https://genomicintelligence.slack.com/archives/C0BCCNHV6UU/p1793313628242929"
+}

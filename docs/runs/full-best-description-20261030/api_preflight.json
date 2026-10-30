@@ -1,0 +1,14 @@
+{
+  "openapi": {
+    "url": "https://api.genomicintelligence.ai/v1/openapi.json",
+    "status": 200,
+    "sha256": "c4c388f0c48bb9bdfd79b2f0c94fc08e04493bff4589ce5ca387fd386b9dc91a",
+    "unchanged_from_first_study": true
+  },
+  "models": {
+    "url": "https://api.genomicintelligence.ai/v1/tasks/expression/models",
+    "status": 200,
+    "sha256": "5a7dc45f52cb7206753e929971fb6d6c7ddd54da12dd36d1cabfe8c2ea80701c",
+    "unchanged_from_first_study": true
+  }
+}

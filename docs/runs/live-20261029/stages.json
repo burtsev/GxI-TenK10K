@@ -1,0 +1,21 @@
+{
+  "smoke": {
+    "status": "complete",
+    "pairs": 2,
+    "calls_cumulative": 443
+  },
+  "trial": {
+    "status": "complete",
+    "candidate_pairs": 20,
+    "cells": 4,
+    "calls_cumulative": 443
+  },
+  "pilot": {
+    "status": "complete",
+    "candidate_pairs": 100,
+    "control_pairs": 100,
+    "cells": 4,
+    "calls_cumulative": 443,
+    "new_calls_this_invocation": 0
+  }
+}

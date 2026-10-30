@@ -1,0 +1,20 @@
+{
+  "epsilon": 1e-06,
+  "secondary_epsilons": [
+    0.0001,
+    0.001
+  ],
+  "bootstrap_replicates": 3000,
+  "permutation_replicates": 2000,
+  "seed": 20261030,
+  "primary_population": "candidate observations; fixed preselected cell pairs",
+  "baseline_primary": true,
+  "co_primary_A": "intersection-union of positive all-pair cell-contrast direction above 0.5 and positive Spearman; p_A=max(one-sided direction permutation p, one-sided rho permutation p)",
+  "co_primary_B": "all-pair variant direction above 0.5; one-sided locus sign-flip permutation p",
+  "correction": "Holm across A and B; separate Holm family for paired alternate improvements",
+  "zero_or_missing": "absolute delta<=epsilon wrong in all-pair direction; numerical zeros retained in rho; missing remain denominator and excluded rho with explicit coverage",
+  "selection": "gene-free development arms only; >=3pp all-pair cell contrast direction gain, <=3pp scored-pair coverage loss; tie rho then variant direction; else baseline",
+  "calibration": "development-only affine least squares; test evaluation without refitting",
+  "independence": "transitive overlapping 200kb TSS windows, LD blocks unavailable",
+  "precision_secondary": "abs(beta_a-beta_b)>2*(SE_a+SE_b), descriptive; covariance unavailable"
+}

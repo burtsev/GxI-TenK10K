@@ -1,0 +1,9 @@
+{
+  "families": [
+    "combined",
+    "paraphrase_sentence"
+  ],
+  "reason": "Combined-description test and development-selected repeated paraphrase family; no winner re-selection using validation.",
+  "worst_case_new_requests": 160,
+  "cap": 1600
+}
