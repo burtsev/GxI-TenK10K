@@ -1,0 +1,249 @@
+# atlas-v1 specification. Codex must implement/validate this schema; not an existing CLI config.
+schema_version: atlas-v1
+study:
+  name: gxi-tenk10k-comprehensive-atlas
+  status: proposed_not_executed
+  seed: 20261031
+  protocol: docs/ATLAS_PROTOCOL.md
+  availability_contract: docs/ATLAS_AVAILABILITY.md
+  genome_build: GRCh38
+  gencode_release: '44'
+  preserve_historical_studies: true
+  include_historical_rows_in_descriptive_atlas: true
+
+execution:
+  mode: all_available_model_scorable_data
+  continue_on_unavailable_data: true
+  missing_data_policy: skip_smallest_dependent_unit
+  wait_for_optional_inputs: false
+  ask_user_for_optional_inputs_during_run: false
+  continue_independent_modules_after_failure: true
+  quarantine_qc_failures: true
+  report_unexpected_errors: true
+  always_write_report: true
+  allow_valid_partial_outputs_downstream: true
+  resume_verified_completed_partitions: true
+  sample_limit: null
+  gene_limit: null
+  cell_limit: null
+  partition_by: [source_analysis, cell_type, chromosome]
+  availability_checks:
+    prefer_verified_local: true
+    max_transient_attempts: 3
+    timeout_seconds: 60
+    retry_permission_denied: false
+    cache_missing_sources_for_run: true
+    recheck_on_explicit_resume: true
+
+sources:
+  zenodo:
+    record_id: 18221260
+    resolve_live_manifest: true
+    reuse_verified_local_archives: true
+    discover_families:
+      - common_gene_level
+      - common_single_variant_cis
+      - susie_finemapping
+      - rare_single_variant_cis
+      - rare_gene_level
+    inventory_cis_windows_bp: [100000, 1000000]
+    download_new_information_only: true
+    preserve_source_analysis_ids: true
+    deduplicate_overlapping_releases: true
+    checksum_required: true
+  expression:
+    approved_aggregate_path: null
+    approved_donor_counts_path: null
+    approved_metadata_path: null
+    normalization_manifest_path: null
+    authorization_manifest_path: null
+    ega_accession_lead: EGAD50000002379
+    ega_access_approved: false
+    auto_request_access: false
+    on_unavailable: skip_expression_accuracy_and_dependent_strata
+  donor_genotypes:
+    approved_path: null
+    authorization_manifest_path: null
+    on_unavailable: skip_personalized_expression_and_association_retesting
+  annotations:
+    extra_regulatory_annotations_path: null
+    matched_ld_blocks_path: null
+    cross_cell_covariance_path: null
+    rare_score_covariance_path: null
+    experimental_variant_labels_path: null
+    on_unavailable: skip_dependent_metric_or_stratum_only
+
+universe:
+  include_all_available_cells: true
+  expected_cell_count_for_audit_only: 28
+  require_significant_eqtl: false
+  require_high_pip: false
+  require_matched_control: false
+  require_measured_expression: false
+  require_all_cells_available: false
+  report_nonsignificant_and_uncertain_strata: true
+  initial_variant_classes: [biallelic_snv]
+  enable_indels_after_geometry_validation: true
+  unsupported_variant_policy: record_and_skip
+  out_of_window_policy: record_not_evaluated_never_zero
+  ambiguous_allele_policy: quarantine_record
+  missing_pip_policy: unknown_never_zero
+
+model:
+  primary_id: g0-expression-8192
+  primary_sequence_bp: 40960
+  tss_index_zero_based: 20480
+  reuse_prior_verified_cell_descriptions: true
+  baseline_description_template: 'Human peripheral blood {cell}, unstimulated, 10x 3-prime single-cell RNA-seq'
+  require_matching_ref_alt_context: true
+  require_identical_ref_alt_genomic_scored_span: true
+  require_variant_in_both_effective_windows: true
+  immutable_model_revision_if_available: true
+  version_unknown_policy: record_limitation_and_monitor_sentinels
+  model_change_policy: separate_cache_and_analysis_version
+  raw_precision_preferred: true
+  raw_precision_required: false
+  no_raw_precision_policy: continue_api_visible_scoring_with_warning
+  embedding_access_required: false
+  separate_geometry_sensitivity_bp: 81920
+  new_prompt_search: false
+
+api:
+  transport: direct_rest_or_official_gi_client
+  key_env: GI_API_KEY
+  base_url_env: GI_BASE_URL
+  default_base_url: https://api.genomicintelligence.ai
+  owner_reports_no_total_quota: true
+  enforce_total_quota: false
+  max_total_requests: null
+  initial_concurrency: 2
+  max_concurrency: 8
+  adaptive_concurrency: true
+  requests_per_second_ceiling: 8
+  verify_live_limits_and_use_lower_ceiling: true
+  timeout_seconds: 120
+  max_retries_per_request: 5
+  honor_retry_after: true
+  durable_cache: true
+  deduplicate_exact_requests: true
+  reuse_successful_compatible_predictions: true
+  auth_or_outage_policy: skip_live_branch_evaluate_verified_cache_continue_audit
+  cost_reporting: actual_usage_only_no_invented_prices
+
+modules:
+  # Every enabled module runs when its own minimum inputs exist. Missing inputs
+  # never make the whole DAG wait. Contracts are in ATLAS_AVAILABILITY.md.
+  inventory_and_coverage: always
+  precision_and_geometry_diagnostics: when_inputs_available
+  reference_expression_predictions: when_inputs_available
+  expression_accuracy: when_inputs_available
+  donor_expression_reliability: when_inputs_available
+  donor_personalized_expression: when_inputs_available
+  common_variant_scores: when_inputs_available
+  rare_variant_scores: when_inputs_available
+  allelic_direction: when_inputs_available
+  effect_magnitude: when_inputs_available
+  cell_specificity: when_inputs_available
+  formal_cross_cell_heterogeneity: when_inputs_available
+  finemapping_classification: when_inputs_available
+  credible_set_ranking: when_inputs_available
+  matched_comparison_ranking: when_inputs_available
+  rare_gene_enrichment: when_inputs_available
+  rare_association_retesting: when_inputs_available
+  subgroup_performance: when_inputs_available
+  joint_expression_variant_performance: when_inputs_available
+  external_comparators: when_inputs_available
+  final_report: always
+
+expression_analysis:
+  primary_observation: donor_balanced_cell_type_expression
+  aggregate_only_supported: true
+  label_umi_as_tpm: false
+  rank_metrics: [within_cell_across_genes, within_gene_across_cells, gene_centered_profiles]
+  min_genes_per_cell_correlation: 30
+  min_cells_per_gene_correlation: 5
+  donor_bootstrap_requires_donor_data: true
+  calibration_fit_on_development_only: true
+  zero_or_constant_vector_policy: not_estimable
+
+variant_analysis:
+  strata: [all_available, discovery_cell, reliable_observed_sign, uncertain_comparison_cell, high_pip]
+  direction_epsilon: 0.000001
+  epsilon_sensitivity: [0.0001, 0.001]
+  reliable_sign_ci_z: 1.96
+  reliable_sign_requires_valid_source_approximation: true
+  min_variants_per_gene_cell_correlation: 20
+  magnitude_metrics: [signed_spearman, absolute_effect_spearman]
+  include_numeric_zeros_in_rank_metrics: true
+  missing_scores_are_biological_zeros: false
+  sign_null: locus_clustered_zero_preserving_randomization
+  report_coverage_matched_null: true
+  statistical_p_values_separate_from_utility_gate: true
+  force_p_value_to_one_below_50_percent: false
+  cell_profiles_min_cells: 5
+  cell_contrasts_min_cells: 2
+  all_available_cell_pairs: true
+  equal_pair_and_locus_summaries: true
+  non_significance_means_no_effect: false
+
+finemapping:
+  positive_pip_min: 0.90
+  negative_reported_pip_max: 0.01
+  negative_pip_sensitivity_max: 0.10
+  unknown_pip_as_negative: false
+  require_gene_cell_compatible_labels: true
+  report_auroc_and_average_precision: true
+  report_positive_prevalence: true
+  top_k: [1, 5]
+  report_incomplete_set_coverage: true
+  use_component_probabilities_only_when_available: true
+  matching:
+    max_maf_gap: 0.05
+    max_absolute_tss_distance_gap_bp: 5000
+    max_201bp_gc_gap: 0.10
+    on_no_control: keep_candidate_in_core_atlas
+
+rare_variants:
+  use_release_frequency_and_allele_count_definitions: true
+  require_compatible_tested_set_membership_for_enrichment: true
+  gene_score_top_k: 3
+  gene_scores: [mean_top_k_abs_delta, fraction_above_development_threshold]
+  control_for_variant_count_and_available_covariates: true
+  expression_covariate_optional: true
+  missing_tested_set_policy: skip_set_enrichment_retain_single_variant_work
+  retesting_requires_authorized_individual_data_or_sufficient_score_covariance: true
+
+statistics:
+  cluster_unit: genomic_locus
+  physical_cluster_tss_flank_bp: 100000
+  use_matched_ld_if_available: true
+  absent_ld_policy: label_physical_proxy_continue
+  bootstrap_replicates: 3000
+  permutation_replicates: 2000
+  confidence_level: 0.95
+  min_loci_for_formal_subgroup_inference: 30
+  subgroup_multiplicity: bh_within_prespecified_family
+  missing_annotation_policy: skip_that_stratum_only
+  formal_hypotheses_freeze_before_evaluation: true
+  tuned_choices_require_locus_disjoint_holdout: true
+  unknown_historical_provenance_policy: descriptive_only_not_global_abort
+
+outputs:
+  results_root: results
+  run_prefix: atlas
+  sanitized_summary_root: docs/runs
+  required:
+    - availability.json
+    - module_status.tsv
+    - module_status.json
+    - coverage.tsv
+    - skipped_analyses.md
+    - source_manifest.json
+    - prediction_manifest.json
+    - metrics.json
+    - report.md
+    - environment.json
+    - resume_manifest.json
+  commit_raw_donor_data_or_sequences: false
+  commit_secrets: false
+  distinguish_skips_from_errors_and_non_estimable_metrics: true
