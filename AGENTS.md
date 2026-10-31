@@ -1,6 +1,18 @@
-> **New study (30 October 2026):** If the task asks for the GI–TenK10K follow-up, follow [docs/FOLLOWUP_START.md](docs/FOLLOWUP_START.md), [docs/FOLLOWUP_PROTOCOL.md](docs/FOLLOWUP_PROTOCOL.md), [docs/FOLLOWUP_CODEX_RUNBOOK.md](docs/FOLLOWUP_CODEX_RUNBOOK.md), and [configs/followup.yaml](configs/followup.yaml). These override the original pilot's call limit and cohort size. GI_API_KEY is stated to have no total quota; keep rate limits, retries and checkpointing. Recover historical VM results before scoring an untouched holdout. Do not reset local uncommitted work.
+# Current task: comprehensive GI x TenK10K atlas (31 October 2026)
 
-# Instructions for Codex (read before making changes)
+For the current whole-data expression/variant study, start with [docs/ATLAS_START.md](docs/ATLAS_START.md), then read [docs/ATLAS_PROTOCOL.md](docs/ATLAS_PROTOCOL.md), [docs/ATLAS_AVAILABILITY.md](docs/ATLAS_AVAILABILITY.md), [docs/ATLAS_CODEX_RUNBOOK.md](docs/ATLAS_CODEX_RUNBOOK.md), and [configs/atlas.yaml](configs/atlas.yaml).
+
+**Unavailable data must not stop the study.** Skip only the smallest dependent module/partition/statistic, continue every independent runnable analysis, and always generate a report including explicit skipped sections and reasons. Do not wait for optional expression data, EGA permissions, donor genotypes, fine-mapping labels, raw server precision or external-model access. Do not ask for optional missing inputs during execution. Quarantine genuinely invalid inputs and expose unexpected errors; never silently turn them into zero predictions or successful results. Implement and test the availability contract before broad inference.
+
+This atlas supersedes historical pilot/followup sample caps, high-PIP-only eligibility, matched-control prerequisites, six-cell limits, total-request ceilings and global all-or-nothing gates **for the new study only**. Score the complete available model-scorable universe; preserve intended-versus-attained coverage. The owner reports no total quota for GI_API_KEY; retain server rate limits, bounded retries, caches and resumability. Use direct GI REST or the official client, not a required ChatGPT/MCP skill. Do not rewrite historical scientific outputs or overwrite local uncommitted work.
+
+The new atlas documents/configuration are implementation specifications, not evidence that an atlas CLI or new results already exist. Extend the existing tested code, add skip/resume tests, and state exactly what executes. Preserve old protocols and results for reproduction. The sections below apply to those historical studies, not as conflicting gates on the atlas.
+
+---
+
+> **Previous study (30 October 2026):** To reproduce the independent GI–TenK10K follow-up, follow [docs/FOLLOWUP_START.md](docs/FOLLOWUP_START.md), [docs/FOLLOWUP_PROTOCOL.md](docs/FOLLOWUP_PROTOCOL.md), [docs/FOLLOWUP_CODEX_RUNBOOK.md](docs/FOLLOWUP_CODEX_RUNBOOK.md), and [configs/followup.yaml](configs/followup.yaml). These override the original pilot's call limit and cohort size. GI_API_KEY is stated to have no total quota; keep rate limits, retries and checkpointing. Recover historical VM results before scoring an untouched holdout. Do not reset local uncommitted work.
+
+# Historical pilot instructions for Codex
 
 You are the implementing research engineer. Execute an auditable, reproducible **zero-shot** assessment of Genomic Intelligence (GI) DNA-to-expression predictions against TenK10K immune-cell cis-eQTL summary statistics. Read README.md, docs/BENCHMARK_PROTOCOL.md, docs/CODEX_RUNBOOK.md, configs/pilot.yaml and docs/VM_SETUP.md in that order. Implement working code and tests, not just a proposed plan.
 
